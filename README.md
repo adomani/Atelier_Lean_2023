@@ -1,8 +1,8 @@
 # Lean_Atelier_2023
 
-Primo giorno
+## Primo giorno
 
-9.30--11.30
+### 9.30--11.30
 
 * Riccardo (45 mins):
   Talk su perch'e formalizzare, cosa significa generalizzare
@@ -28,7 +28,7 @@ Hacking session nel pomeriggio
 
 ---
 
-Secondo giorno
+## Secondo giorno
 
 9.30-12: Sessioni alternate spiegazioni e hacking
 
