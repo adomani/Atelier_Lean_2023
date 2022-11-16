@@ -2,7 +2,7 @@
 
 ## Primo giorno
 
-|Ora          | Presentatore | Titolo |
+| Ora         | Presentatore | Titolo |
 |    -        |     :-:      | - |
 | 9.30-10.15  | Riccardo     | Cosa significa generalizzare e a cosa serve |
 | 10.30-11.15 | Damiano      | <p>Generalizzazioni, automatizzazioni</p><p>`library_search`, `simp`, tattiche</p> |
@@ -13,10 +13,9 @@
 
 ---
 
-
 ## Secondo giorno
 
-|Ora       | Presentatore | Titolo |
+| Ora      | Presentatore | Titolo |
 |    -     |     :-:      | - |
 | 9.30-12  |              | Sessioni alternate spiegazioni e hacking |
 | 12.15-13 |              | Teoria dei tipi |
@@ -25,8 +24,10 @@
 
 ---
 
+---
+
 ## Links
 
 1. [Filippo's Course in Vilnius](https://github.com/faenuccio/May22_Vilnius)
 1. [Damiano's slides on computers and maths](http://homepages.warwick.ac.uk/~maskal/slides/2020_ToM_Testa.pdf)
-1. [Ateliler PARI/GP, 2019](https://pari.math.u-bordeaux.fr/Events/PARI2019b/)
+1. [Atelier PARI/GP, 2019](https://pari.math.u-bordeaux.fr/Events/PARI2019b/)
