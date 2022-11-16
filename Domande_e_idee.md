@@ -1,6 +1,6 @@
 Idee: somme di quadrati
 
 
-Domande:
-Persone senza computer
+Domande:\
+Persone senza computer\
 Connessione a internet
