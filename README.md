@@ -1,26 +1,28 @@
 # [Atelier Lean 2023](http://www.rnta.eu/7MSRNTA/index.html)
 
-## Primo giorno
+## Day 1, Tuesday May 2nd, 2023
 
-| Ora         | Presentatore | Titolo |
-|    -        |     :-:      | - |
-| 9.30-10.15  | Riccardo     | Cosa significa generalizzare e a cosa serve |
-| 10.30-11.15 | Damiano      | <p>Generalizzazioni, automatizzazioni</p><p>`library_search`, `simp`, tattiche</p> |
-| 11.30-12.15 | Filippo      | <p>Sintassi (`apply`, `exact`,...), proof structure e l'infoview</p><p>Tattiche per formalizzare concetti matematici che conoscono</p> |
-| 12.30-13.30 |              | NNG?  Come invito nell'email |
-|             | Pranzo       |
-| 15-??       |              | Hacking session |
+| Time        | Speaker  | Title |
+|    -        |   :-:    | - |
+| 9.30-10.15  | Riccardo | What does it mean to formalize and why do it |
+| 10.30-11.15 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
+| 11.30-12.15 | Filippo  | <p>Syntax (`apply`, `exact`,...), proof structure and the infoview</p><p>Tactics to formalize familiar concepts</p> |
+| 12.30-13.30 |          | [NNG](https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/)?  As per email |
+|             | Lunch    |
+| 15-??       |          | Hacking session |
 
 ---
 
-## Secondo giorno
+---
 
-| Ora      | Presentatore | Titolo |
-|    -     |     :-:      | - |
-| 9.30-12  |              | Sessioni alternate spiegazioni e hacking |
-| 12.15-13 |              | Teoria dei tipi |
-|          | Pranzo       |
-| 15-??    |              | Hacking session |
+## Day 2, Wednesday May 3rd, 2023
+
+| Time     | Speaker | Title |
+|    -     |   :-:   | - |
+| 9.30-12  |         | Sessioni alternate spiegazioni e hacking |
+| 12.15-13 |         | Teoria dei tipi |
+|          | Lunch   |
+| 15-??    |         | Hacking session |
 
 ---
 
