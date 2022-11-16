@@ -3,7 +3,7 @@
 ## Day 1, Tuesday May 2nd, 2023
 
 | Time        | Speaker  | Title |
-|    -        |   :-:    | - |
+| -           | :-:      | - |
 | 9.30-10.15  | Riccardo | What does it mean to formalize and why do it |
 | 10.30-11.15 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
 | 11.30-12.15 | Filippo  | <p>Syntax (`apply`, `exact`,...), proof structure and the infoview</p><p>Tactics to formalize familiar concepts</p> |
@@ -18,9 +18,9 @@
 ## Day 2, Wednesday May 3rd, 2023
 
 | Time     | Speaker | Title |
-|    -     |   :-:   | - |
-| 9.30-12  |         | Sessioni alternate spiegazioni e hacking |
-| 12.15-13 |         | Teoria dei tipi |
+| -        | :-:     | - |
+| 9.30-12  |         | Intertwined hacking/explanations |
+| 12.15-13 |         | Type Theory |
 |          | Lunch   |
 | 15-??    |         | Hacking session |
 
