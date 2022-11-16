@@ -20,7 +20,7 @@
 | Time     | Speaker | Title |
 | -        | :-:     | - |
 | 9.30-12  |         | Intertwined hacking/explanations |
-| 12.15-13 |         | Type Theory |
+| 12.15-13 |         | Overview of Type Theory |
 |          | Lunch   |
 | 15-??    |         | Hacking session |
 
