@@ -2,51 +2,25 @@
 
 ## Primo giorno
 
-### 9.30--11.30
-
-* Riccardo (45 mins):
-  Talk su perch'e formalizzare, cosa significa generalizzare
-
-* Io (45 mins):
-  Generalizzazioni
-  Automatizzazioni library_search, simp, tattiche
-
-* Filippo (45 mins):
-  Sintassi (apply, exact,...)
-  Usare tattiche e l'infoview per far vedere come si possono formalizzare concetti matematici che conoscono
-
-* 1h30:
-  NNG?  Come invito nell'email
+|Ora | Presentatore | Titolo |
+|-|:-:|-|
+| 9.30-10.15 | Riccardo | Cosa significa generalizzare e a cosa serve |
+| 10.30-11.15 | Damiano | Generalizzazioni, automatizzazioni `library_search`, `simp`, tattiche |
+| 11.30-12.15 | Filippo | Sintassi (`apply`, `exact`,...), usare tattiche e l'infoview per far vedere come si possono formalizzare concetti matematici che conoscono |
+| 12.30-13.30 | | NNG?  Come invito nell'email|
+| | Pranzo |
+| 15-?? | | Hacking session |
 
 ---
 
-Pranzo
-
----
-
-Hacking session nel pomeriggio
-
----
 
 ## Secondo giorno
 
-9.30-12: Sessioni alternate spiegazioni e hacking
-
-12.15-13: Teoria dei tipi
-
----
-
-Pranzo
-
----
-
-Hacking session nel pomeriggio
+|Ora | Presentatore | Titolo |
+|-|:-:|-|
+|9.30-12| | Sessioni alternate spiegazioni e hacking|
+| 12.15-13| | Teoria dei tipi|
+| | Pranzo |
+| 15-?? | | Hacking session |
 
 ---
-
-
-Idee: somme di quadrati
-
-
-Domande:
-Persone senza computer
