@@ -1,4 +1,4 @@
-# Lean_Atelier_2023
+# [Atelier Lean 2023](http://www.rnta.eu/7MSRNTA/index.html)
 
 ## Primo giorno
 
