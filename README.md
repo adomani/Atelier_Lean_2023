@@ -30,6 +30,8 @@
 
 ## Links
 
+1. [Lean community webpage](https://leanprover-community.github.io/)
+1. [Lean Zulip chat](https://leanprover.zulipchat.com/)
 1. [Filippo's Course in Vilnius](https://github.com/faenuccio/May22_Vilnius)
 1. [Damiano's slides on computers and maths](http://homepages.warwick.ac.uk/~maskal/slides/2020_ToM_Testa.pdf)
 1. [Atelier PARI/GP, 2019](https://pari.math.u-bordeaux.fr/Events/PARI2019b/)
