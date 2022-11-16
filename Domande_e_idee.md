@@ -3,6 +3,7 @@
 
 ### Domande (per Amos):
 * Ci saranno persone senza computer?  Cosa fanno durante le hacking sessions?
+* Connessione a internet
 * Mandiamo un link al [Natural Numbers Game](https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/) per email?
 
 ---
