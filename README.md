@@ -28,9 +28,9 @@
 ---
 # Formalisation Talks
 
-Three talks (Tue 10.30-11.15 and 12.30-13.15; Wed 10.30-12.00) are devoted to getting our hands dirty trying to formalise some mathematics. During the afternoon hacking sessions participants will try to solve exercices that are similar to the one seen in class. The files used both in the lectures and for the hacking sessions can be tested online without installing Lean locally.
+Three talks (Tue 10.30-11.15 and 12.30-13.15; Wed 10.30-12.00) are devoted to getting our hands dirty trying to formalise some mathematics. During the afternoon hacking sessions, participants will try to solve exercices that are similar to the ones seen in class. The files used both in the lectures and for the hacking sessions can be tested online without installing Lean locally.
 
-For each exercise session, click on the corresponding link below. You might have to wait for a minute or so until "Lean is busy..." becomes "Lean is ready!". Then, you can type exactly as I did in class. The only difference is that, instead of the nice "goals accomplished :tada: " you will see a more modest "no goals".
+For each exercise session, click on the corresponding link below. You might have to wait for a minute or so until "Lean is busy..." becomes "Lean is ready!". Then, you can type exactly as I did in class. The only difference is that, instead of the nice "goals accomplished 🎉" you will see a more modest "no goals".
 
 Part A: Logic. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FLogic_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FLogic_Tutorial.lean)
 
