@@ -19,9 +19,9 @@
 
 | Time        | Speaker  | Title |
 | -           | :-:      | - |
-| 9.30-10.15  | Riccardo | Overview of Type Theory |
+| 9.30-10.15  | Damiano  | Overview of Type Theory |
 | 10.30-12    |          | Intertwined hacking/explanations |
-| 12.15-13    | Damiano  | More Type Theory |
+| 12.15-13    | Riccardo | Lean Type Theory |
 |             | Lunch    |
 | 15-??       |          | Hacking session |
 
