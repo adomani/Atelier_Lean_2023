@@ -17,12 +17,13 @@
 
 ## Day 2, Wednesday May 3rd, 2023
 
-| Time     | Speaker | Title |
-| -        | :-:     | - |
-| 9.30-12  |         | Intertwined hacking/explanations |
-| 12.15-13 |         | Overview of Type Theory |
-|          | Lunch   |
-| 15-??    |         | Hacking session |
+| Time        | Speaker  | Title |
+| -           | :-:      | - |
+| 9.30-10.15  | Riccardo | Overview of Type Theory |
+| 10.30-12    |          | Intertwined hacking/explanations |
+| 12.15-13    | Damiano  | More Type Theory |
+|             | Lunch    |
+| 15-??       |          | Hacking session |
 
 ---
 
