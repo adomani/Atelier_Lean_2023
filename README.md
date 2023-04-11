@@ -5,9 +5,9 @@
 | Time        | Speaker  | Title |
 | -           | :-:      | - |
 | 9.30-10.15  | Riccardo | What does it mean to formalize and why do it |
-| 10.30-11.15 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
-| 11.30-12.15 | Filippo  | <p>Syntax (`apply`, `exact`,...), proof structure and the infoview</p><p>Tactics to formalize familiar concepts</p> |
-| 12.30-13.30 |          | [NNG](https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/)?  As per email |
+| 10.30-11.15 | Filippo  | <p>Syntax (`apply`, `exact`,...), proof structure and the infoview</p><p>Tactics to formalize familiar concepts</p> |
+| 11.30-12.15 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
+| 12.30-13.30 | Filippo | Examples and exercises |
 |             | Lunch    |
 | 15-??       |          | Hacking session |
 
