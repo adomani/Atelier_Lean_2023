@@ -1,6 +1,6 @@
 import tactic
 
-namespace vilnius
+namespace rome
 
 /- ### Introduction
 The orange stuff on the right are **assumptions** or **hypothesis**; the stuff at the end before
@@ -89,5 +89,5 @@ begin
   sorry,
 end
 
-end vilnius
+end rome
 
