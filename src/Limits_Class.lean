@@ -3,7 +3,7 @@ import tactic
 
 namespace rome
 
-local notation `|` x `|` := abs x
+-- local notation `|` x `|` := abs x
 
 
 /-- `l` is the limit of the sequence `a` of reals -/
