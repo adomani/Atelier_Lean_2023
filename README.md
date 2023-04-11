@@ -36,7 +36,7 @@ Part A: Logic. The [Class](https://leanprover-community.github.io/lean-web-edito
 
 Part B: Functions. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FFunctions_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FFunctions_Tutorial.lean)
 
-Part C: Limits. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FLimits_Class.lean) and the [Tutorial](https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/classes%20and%20tutorials/Limits_Tutorial.lean)
+Part C: Limits. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FLimits_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2FLimits_Tutorial.lean)
 
 Part D: [Ideals and Localisation.](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fclasses%2520and%2520tutorials%2Fideals%252Blocalisation.lean)
 
