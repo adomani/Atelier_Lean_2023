@@ -30,7 +30,7 @@ end
 `abs_mul x y : |x * y| = |x| * |y|`
 `lt_div_iff' : 0 < c → (a < b / c ↔ c * a < b)`
 I typically find these things myself with a combination of
-the "guess the name of the lemma" game (and ctrl-space).
+the "guess the name of the lemma" game and ctrl-space.
 
 
 Recall also that we have proved the-/
@@ -43,7 +43,7 @@ theorem is_limit_add {a b : ℕ → ℝ} {l m : ℝ}
 
 -- A hint for starting:
 -- It might be worth dealing with `c = 0` as a special case. You
--- can start with 
+-- can start with
 -- `by_cases hc : c = 0`
 
 theorem is_limit_mul_const_left {a : ℕ → ℝ} {l c : ℝ} (h : is_limit a l) :
@@ -53,14 +53,14 @@ begin
 end
 
 theorem sandwich (a b c : ℕ → ℝ)
-  (l : ℝ) (ha : is_limit a l) (hc : is_limit c l) 
+  (l : ℝ) (ha : is_limit a l) (hc : is_limit c l)
   (hab : ∀ n, a n ≤ b n) (hbc : ∀ n, b n ≤ c n) : is_limit b l :=
 begin
   sorry,
 end
 
-example (a : ℕ → ℝ) (b : ℕ → ℝ) (α β c d : ℝ) 
-    (ha : is_limit a α) (hb : is_limit b β) : 
+example (a : ℕ → ℝ) (b : ℕ → ℝ) (α β c d : ℝ)
+    (ha : is_limit a α) (hb : is_limit b β) :
     is_limit ( λ n, c * (a n) + d * (b n) ) (c * α + d * β) :=
 begin
   -- intros ε hε,**BAD IDEA**, you can do this much faster using the above theorems!
@@ -68,7 +68,7 @@ begin
 end
 
 example (a : ℕ → ℝ) (b : ℕ → ℝ)
-  (l : ℝ) (m : ℝ) (hl : is_limit a l) (hm : is_limit b m) 
+  (l : ℝ) (m : ℝ) (hl : is_limit a l) (hm : is_limit b m)
   (hle : ∀ n, a n ≤ b n) : l ≤ m :=
 begin
   sorry,
