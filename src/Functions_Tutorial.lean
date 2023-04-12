@@ -6,7 +6,7 @@ open function real
 namespace rome
 
 
-example (X Y Z : Type) (f : X → Y) (g : Y → Z) 
+example (X Y Z : Type) (f : X → Y) (g : Y → Z)
   (hf : surjective f) (hg : surjective g) : surjective (g ∘ f) :=
 begin
   sorry,
@@ -20,29 +20,29 @@ is nothing else that the function
 `f(x)=3*x ^ 2 + 1` or `f : x ↦ 3*x ^ 2 + 1`.
 
 As for usual functions, the name of the variable does not matter, so
-`λ x, 3*x ^ 2 + 1` is the same as `λ w, 3*w ^ 2 + 1` 
+`λ x, 3*x ^ 2 + 1` is the same as `λ w, 3*w ^ 2 + 1`
 
 The tactic to get rid of a `λ` term is
-* `simp only` (possibly: at h)
+* `simp only` (possibly: `simp only at h`)
 because it "evaluates a λ-term", transforming, for instance
 `(λ x, 2 * x + 1) 3` into `2 * 3 + 1`.
 -/
 
 
-definition A : ℕ → ℕ := λ n, n + 1 
+definition A : ℕ → ℕ := λ n, n + 1
 
 example : injective A :=
 begin
   sorry,
 end
 
-example : ¬ surjective A := 
+example : ¬ surjective A :=
 begin
   sorry,
 end
 
 -- Recall the-
-definition is_linear (f : ℝ → ℝ) : Prop := ∀ c x y, f (c * x + y) = c * f (x) + f(y) 
+definition is_linear (f : ℝ → ℝ) : Prop := ∀ c x y, f (c * x + y) = c * f (x) + f(y)
 
 --as well as
 theorem linear_at_0 (f : ℝ → ℝ) (H : is_linear f) : f 0 = 0 := sorry
