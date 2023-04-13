@@ -26,6 +26,9 @@
 | 15-??       |          | Hacking session |
 
 ---
+
+---
+
 # Formalisation Talks
 
 Three talks (Tue 10.30-11.15 and 12.30-13.15; Wed 10.30-12.00) are devoted to getting our hands dirty trying to formalise some mathematics. During the afternoon hacking sessions, participants will try to solve exercices that are similar to the ones seen in class. The files used both in the lectures and for the hacking sessions can be tested online without installing Lean locally.
