@@ -35,16 +35,15 @@ Three talks (Tue 10.30-11.15 and 12.30-13.15; Wed 10.30-12.00) are devoted to ge
 
 For each exercise session, click on the corresponding link below. You might have to wait for a minute or so until "Lean is busy..." becomes "Lean is ready!". Then, you can type exactly as I did in class. The only difference is that, instead of the nice "goals accomplished 🎉" you will see a more modest "no goals".
 
-Part A: Logic. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLogic_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLogic_Tutorial.lean)
+Part A: Logic. The [Class][LogicClass] and the [Tutorial][LogicTutorial]
 
+Part B: Functions. The [Class][FunctionsClass] and the [Tutorial][FunctionsTutorial]
 
-Part B: Functions. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FFunctions_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FFunctions_Tutorial.lean)
+Part C: Limits. The [Class][LimitsClass] and the [Tutorial][LimitsTutorial]
 
-Part C: Limits. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLimits_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLimits_Tutorial.lean)
+Part D: [Ideals and Localisation][IdealsLocalization]
 
-Part D: [Ideals and Localisation.](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2Fideals%252Blocalisation.lean)
-
-Part E: some Number Theory. The [Class](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FNumberTheory_Class.lean) and the [Tutorial](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FNumberTheory_Tutorial.lean).
+Part E: some Number Theory. The [Class][NumberTheoryClass] and the [Tutorial][NumberTheoryTutorial].
 
 ---
 
@@ -55,3 +54,18 @@ Part E: some Number Theory. The [Class](https://leanprover-community.github.io/l
 1. [Lean Zulip chat](https://leanprover.zulipchat.com/)
 1. [Damiano's slides on computers and maths](http://homepages.warwick.ac.uk/~maskal/slides/2020_ToM_Testa.pdf)
 1. [Atelier PARI/GP, 2019](https://pari.math.u-bordeaux.fr/Events/PARI2019b/)
+
+
+[LogicClass]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLogic_Class.lean "Logic class"
+[LogicTutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLogic_Tutorial.lean "Logic tutorial"
+
+[FunctionsClass]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FFunctions_Class.lean "Functions class"
+[FunctionsTutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FFunctions_Tutorial.lean "Functions tutorial"
+
+[LimitsClass]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLimits_Class.lean "Limits class"
+[LimitsTutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FLimits_Tutorial.lean "Limits tutorial"
+
+[NumberTheoryClass]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FNumberTheory_Class.lean "Number Theory class"
+[NumberTheoryTutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2FNumberTheory_Tutorial.lean "Number Theory tutorial"
+
+[IdealsLocalization]: https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fmaster%2Fsrc%2Fideals%252Blocalisation.lean "Ideals and Localization"
