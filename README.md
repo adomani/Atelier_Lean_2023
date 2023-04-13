@@ -10,8 +10,7 @@
 | 12.30-13.15 | Filippo  | Formalising Math 2 |
 |             | Lunch    |
 | 15-??       |          | Hacking session |
-
----
+|
 
 ---
 
@@ -24,8 +23,7 @@
 | 12.15-13.00 | Riccardo | Lean Type Theory |
 |             | Lunch    |
 | 15-??       |          | Hacking session |
-
----
+|
 
 ---
 
@@ -48,6 +46,8 @@ Part D: [Ideals and Localisation][IdealsLocalization]
 
 Part E: some Number Theory.
 The [Class][NumberTheoryClass] and the [Tutorial][NumberTheoryTutorial].
+
+---
 
 ---
 
