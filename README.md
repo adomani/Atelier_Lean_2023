@@ -35,15 +35,19 @@ Three talks (Tue 10.30-11.15 and 12.30-13.15; Wed 10.30-12.00) are devoted to ge
 
 For each exercise session, click on the corresponding link below. You might have to wait for a minute or so until "Lean is busy..." becomes "Lean is ready!". Then, you can type exactly as I did in class. The only difference is that, instead of the nice "goals accomplished 🎉" you will see a more modest "no goals".
 
-Part A: Logic. The [Class][LogicClass] and the [Tutorial][LogicTutorial]
+Part A: Logic.
+The [Class][LogicClass] and the [Tutorial][LogicTutorial]
 
-Part B: Functions. The [Class][FunctionsClass] and the [Tutorial][FunctionsTutorial]
+Part B: Functions.
+The [Class][FunctionsClass] and the [Tutorial][FunctionsTutorial]
 
-Part C: Limits. The [Class][LimitsClass] and the [Tutorial][LimitsTutorial]
+Part C: Limits.
+The [Class][LimitsClass] and the [Tutorial][LimitsTutorial]
 
 Part D: [Ideals and Localisation][IdealsLocalization]
 
-Part E: some Number Theory. The [Class][NumberTheoryClass] and the [Tutorial][NumberTheoryTutorial].
+Part E: some Number Theory.
+The [Class][NumberTheoryClass] and the [Tutorial][NumberTheoryTutorial].
 
 ---
 
