@@ -57,10 +57,12 @@ autolinks () {
     return 1
   fi
   local con
-  con=0
-  while [ -f "$con" ]; do ((con++)); done
-  autolinksSafe "${1}" > "${con}" &&
-    mv "${con}" "${1}"
+  if ! diff -q <(autolinksSafe "${1}") "${1}" 2&> /dev/null; then
+    con=0
+    while [ -f "$con" ]; do ((con++)); done
+    autolinksSafe "${1}" > "${con}" &&
+      mv "${con}" "${1}"
+  fi
 }
 
 ##  `checkUnlinkedFiles <file>` prints the `.lean` files that are not
