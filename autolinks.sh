@@ -1,10 +1,11 @@
 #!/bin/bash
 
-##  `getLinkRef <file>` extracts a `/`-separated list consisting of the
-##  content of each "second consecutive square bracket": for instance
+##  `getLinkRef <file>` extracts the content of each
+##  "second consecutive square bracket", one per line.
+##  For instance
 ##  ```
 ##  printf 'text [1][2], more text, [3][4]\n[5][6]' | getLinkRef -
-##  > 2/4/6/
+##  > 2\n4\n6\n
 ##  ```
 getLinkRef () {
   sed -n 's=[^[]*\[[^]]*\]\[\([^]]*\)\][^[]*=\1\n=gp' "${1}" |
