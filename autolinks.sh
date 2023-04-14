@@ -56,8 +56,8 @@ autolinks () {
     >&2 printf 'Usage: autolinks FILE\n'
     return 1
   fi
-  autolinksSafe "${1}" > nonexistentfilehere.tmp
-  mv nonexistentfilehere.tmp "${1}"
+  autolinksSafe "${1}" > nonexistentfilehere.tmp &&
+    mv nonexistentfilehere.tmp "${1}"
 }
 
 ##  `checkUnlinkedFiles <file>` prints the `.lean` files that are not
