@@ -55,3 +55,16 @@ autolinks () {
   autolinksSafe "${1}" > nonexistentfilehere.tmp
   mv nonexistentfilehere.tmp "${1}"
 }
+
+##  `checkUnlinkedFiles <file>` prints the `.lean` files that are not
+##  referenced in `<file>`.
+checkUnlinkedFiles () {
+  local fil outp
+  outp="$({
+    for fil in $(getLinkRef "${1}"); do
+      echo "./src/$fil.lean"
+    done
+    find . -type f -name "*.lean" -a -not -path "./_target*"
+  } | sort | uniq -u)"
+  [ -n "${outp}" ] && >&2 printf '`.lean` files that are not referenced in %s:\n\n%s\n\n' "${1}" "${outp}"
+}
