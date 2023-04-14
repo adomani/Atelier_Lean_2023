@@ -43,6 +43,6 @@ autolinksSafe () {
 }
 
 autolinks () {
-  autolinks "${1}" > nonexistentfilehere.tmp
+  autolinksSafe "${1}" > nonexistentfilehere.tmp
   mv nonexistentfilehere.tmp "${1}"
 }
