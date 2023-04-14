@@ -22,9 +22,12 @@ fi
 ##  it also assigns as "hover name" to the link the name of the file with
 ##  underscores (`_`) replaced by spaces (` `).
 mkLink () {
-  local pth url
+  local pth repo url url1 url2
   pth="$(git rev-parse --show-toplevel)"
-  url='https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/'"$(git config --get remote.origin.url | sed 's=.*github\.com/==; s=\.git$==')"'/master'
+  repo="$(git config --get remote.origin.url | sed 's=.*github\.com/==; s=\.git$==')"
+  url1='https://leanprover-community.github.io/lean-web-editor/'
+  url2='#url=https://raw.githubusercontent.com/'"$repo"'/master'
+  url="$url1$url2"
   find "${pth}" -name "${1}.lean" | sed "s|${pth}|[${1}]: ${url}|; s|$| \"${1//_/ }\"|"
 }
 
