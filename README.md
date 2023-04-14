@@ -4,25 +4,28 @@
 
 | Time        | Speaker  | Title |
 | -           | :-:      | - |
-| 9.30-10.15  | Riccardo | What does it mean to formalize and why do it |
-| 10.30-11.15 | Filippo  | <p>Formalising Math 1</p> |
-| 11.30-12.15 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
-| 12.30-13.15 | Filippo  | Formalising Math 2 |
+| 9.30-10.15  | Riccardo | <p>What does it mean to formalise and why do it</p> |
+| 10.20-11.05 | Filippo  | <p>Formalising Math 1</p> |
+| 11.05-11.35 |          | <p>Coffee Break</p> |
+| 11.35-12.20 | Damiano  | <p>Generalizations, automatizations</p><p>`library_search`, `simp`, tactics</p> |
+| 12.25-13.10 | Filippo  | <p>Formalising Math 2 |
 |             | Lunch    |
-| 15-??       |          | Hacking session |
+| 15-??       |          | <p>Hacking session |
 |
 
 ---
 
 ## Day 2, Wednesday May 3rd, 2023
 
-| Time        | Speaker  | Title |
-| -           | :-:      | - |
-| 9.30-10.15  | Damiano  | Overview of Type Theory |
-| 10.30-12.00 | Filippo  | Formalising some basic Number Theory |
-| 12.15-13.00 | Riccardo | Lean Type Theory |
-|             | Lunch    |
-| 15-??       |          | Hacking session |
+| Time          | Speaker  | Title |
+| -             | :-:      | - |
+| 9.30-10.15    | Damiano  | <p>Overview of Type Theory</p> |
+| 10.20 -11.05  | Filippo  | <p>Formalising some basic Number Theory 1</p>|
+| 11.05 -11.35  |          | <p>Coffee Break</p>|
+| 11.35-12.20   | Riccardo | <p>Lean Type Theory</p> |
+| 12.25 -13.10  | Filippo  | <p>Formalising some basic Number Theory 2</p>|
+|               | Lunch    |
+| 15-??         |          | <p>Hacking session |
 |
 
 ---
