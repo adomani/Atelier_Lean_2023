@@ -57,7 +57,7 @@ autolinks () {
     return 1
   fi
   local con
-  if ! diff -q <(autolinksSafe "${1}") "${1}" 2&> /dev/null; then
+  if ! diff -q <(autolinksSafe "${1}") "${1}" > /dev/null; then
     con=0
     while [ -f "$con" ]; do ((con++)); done
     autolinksSafe "${1}" > "${con}" &&
