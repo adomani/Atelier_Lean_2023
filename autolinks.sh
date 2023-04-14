@@ -24,7 +24,7 @@ fi
 mkLink () {
   local pth url
   pth="$(git rev-parse --show-toplevel)"
-  url='https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master'
+  url='https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/'"$(git config --get remote.origin.url | sed 's=.*github\.com/==; s=\.git$==')"'/master'
   find "${pth}" -name "${1}.lean" | sed "s|${pth}|[${1}]: ${url}|; s|$| \"${1//_/ }\"|"
 }
 
