@@ -11,7 +11,6 @@
 | 12.25-13.10 | Filippo  | <p>Formalising Math 2 |
 |             | Lunch    |
 | 15-??       |          | <p>Hacking session |
-|
 
 ---
 
@@ -26,7 +25,6 @@
 | 12.25 -13.10  | Filippo  | <p>Formalising some basic Number Theory 2</p>|
 |               | Lunch    |
 | 15-??         |          | <p>Hacking session |
-|
 
 ---
 
