@@ -75,7 +75,7 @@ checkUnlinkedFiles () {
   local fil outp
   outp="$({
     for fil in $(getLinkRef "${1}"); do
-      printf './src/%s.lean' "$fil"
+      printf './src/%s.lean\n' "$fil"
     done
     find . -type f -name "*.lean" -a -not -path "./_target*"
   } | sort | uniq -u)"
