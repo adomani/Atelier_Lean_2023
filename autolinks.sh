@@ -83,3 +83,33 @@ checkUnlinkedFiles () {
   } | sort | uniq -u)"
   [ -n "${outp}" ] && >&2 printf '`.lean` files that are not referenced in %s:\n\n%s\n\n' "${1}" "${outp}"
 }
+
+##  `getURLs <file>` extracts the URLs in `<file>`, except for the ones
+##  linking to `lean-web-editor`.
+getURLs () {
+  grep -o "http[^ )]*" "${1}" |
+    grep -v "https://leanprover-community.github.io/lean-web-editor/"
+}
+
+## `checkURL <url>` has exit code 0 exactly when `<url>` is an existing url.
+checkURL () { wget --spider "${1}" 2>/dev/null ; }
+
+## `checkURLs <file>` verifies if the urls in `<file>` work.
+checkURLs () {
+  if [ -z "${1}" ]; then
+    >&2 printf 'Usage: checkURLs FILE\n'
+    return 1
+  fi
+  local err ur IFS=$'\n'
+  err=""
+  for ur in $(getURLs "${1}"); do
+    if ! checkURL "${ur}"; then
+      err="${err}${url}\n"
+    fi
+  done
+  if [ -z "${err}" ]; then
+    printf 'All non-lean-web-editor links are working!\n'
+  else
+    printf 'Non-working links\n\n%s' "${err}"
+  fi
+}
