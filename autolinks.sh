@@ -113,3 +113,14 @@ checkURLs () {
     printf 'Non-working links\n\n%s' "${err}"
   fi
 }
+
+checkAll () {
+  if [ -z "${1}" ]; then
+    >&2 printf 'Usage: checkAll FILE\n'
+    return 1
+  fi
+  printf 'Checking URLs\n'
+  checkURLs "${1}"
+  printf '\nChecking unlinked files\n'
+  checkUnlinkedFiles "${1}"
+}
