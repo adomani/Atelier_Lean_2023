@@ -9,7 +9,7 @@
 ##  ```
 getLinkRef () {
   sed -n 's=[^[]*\[[^]]*\]\[\([^]]*\)\][^[]*=\1\n=gp' "${1}" |
-    tr --squeeze-repeats "/" "\n"
+    tr --squeeze-repeats "\n" "\n"
 }
 
 if [ "$(whoami)" == "damiano" ]; then
