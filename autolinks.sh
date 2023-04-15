@@ -22,13 +22,14 @@ fi
 ##  it also assigns as "hover name" to the link the name of the file with
 ##  underscores (`_`) replaced by spaces (` `).
 mkLink () {
-  local pth repo url url1 url2
+  local pth repo url url1 url2 hover
   pth="$(git rev-parse --show-toplevel)"
   repo="$(git config --get remote.origin.url | sed 's=.*github\.com/==; s=\.git$==')"
   url1='https://leanprover-community.github.io/lean-web-editor/'
   url2='#url=https://raw.githubusercontent.com/'"$repo"'/master'
   url="$url1$url2"
-  find "${pth}" -name "${1}.lean" | sed "s|${pth}|[${1}]: ${url}|; s|$| \"${1//_/ }\"|"
+  hover="$(printf %s "${1}" | sed 's/_/ /g ; s/\([a-z]\)\([A-Z]\)/\1 \2/g')"
+  find "${pth}" -name "${1}.lean" | sed "s|${pth}|[${1}]: ${url}|; s|$| \"${hover}\"|"
 }
 
 ##  `allLinks <file>` extracts the md-encoded url-refs from `<file>` and

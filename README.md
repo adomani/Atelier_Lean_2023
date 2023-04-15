@@ -68,5 +68,5 @@ The [Class][NumberTheory_Class] and the [Tutorial][NumberTheory_Tutorial].
 [Limits_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Class.lean "Limits Class"
 [Limits_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Tutorial.lean "Limits Tutorial"
 [ideals+localisation]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/ideals+localisation.lean "ideals+localisation"
-[NumberTheory_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Class.lean "NumberTheory Class"
-[NumberTheory_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Tutorial.lean "NumberTheory Tutorial"
+[NumberTheory_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Class.lean "Number Theory Class"
+[NumberTheory_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Tutorial.lean "Number Theory Tutorial"
