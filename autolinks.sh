@@ -17,10 +17,11 @@ if [ "$(whoami)" == "damiano" ]; then
   outerret 'printf "text [1][2], more text, [3][4]\n[5][6]" | getLinkRef -' $'2\n4\n6\n' '' 0
 fi
 
-##  `mkLink <file>` search for `<file>.lean` starting from the git root directory
+##  `mkLink <file>` searches for `<file>.lean` starting from the git root directory
 ##  returns the url for opening `<file>.lean` with the lean-web-editor.
 ##  it also assigns as "hover name" to the link the name of the file with
-##  underscores (`_`) replaced by spaces (` `).
+##  underscores (`_`) replaced by spaces (` `) and inserts a space in each consecutive
+##  lowercase-uppercase pair.
 mkLink () {
   local pth repo url url1 url2 hover penc
   pth="$(git rev-parse --show-toplevel)"
