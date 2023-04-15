@@ -61,9 +61,8 @@ autolinks () {
     >&2 printf 'Usage: autolinks FILE\n'
     return 1
   fi
-  local con
   if ! diff -q <(autolinksSafe "${1}") "${1}" > /dev/null; then
-    con=0
+    local con=0
     while [ -f "$con" ]; do ((con++)); done
     autolinksSafe "${1}" > "${con}" &&
       mv "${con}" "${1}"
