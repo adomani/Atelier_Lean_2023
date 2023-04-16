@@ -31,6 +31,7 @@ mkLink () {
   url2='#url=https://raw.githubusercontent.com/'"$repo"'/master'
   url="$url1$url2"
   penc="$(find "${pth}" -name "${1}.lean" | sed "s|${pth}|${url}|"'; s/ /%20/g')"
+  [ -z "${penc}" ] && >&2 printf 'File `%s.lean` not found\n' "${1}"
   hover="$(printf %s "${1}" | sed 's/_/ /g ; s/\([a-z]\)\([A-Z]\)/\1 \2/g')"
   printf '[%s]: %s "%s"\n' "${1}" "${penc}" "${hover}"
 }
