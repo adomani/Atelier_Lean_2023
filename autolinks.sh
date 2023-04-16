@@ -19,9 +19,10 @@ fi
 
 ##  `mkLink <file>` searches for `<file>.lean` starting from the git root directory
 ##  returns the url for opening `<file>.lean` with the lean-web-editor.
-##  it also assigns as "hover name" to the link the name of the file with
-##  underscores (`_`) replaced by spaces (` `) and inserts a space in each consecutive
-##  lowercase-uppercase pair.
+##  `mkLink` also assigns as "hover name" to the link the name of the file:
+##  * replaces underscores (`_`) by spaces (` `);
+##  * inserts a space in each consecutive lowercase-uppercase pair.
+##  For instance `OneTwo_ThreeFour` becomes `One Two Three Four`).
 mkLink () {
   local pth repo url url1 url2 hover penc
   pth="$(git rev-parse --show-toplevel)"
