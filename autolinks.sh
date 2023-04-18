@@ -13,7 +13,7 @@ getLinkRef () {
 }
 
 if [ "$(whoami)" == "damiano" ]; then
-  .  ~/Setup/Tests/testtest.sh
+  . ~/Setup/Tests/testtest.sh
   outerret 'printf "text [1][2], more text, [3][4]\n[5][6]" | getLinkRef -' $'2\n4\n6\n' '' 0
 fi
 
