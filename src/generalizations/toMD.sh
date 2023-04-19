@@ -1,5 +1,7 @@
 #! /bin/bash
 
+##  `toMD <file>` performs substitutions to convert lean-comments to md-text and
+##  lean code to md codeblocks.
 toMD () {
   sed -z '
     s=\n--  *\([^\n]*\)=\n```\n\1\n```lean=g  # replace =-- [rest]= with =```\n[rest]```lean=
@@ -13,6 +15,9 @@ toMD () {
   ' "${1}"
 }
 
+##  `mkmd` calls `toMD` on each `.lean` file in the current directory, checks whether
+##  the corresponding `.md` file differs and, if it does, then it replaces with the
+##  output of `toMD`.
 mkmd () {
   local fil
   for fil in *.lean; do
