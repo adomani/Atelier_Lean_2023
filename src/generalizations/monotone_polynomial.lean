@@ -8,7 +8,7 @@ namespace rome
 /-
 ### namespace
 
-means that if we construct something calling it `X`
+means that if we construct something and we call it `X`
 its real name is going to be `rome.X`.
 useful to avoid name-clashes with pre-existing objects.
 -/
