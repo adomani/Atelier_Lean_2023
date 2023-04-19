@@ -1,11 +1,34 @@
-facts about polynomials (contained in a file called
-`[root_dir]/ring_theory/polynomial/basic.lean`)
+
+```
+
+#  Generalizations, automatizations, `library_search`, `simp`, tactics
+
+## [Atelier Lean 2023](http://www.rnta.eu/7MSRNTA/index.html)
+
+Day 1, Damiano Testa
+
+As it happens, someone comes along and says:
+
+"I just learned a cool fact!  A polynomial with coefficients in `ℕ` is monotone!"
+
+Let's formalize this result!
+
+Let's also think about what they mean, really...
+
+Surely they intended to say that viewing a polynomial with coefficients in `ℕ`
+as a function `ℕ → ℕ`, we obtain a monotone function.
+
+
+### import
+
+tells Lean to learn the facts about polynomials contained in a file called
+`[root_dir]/ring_theory/polynomial/basic.lean`
 
 ```lean
 import ring_theory.polynomial.basic
 ```
 
-facts about *n*on*n*egative reals
+we also want facts about *n*on*n*egative reals
 
 ```lean
 import data.real.nnreal
@@ -83,8 +106,11 @@ theorem my_induction
   (P_X_pow : ∀ n : ℕ, P (X ^ n)) :
   P f :=
 begin
+  -- hover over `polynomial.induction_on'`
   apply polynomial.induction_on' f; clear f,
-  { exact P_add },
+  { -- `hint` reports `assumption`, among others
+    -- `library_search` reports `exact P_add`
+    exact P_add },
   { intros n a,
     rw ← C_mul_X_pow_eq_monomial,
     induction a with a ha,
