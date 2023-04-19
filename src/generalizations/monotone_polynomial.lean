@@ -150,7 +150,7 @@ end nnreal
 
 namespace next
 
--->  semiring --> comm --> ordered --> canonically
+--  -->  semiring --> comm --> ordered --> canonically
 variables {R : Type} [canonically_ordered_comm_semiring R]
 
 variables (f : R[X]) (P : R[X] → Prop)
