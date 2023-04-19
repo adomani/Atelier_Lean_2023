@@ -12,3 +12,15 @@ toMD () {
     s=```\n[\n]*=```\n\n=g                    # separate code-blocks by two line breaks after
   ' "${1}"
 }
+
+mkmd () {
+  local fil
+  for fil in *.lean; do
+    if diff -q <(toMD "${fil}") "${fil/%.lean/.md}" > /dev/null ; then
+      brown 'Not changing '; printf '%s\n' "${fil/%.lean/.md}"
+    else
+      brown 'Updating '; printf '%s\n' "${fil/%.lean/.md}"
+      toMD "${fil}" > "${fil/%.lean/.md}"
+    fi
+  done
+}
