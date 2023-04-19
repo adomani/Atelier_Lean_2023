@@ -9,8 +9,6 @@ facts about *n*on*n*egative reals
 
 ```lean
 import data.real.nnreal
-
-namespace rome
 ```
 
 ### namespace
@@ -19,6 +17,9 @@ means that if we construct something and we call it `X`
 its real name is going to be `rome.X`.
 useful to avoid name-clashes with pre-existing objects.
 
+```lean
+namespace rome
+```
 
 ### open
 
