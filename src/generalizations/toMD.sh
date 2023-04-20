@@ -48,17 +48,12 @@ nls () { nonIOnls "namespace,variable,theorem,lemma,example,open,section,end ,#"
 ##  of the result, mostly dealing with reorganizing line-breaks.
 rmComments () {
   sed -z '
-    s=--[^\n]*==g
-    s=\n/-=\x00/-=g
-    s=-/=\x00=g
-  ' "${1}" |
-    sed -z '\=^/-= d' |
-    tr "\000" "\n" |
-    sed -z '
-      s=  *\n=\n=g
-      s=^\n[\n]*==g
-      s=\n\n[\n]*=\n=g
-      s=\n\(  *\){\n\1 =\n\1{=g
-      s=\n  *}= }=g
-    '"$(nls)"
+    s=--[^\n]*==g              ##  remove lines beginning with `--`
+    s=/-\([^-]\|-[^/]\)*-/==g  ##  replace text inside `/-...-/`: matches (either not-`-` or `-`-and-not-`/`)*
+    s=  *\n=\n=g               ##  remove spaces before line breaks
+    s=^\n[\n]*==g              ##  remove all line breaks at the beginning of a file
+    s=\n\n[\n]*=\n=g           ##  condense consecutive line breaks into a single one
+    s=\n\(  *\){\n\1 =\n\1{=g  ##  replace `  {\n    [stuff]` with `  { [stuff]`
+    s=\n  *}= }=g              ##  replace `\n  }` with ` }`
+  '"$(nls)" "${1}"             ##  add back in some Lean-specific line breaks
 }
