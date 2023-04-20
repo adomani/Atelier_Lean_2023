@@ -30,3 +30,35 @@ mkmd () {
     fi
   done
 }
+
+##  `nonIOnls <cslist>` generates the sed-ready replacements for adding a line break before
+##  each line beginning with one of the comma-separated-values in `<cslist>`
+nonIOnls () {
+  local IFS kw
+  IFS=$'\n'
+  for kw in ${1//,/$'\n'}; do
+    printf '  s=\\n%s=\\n&=g\n' "$kw"
+  done
+}
+
+##  `nls` generates the sed-replacements to add line breaks before several Lean-specific words
+nls () { nonIOnls "namespace,variable,theorem,lemma,example,open,section,end ,#" ; }
+
+##  `rmComments <file>` removes all Lean-comments from `<file>` and does some small reformatting
+##  of the result, mostly dealing with reorganizing line-breaks.
+rmComments () {
+  sed -z '
+    s=--[^\n]*==g
+    s=\n/-=\x00/-=g
+    s=-/=\x00=g
+  ' "${1}" |
+    sed -z '\=^/-= d' |
+    tr "\000" "\n" |
+    sed -z '
+      s=  *\n=\n=g
+      s=^\n[\n]*==g
+      s=\n\n[\n]*=\n=g
+      s=\n\(  *\){\n\1 =\n\1{=g
+      s=\n  *}= }=g
+    '"$(nls)"
+}
