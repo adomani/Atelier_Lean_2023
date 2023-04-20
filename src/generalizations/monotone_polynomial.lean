@@ -256,9 +256,9 @@ begin
     { apply monotone_const },
     { assumption },
     --sorry
-     { simp },
+    { simp },
     --sorry
-     { simp } },
+    { simp } },
   { -- use that the sum of two monotone functions is monotone
     intros f g,
     simp,
