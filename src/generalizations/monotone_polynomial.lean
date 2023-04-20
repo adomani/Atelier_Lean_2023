@@ -92,6 +92,30 @@ Also, "the leading coefficient of `f` equals the first decimal digit
 of the `deg f`-th odd perfect number, if it exists, and `1` otherwise".
 -/
 
+/-
+### theorem/lemma
+
+Presumably, you already know about this.
+
+The syntax is
+  `theorem <name_of_theorem> <hypotheses> : <conclusion> := <proof>`
+
+* <name_of_theorem> is the identifier that we can then use to refer to it.
+  It is like a `\label` in laTex.
+
+* <hypotheses> is where we list the assumptions that we make.
+  For instance `(a : ℕ)` or `[comm_group G]` or `(f : ℕ → ℝ)` or
+  `(Goldbach: ∀ n : ℕ, ∃ p q, prime p ∧ prime q ∧ p + q = n)`.
+
+  Bonus: to "see" Type-inference at work, look at the outputs of
+  ```lean
+  #check     ∀ n, ∃ p q, prime p ∧ prime q ∧ p + q = n
+  #check ∀ n : ℕ, ∃ p q, prime p ∧ prime q ∧ p + q = n
+  ```
+
+* <proof> is the actual proof term.
+  Usually, this is a sequence of tactics inside a `begin ... end` block.
+-/
 theorem my_induction
   (P_zero  : P 0)
   (P_add   : ∀ p q, P p → P q → P (p + q))
@@ -104,31 +128,57 @@ begin
     -- `library_search` reports `exact P_add`
     exact P_add },
   { intros n a,
-    rw ← C_mul_X_pow_eq_monomial,
+    simp [← C_mul_X_pow_eq_monomial],  -- replace `monomial n a` with `a * X ^ n`
     induction a with a ha,
-    { simp [P_zero] },
-    { simp [add_mul],
+    -- proceed by induction on `a`, call
+    -- * `a` the variable in the induction step
+    -- * `ha` the inductive hypothesis
+    { -- base case: `a = 0`
+      -- `squeeze_simp` or `simp?` to get some insight
+      simp [P_zero]
+      -- `rwa [char_p.cast_eq_zero, zero_mul]` also works
+    },
+    { -- induction step: `a → a + 1`
+      -- `a.succ` stands for `nat.succ a`: the `succ`essor function applied to `a`
+      -- Lean "prefers" `nat.succ` since it is one of the two "constructors" for `ℕ`.
+      simp [add_mul],
       apply P_add _ _ ha (P_X_pow _) } }
 end
 
+/-
+### example
+
+The same (almost) as `theorem`, except that we cannot assign it a name.
+-/
 example : monotone (λ n, f.eval n) :=
 begin
   apply my_induction f _; clear f,
-  { -- show that the 0-polynomial is monotone
-    simp [monotone_const] },
-  { -- use that the sum of two monotone functions is monotone
+  { -- show that the `0`-polynomial is monotone
+    simp,
+    library_search,
+    -- we can compact this to `simp [monotone_const]` or more explicitly `simp only [eval_zero, monotone_const]`
+  },
+  { -- if two polynomials are monotone, then so is their sum
     intros f g hf hg,
+    -- use that the sum of two monotone functions is monotone
+    -- we can find the name of the lemma using auto-completion (Ctrl-Space) and guessing
     convert monotone.add hf hg,
     simp },
   { -- show that monomials are monotone
     intros,
     simp,
     apply monotone.pow_right,
-    apply monotone_id },
+    apply monotone_id -- we could have used `suggest` here, for a long list of proofs
+  },
 end
 
 end nat
 
+/-
+Now that we proved it for `ℕ`, let's generalize to `ℝ≥0`.
+
+Copy-paste the above, change `ℕ` to `ℝ≥0` and fix the issues.
+-/
 namespace nnreal
 
 variables (f : ℝ≥0[X]) (P : ℝ≥0[X] → Prop)
