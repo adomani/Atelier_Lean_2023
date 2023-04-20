@@ -12,7 +12,7 @@ As it happens, someone comes along and says:
 
 Let's formalize this result!
 
-Let's also think about what they mean, really...
+Let's also think about what it really means...
 
 Surely they intended to say that viewing a polynomial with coefficients in `ℕ`
 as a function `ℕ → ℕ`, we obtain a monotone function.
