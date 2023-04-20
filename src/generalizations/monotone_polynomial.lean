@@ -45,7 +45,7 @@ namespace rome
 to `X`, it should look for `X` or `whatever.X`.
 
 `namespace`s are ubiquitous, thus `open` allows us to avoid
-e.g. constantly writing `function.[...]` or `polynomial.[...]`.
+constantly writing `function.[...]` or `polynomial.[...]`.
 -/
 open function polynomial
 
