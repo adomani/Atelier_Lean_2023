@@ -1,6 +1,3 @@
-
-```
-
 #  Generalizations, automatizations, `library_search`, `simp`, tactics
 
 ## [Atelier Lean 2023](http://www.rnta.eu/7MSRNTA/index.html)
