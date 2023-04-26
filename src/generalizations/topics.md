@@ -33,8 +33,17 @@ Tactics bridge this gap: we do not even need to know what the computer's interna
 
 It contains over 1 million lines of code and over 60 thousand lemmas.
 
-Most of the basic[^1] lemmas are already available.
-How do you find them?
+Most of the basic<sup>[1]</sup> lemmas are already available.
 
+`library_search` helps you find them!
 
-[^1]: basic means *really* basic, to a level that you may not even consider them "lemmas".
+```lean
+import tactic
+
+example {a b c : ℕ} : a ^ (b + c) = a ^ b * a ^ c :=
+by library_search
+
+--  Try this: exact pow_add a b c
+```
+
+<sub>[1]: basic means *really* basic, to a level that you may not even consider them "lemmas".</sub>
