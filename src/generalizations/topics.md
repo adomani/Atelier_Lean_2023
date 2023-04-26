@@ -16,9 +16,20 @@ Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-f
 
 The first main "automation" tactics that you will likely run into are `library_search` and `simp`.
 
+Really, *any* tactic is a form of automation.
+
+Tactics allow us to maintain an abstraction:
+
+*  we humans, think that we are talking about mathematical concepts,
+*  the computer has its own internal representation for these same concepts.
+
+Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
+
+---
+
 ## `library_search`
 
-`mathlib` is a masive repository.
+`mathlib` is a massive repository.
 
 It contains over 1 million lines of code and over 60 thousand lemmas.
 
