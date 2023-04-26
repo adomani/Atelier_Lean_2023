@@ -13,3 +13,17 @@ In the context of formalization of mathematics, the computer
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
 
 ---
+
+The first main "automation" tactics that you will likely run into are `library_search` and `simp`.
+
+## `library_search`
+
+`mathlib` is a masive repository.
+
+It contains over 1 million lines of code and over 60 thousand lemmas.
+
+Most of the basic[^1] lemmas are already available.
+How do you find them?
+
+
+[^1]: basic means *really* basic, to a level that you may not even consider them "lemmas".
