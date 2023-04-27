@@ -88,3 +88,24 @@ spread () {
   echo "ext: ${extn}; fn: ${fn}"
   spreadWithNameExt "${fn}" "${extn}" "${1}"
 }
+
+addPrevNext () {
+  local fil num nex prev
+  for fil in topics*.md; do
+    num="$(printf "${fil}" | sed 's/\([0-9][0-9]*\)\.md/\1/' | grep -o "[0-9]*$")"
+#    echo "${num}"
+    if [ -n "${num}" ]; then
+      if [ -f "topics$(( num + 1 )).md" ]; then
+        nex="[Next](topics$(( num + 1 )).md)"
+      else
+        nex=''
+      fi
+      if [ -n "${prev}" ]; then
+        echo "[Previous](${prev}) $nex"
+      else
+        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nex"
+      fi >> ${fil}
+      prev="${fil}"
+    fi
+  done
+}
