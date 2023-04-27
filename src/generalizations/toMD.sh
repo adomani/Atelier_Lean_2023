@@ -60,6 +60,10 @@ rmComments () {
   '"$(nls)" "${1}"             ##  add back in some Lean-specific line breaks
 }
 
+##  `spreadWithNameExt <filename> <extension> <sourceFile>` decomposes `<sourceFile>` into
+##  several files, called `<filename>[number].<extension>`.
+##  The new files consist of the consecutive lines of `<sourceFile>` contained between
+##  consecutive `---` (beginning and ending of the file do not count).
 spreadWithNameExt () {
   awk -v fn="${1}" -v ext="${2}" 'BEGIN { ini=0; part=0; file=fn part ext } {
     if (/^---$/) { part++ ; file=fn part ext; ini=0; next }
@@ -68,6 +72,7 @@ spreadWithNameExt () {
   }' "${3}"
 }
 
+## `spread <file>` calls `spreadWithNameExt` using as filename the name of `<file>` and its extension.
 spread () {
   local extn fn
   extn="${1/#*./}"
