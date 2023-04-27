@@ -1,10 +1,10 @@
-import ring_theory.ideal.basic
+import ring_theory.ideal.operations
 import ring_theory.localization.basic
 
 open ideal submodule
 namespace rome
 
-variables {A B M: Type} [comm_ring A] [comm_ring B] [add_comm_monoid M] (I : ideal A)
+variables {A B M: Type} [comm_ring A] [comm_ring B] [add_comm_monoid M]
 
 /-
 We start with copying the following
@@ -38,12 +38,12 @@ variable (hM : module A M) --this is the assumption that the abelian group `M` i
 #check hM.2
 #check hM.3
 
-example (a b : A) : a ∈ I → b ∈ I → (a + b) ∈ I :=
+example (I : ideal A) (a b : A): a ∈ I → b ∈ I → (a + b) ∈ I :=
 begin
   sorry
 end
 
-example (a x : A) : a ∈ I → (a * x) ∈ I ∧ (x * a) ∈ I :=
+example (I : ideal A) (a x : A) : a ∈ I → (a * x) ∈ I ∧ (x * a) ∈ I :=
 begin
   sorry,
 end
@@ -60,7 +60,7 @@ fields, namely
 -/
 
 definition preimage (f : A →+* B) (J : ideal B) : (ideal A) :=
-{ carrier := sorry,
+{ carrier := {a : A | f a ∈ J},
   add_mem' := sorry,
   zero_mem' := sorry,
   smul_mem' := sorry}
@@ -78,37 +78,38 @@ begin
   sorry,
 end
 
--- *** For the Tutorials ***
-/- Again, the fact that the intersection of two ideals is an ideal is a `definition`, not a
-  `lemma`. You might need to now that `a ∈ I ∩ J` is defined to be `a ∈ I ∧ a ∈ J`, so it is a
-  statement of which you can take the first (`a ∈ I`) or the second `(a ∈ J`) part; you can also do
-  `cases` on it. -/
-definition intersection (J : ideal A) : ideal A :=
-{ carrier := I ∩ J,
-  add_mem' :=
-  begin
-    sorry
-  end,
-  zero_mem' :=
-  begin
-    sorry
-  end,
-  smul_mem' :=
-  begin
-    sorry
-  end, }
+/- In the theorem below, we speak about units. There are two ways to treat them:
+1. As elements of the _structure_ `Aˣ`, whose terms have four fields:
+*def Aˣ*:
+`u.val : α`
+`u.inv : α`
+`u.val_inv : u.val * u.inv = 1`
+`u.inv_val : u.inv * u.val = 1`
+The advantage is that we can write `u⁻¹` for elements in `Aˣ` and work as in a group; the problem
+is that `u : Aˣ` is _not_ a term of type `A`, only `u.1=u.val` is.
+2. As elements (=_terms_) `a : A` that satisfies an invertibility property, namely
+* *is_unit a* `∃ (u : Mˣ), ↑u = a`
+where the small arrow `↑` means "I know that I cannot say `u=a` since they belong to different 
+types, but be nice...". Formally, the arrow represents a _coercion_, a map that has been chosen
+_once and for all_ from `Aˣ` to `A`: it is
+`↑ _ : Aˣ → A, u ↦ u.val` (the first field), yielding the
+* *units.val_eq_coe (u)* : `u.val = ↑u` and the
+* *units.inv_eq_coe_inv (u)* : `u.inv = ↑(u⁻¹)`: here, `u⁻¹` makes sense since `Aˣ` is a group, and 
+then we send it to `A`; the statement is then that the image coincides with `u.inv`, the second
+field. A statement like `u.inv = (u.val)⁻¹` makes Lean complain! -/
 
--- Can you see why Lean complains about the following statement?
--- example (J : ideal A) (x y : A) : x ∈ I → x ∈ J → x ∈ intersection J I :=
--- begin
---   sorry,
--- end
+example (u : Aˣ) : u.inv = (u.val)⁻¹ := sorry
+example (u : Aˣ) : u.inv = (u⁻¹).val := units.inv_eq_coe_inv u
 
-example (I J : ideal B) (f : A →+* B) : (preimage f I) + (preimage f J) ≤ preimage f (I + J) := 
+theorem ideal.unit_mul_mem_iff_mem (I : ideal A) {x y : A}
+  (hy : is_unit y) : y * x ∈ I ↔ x ∈ I :=
+begin
+  sorry,
+end
 
-/-
-## Now we play with some localization
--/
+#exit
+-- ## Now we play with some localization
+
 open is_localization
 
 variables {S : submonoid A} [algebra A B] [is_localization S B]
