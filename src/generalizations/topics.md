@@ -1,4 +1,4 @@
-# Automatizations
+# Automation
 
 In the context of formalization of mathematics, the computer
 
@@ -13,6 +13,8 @@ In the context of formalization of mathematics, the computer
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
 
 ---
+
+##  Tactics
 
 The first main "automation" tactics that you will likely run into are `library_search` and `simp`.
 
@@ -67,6 +69,10 @@ begin
 end
 ```
 In the previous example, `simp` used the lemmas `one_mul, zero_mul, add_zero, neg_neg, mul_zero, mul_one, neg_mul`.
+
+---
+
+##  `simp`-lemmas
 
 The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to have, among others, two basic features
 * they assert an equality or an iff;
