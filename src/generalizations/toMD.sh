@@ -59,3 +59,27 @@ rmComments () {
     s=\n  *}= }=g              ##  replace `\n  }` with ` }`
   '"$(nls)" "${1}"             ##  add back in some Lean-specific line breaks
 }
+
+spreadWithNameExt () {
+  awk -v fn="${1}" -v ext="${2}" 'BEGIN { ini=0; part=0; file=fn part ext } {
+    if (/^---$/) { part++ ; file=fn part ext; ini=0; next }
+    if ((ini == 0) && $0) { ini=1 }
+    if (ini == 1) { print $0 > file }
+  }' "${3}"
+}
+
+spread () {
+  local extn fn
+  extn="${1/#*./}"
+  if [ -z "${extn}" ]; then
+    fn="${1}"
+  elif [ "${extn}" == "${1}" ]; then
+    fn="${1}"
+    extn=''
+  else
+    fn="${1/%.${extn}}"
+    extn=".${extn}"
+  fi
+  echo "ext: ${extn}; fn: ${fn}"
+  spreadWithNameExt "${fn}" "${extn}" "${1}"
+}
