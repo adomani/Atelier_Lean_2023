@@ -7,6 +7,7 @@
 \usepackage{minted}
 
 \usepackage{newunicodechar}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
 \newunicodechar{ᵐ}{\ensuremath{^m}}
 \newunicodechar{ᶜ}{\ensuremath{^c}}
@@ -61,7 +62,7 @@ Most of the basic[^1] lemmas are already available.
 
 {\verb`library_search`} helps you find them!
 
-\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=small]{Lean}
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
 import tactic
 
 example {a b c : ℕ} : a ^ (b + c) = a ^ b * a ^ c :=
@@ -84,7 +85,7 @@ Later on, I became more familiar with {\verb`mathlib`}'s [naming convention](htt
 
 As the name suggests, the {\verb`simp`}lifier tries to simplify a goal (or a target hypothesis).
 
-\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=small]{Lean}
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
 example {a b : ℤ} : - (-1 * a + 0 * b) = a * (1 + a * 0) :=
 begin
   simp,
@@ -100,7 +101,7 @@ The lemmas that {\verb`simp`} uses are "{\verb`simp`}-lemmas": carefully selecte
 * they assert an equality or an iff;
 * the LHS *looks more complicated* than the RHS.
 
-\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=small]{Lean}
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
 #print one_mul:   -- shortened output:      1 * a = a
 #print zero_mul:  -- shortened output:      0 * a = 0
 #print add_zero:  -- shortened output:      a + 0 = 0
