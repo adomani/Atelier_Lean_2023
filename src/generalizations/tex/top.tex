@@ -1,0 +1,80 @@
+\documentclass{beamer}
+\usepackage{color}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{minted}
+
+\usepackage{newunicodechar}
+\newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
+\newunicodechar{ᵐ}{\ensuremath{^m}}
+\newunicodechar{ᶜ}{\ensuremath{^c}}
+\newunicodechar{ᶠ}{\ensuremath{^f}}
+
+\title{Automatization in Lean}
+\author{Damiano Testa}
+\institute{University of Warwick}
+\date{May 2nd, 2023}
+
+\begin{document}
+
+% install the pygments package
+%
+% sudo apt-get install python3-pygments
+%https://tex.stackexchange.com/questions/516604/how-to-enable-shell-escape-or-write18-visual-studio-code-latex-workshop
+
+
+%https://tex.stackexchange.com/questions/146264/i-cant-get-minted-package-to-work-under-ubuntu-pygments-error
+
+%  Then, I added these lines to the workspace json settings file
+%  .vscode/settings.json
+%
+%  {
+%  	"latex-workshop.latex.tools": [
+%  		{
+%  			"name": "latexmk",
+%  			"command": "latexmk",
+%  			"args": [
+%          "-shell-escape",              // <---- added this line
+%  				"-synctex=1",
+%  				"-interaction=nonstopmode",
+%  				"-file-line-error",
+%  				"-pdf",
+%  				"-outdir=%OUTDIR%",
+%  				"%DOC%"
+%  			],
+%  			"env": {}
+%  		}
+%    ]
+%  }
+
+
+\frame{\titlepage}
+
+\begin{frame}[fragile]{ciao}
+
+%##  `simp`-lemmas
+
+The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to have, among others, two basic features
+
+* they assert an equality or an iff;
+* the LHS *looks more complicated* than the RHS.
+
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+#print one_mul:   -- shortened output:      1 * a = a
+#print zero_mul:  -- shortened output:      0 * a = 0
+#print add_zero:  -- shortened output:      a + 0 = 0
+#print neg_neg:   -- shortened output:       - -a = a
+#print mul_zero:  -- shortened output:      a * 0 = 0
+#print mul_one:   -- shortened output:      a * 1 = a
+#print neg_mul:   -- shortened output:     -a * b = -(a * b)
+\end{minted}
+
+The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard %--> easy.
+
+%[Being a "`simp`-lemma" is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are `simp`-lemmas.]
+
+\end{frame}
+
+\end{document}

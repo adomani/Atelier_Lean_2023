@@ -79,13 +79,13 @@ The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to ha
 * the LHS *looks more complicated* than the RHS.
 
 ```lean
-#print one_mul:   --   1 * a = a
-#print zero_mul:  --   0 * a = 0
-#print add_zero:  --   a + 0 = 0
-#print neg_neg:   --    - -a = a
-#print mul_zero:  --   a * 0 = 0
-#print mul_one:   --   a * 1 = a
-#print neg_mul:   --  -a * b = -(a * b)
+#print one_mul:   -- shortened output:      1 * a = a
+#print zero_mul:  -- shortened output:      0 * a = 0
+#print add_zero:  -- shortened output:      a + 0 = 0
+#print neg_neg:   -- shortened output:       - -a = a
+#print mul_zero:  -- shortened output:      a * 0 = 0
+#print mul_one:   -- shortened output:      a * 1 = a
+#print neg_mul:   -- shortened output:     -a * b = -(a * b)
 ```
 
 The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard --> easy.

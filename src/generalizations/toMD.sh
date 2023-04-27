@@ -109,3 +109,38 @@ addPrevNext () {
     fi
   done
 }
+
+toTex () {
+  cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
+  sed '
+        s/```lean/\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}/g
+        s/```/\\end{minted}/g
+        s/^##*  *\(.*\)/\\begin{frame}[fragile]{\1}/
+        s/^---$/\\end{frame}/
+      ' "${1}" |
+#    sed -z 's/parbreak/\n\n/g'
+#  replaceXWithLR '```' '\\begin{minted}' '\\end{minted}' - |
+    replaceXWithLR '`' '{\\verb`' '`}' -
+#     |
+#  awk 'BEGIN{ inframe=0 }{
+#    if ($0 ~ /^##*  */) {  ## convert `# [title]`
+#      sub(/^#*  */, "")
+#      printf"\n\\begin{frame}[fragile]{%s}\n", $0
+#      inframe=1
+#    }
+#    else if ($0 == "---") {
+#      printf"\n\\end{frame}\n\n"
+#      inframe=0
+#    }
+#    else if ($0 == "```lean") { printf "\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\\small]{Lean}\n"
+#      printf"\n\\end{frame}\n\n"
+#    }
+#    else if ($0 == "```") { printf "\\end{minted}\n"
+#      printf"\n\\end{frame}\n\n"
+#    }
+#    else if (inframe == 1) { print }
+#    #elif (inframe == 0)
+#  }' "${1}"
+  echo '\end{frame}'
+  echo '\end{document}'
+}
