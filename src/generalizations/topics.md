@@ -1,4 +1,4 @@
-### Automatizations
+# Automatizations
 
 In the context of formalization of mathematics, the computer
 
