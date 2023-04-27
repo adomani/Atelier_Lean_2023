@@ -21,3 +21,7 @@ doc/blueprint.toc
 doc/.content.tex.kate-swp
 *.pygtex
 *.pygstyle
+*.nav
+*.snm
+*.toc
+*.vrb
