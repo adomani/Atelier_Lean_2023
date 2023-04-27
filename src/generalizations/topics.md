@@ -46,4 +46,42 @@ by library_search
 --  Try this: exact pow_add a b c
 ```
 
-[^1]: basic means *really* basic, to a level that you may not even consider them "lemmas".
+[^1]: "Basic" means *really* basic, to a level that you may not even consider them "lemmas".
+
+---
+
+I personally used `library_search` constantly, when I had just started using Lean.
+
+Later on, I became more familiar with `mathlib`'s [naming convention](https://leanprover-community.github.io/contribute/naming.html) I now use `library_search` more rarely.
+
+---
+
+## `simp`
+
+As the name suggests, the `simp`lifier tries to simplify a goal (or a target hypothesis).
+
+```lean
+example {a b : ℤ} : - (-1 * a + 0 * b) = a * (1 + a * 0) :=
+begin
+  simp,
+end
+```
+In the previous example, `simp` used the lemmas `neg_mul, one_mul, zero_mul, add_zero, neg_neg, mul_zero, mul_one`.
+
+The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to have, among others, two basic features
+* they assert an equality or an iff;
+* the LHS *looks more complicated* than the RHS.
+
+```lean
+#print neg_mul:   --  -a * b = -(a * b)
+#print one_mul:   --   1 * a = a
+#print zero_mul:  --   0 * a = 0
+#print add_zero:  --   a + 0 = 0
+#print neg_neg:   --    - -a = a
+#print mul_zero:  --   a * 0 = 0
+#print mul_one:   --   a * 1 = a
+```
+
+The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard --> easy.
+
+[Being a "`simp`-lemma" is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are `simp`-lemmas.]
