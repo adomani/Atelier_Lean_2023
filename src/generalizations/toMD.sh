@@ -63,8 +63,8 @@ rmComments () {
 spreadWithNameExt () {
   awk -v fn="${1}" -v ext="${2}" 'BEGIN { ini=0; part=0; file=fn part ext } {
     if (/^---$/) { part++ ; file=fn part ext; ini=0; next }
-    if ((ini == 0) && $0) { ini=1 }
-    if (ini == 1) { print $0 > file }
+    if ((ini == 0) && $0) { ini=1 }    # `ini` is used to remove initial empty lines
+    if (ini == 1) { print $0 > file }  # `ini=1` means that there has been a non-empty line after `---`
   }' "${3}"
 }
 
