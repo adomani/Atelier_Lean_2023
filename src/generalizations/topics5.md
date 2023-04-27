@@ -17,4 +17,6 @@ The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to ha
 The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard --> easy.
 
 [Being a "`simp`-lemma" is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are `simp`-lemmas.]
+
+
 [Previous](topics4.md) 

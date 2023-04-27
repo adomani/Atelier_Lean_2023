@@ -101,9 +101,9 @@ addPrevNext () {
         nex=''
       fi
       if [ -n "${prev}" ]; then
-        echo "[Previous](${prev}) $nex"
+        printf "\n\n[Previous](${prev}) $nex\n"
       else
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nex"
+        printf "\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$nex\n"
       fi >> ${fil}
       prev="${fil}"
     fi
