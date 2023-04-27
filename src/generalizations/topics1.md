@@ -11,3 +11,4 @@ Tactics allow us to maintain an abstraction:
 
 Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
 
+[Previous](topics0.md) [Next](topics2.md)

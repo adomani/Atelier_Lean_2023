@@ -12,3 +12,4 @@ In the context of formalization of mathematics, the computer
 
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next](topics1.md)
