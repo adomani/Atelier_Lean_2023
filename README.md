@@ -43,7 +43,8 @@ The [Class][Functions_Class] and the [Tutorial][Functions_Tutorial]
 Part C: Limits.
 The [Class][Limits_Class] and the [Tutorial][Limits_Tutorial]
 
-Part D: [Ideals and Localisation][ideals+localisation]
+Part D: Rings and Ideals.
+The [Class][Ring_Ideals_Class] and the [Tutorial][Ring_Ideals_Tutorial]
 
 Part E: some Number Theory.
 The [Class][NumberTheory_Class] and the [Tutorial][NumberTheory_Tutorial].
@@ -83,6 +84,7 @@ The [Class][NumberTheory_Class] and the [Tutorial][NumberTheory_Tutorial].
 [Functions_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Functions_Tutorial.lean "Functions Tutorial"
 [Limits_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Class.lean "Limits Class"
 [Limits_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Tutorial.lean "Limits Tutorial"
-[ideals+localisation]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/ideals+localisation.lean "ideals+localisation"
+[Ring_Ideals_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Class.lean "Ring Ideals Class"
+[Ring_Ideals_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Tutorial.lean "Ring Ideals Tutorial"
 [NumberTheory_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Class.lean "Number Theory Class"
 [NumberTheory_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Tutorial.lean "Number Theory Tutorial"
