@@ -113,7 +113,7 @@ addPrevNext () {
 toTex () {
   cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
   sed '
-        s/```lean/\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}/g
+        s/```lean/\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\\small]{Lean}/g
         s/```/\\end{minted}/g
         s/^##*  *\(.*\)/\\begin{frame}[fragile]{\1}/
         s/^---$/\\end{frame}/
