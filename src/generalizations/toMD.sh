@@ -110,17 +110,37 @@ addPrevNext () {
   done
 }
 
-toTex () {
-  cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
+texConversions () {
+  local sep
+  sep='thistextwillgetdeletedafterallthesubstitutionshavebeenmade'
   sed '
         s/```lean/\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\\small]{Lean}/g
         s/```/\\end{minted}/g
-        s/^##*  *\(.*\)/\\begin{frame}[fragile]{\1}/
-        s/^---$/\\end{frame}/
+        s/^##*  *\(.*\)/'"${sep}{\1}"'/
+        /^---$/ {                     # if a line is `---`
+          s/---/\\end{frame}/         # we close the frame + we open a new one on the next line
+          a \\\begin{frame}[fragile]
+        }
+        s/\(.\)\[^[0-9][0-9]*\]/\1\\footnotemark/g
+        s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
       ' "${1}" |
 #    sed -z 's/parbreak/\n\n/g'
 #  replaceXWithLR '```' '\\begin{minted}' '\\end{minted}' - |
-    replaceXWithLR '`' '{\\verb`' '`}' -
+    replaceXWithLR '`' '{\\verb`' '`}' - |
+    sed /"${sep}"/' {
+      s/^'"${sep}"'//
+      s/\\verb`/\\texttt{/g
+      s/`/}/g ; s/_/\\_/g
+    }'
+    # |
+    #replaceXWithLR '`' '{\\verb`' '`}' -
+    # |
+    #replaceXWithLR '\[^[0-9][0-9]*\]' '\\footnotemark' '\\footnotetext' -
+}
+
+toTex () {
+  cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
+  texConversions "${1}"
 #     |
 #  awk 'BEGIN{ inframe=0 }{
 #    if ($0 ~ /^##*  */) {  ## convert `# [title]`

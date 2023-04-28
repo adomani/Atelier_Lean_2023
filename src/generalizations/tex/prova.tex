@@ -8,6 +8,7 @@
 
 \usepackage{newunicodechar}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
 \newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
 \newunicodechar{ᵐ}{\ensuremath{^m}}
 \newunicodechar{ᶜ}{\ensuremath{^c}}
@@ -21,7 +22,9 @@
 \begin{document}
 
 \frame{\titlepage}
-\begin{frame}[fragile]{Automation}
+
+\begin{frame}[fragile]
+{Automation}
 
 In the context of formalization of mathematics, the computer
 
@@ -36,10 +39,11 @@ In the context of formalization of mathematics, the computer
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
 
 \end{frame}
+\begin{frame}[fragile]
 
-\begin{frame}[fragile]{Tactics}
+{Tactics}
 
-The first main "automation" tactics that you will likely run into are {\verb{\verb`library_search`} and {\verb`simp`}.
+The first main "automation" tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
 
 Really, *any* tactic is a form of automation.
 
@@ -51,14 +55,15 @@ Tactics allow us to maintain an abstraction:
 Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
 
 \end{frame}
+\begin{frame}[fragile]
 
-\begin{frame}[fragile]{{\verb`library_search`}}
+{{\texttt{library\_search}}}
 
 {\verb`mathlib`} is a massive repository.
 
 It contains over 1 million lines of code and over 60 thousand lemmas.
 
-Most of the basic[^1] lemmas are already available.
+Most of the basic\footnotemark lemmas are already available.
 
 {\verb`library_search`} helps you find them!
 
@@ -71,17 +76,19 @@ by library_search
 --  Try this: exact pow_add a b c
 \end{minted}
 
-[^1]: "Basic" means *really* basic, to a level that you may not even consider them "lemmas".
+\footnotetext{"Basic" means *really* basic, to a level that you may not even consider them "lemmas".}
 
 \end{frame}
+\begin{frame}[fragile]
 
 I personally used {\verb`library_search`} constantly, when I had just started using Lean.
 
 Later on, I became more familiar with {\verb`mathlib`}'s [naming convention](https://leanprover-community.github.io/contribute/naming.html) I now use {\verb`library_search`} more rarely.
 
 \end{frame}
+\begin{frame}[fragile]
 
-\begin{frame}[fragile]{{\verb`simp`}}
+{{\texttt{simp}}}
 
 As the name suggests, the {\verb`simp`}lifier tries to simplify a goal (or a target hypothesis).
 
@@ -94,8 +101,9 @@ end
 In the previous example, {\verb`simp`} used the lemmas {\verb`one_mul, zero_mul, add_zero, neg_neg, mul_zero, mul_one, neg_mul`}.
 
 \end{frame}
+\begin{frame}[fragile]
 
-\begin{frame}[fragile]{{\verb`simp`}-lemmas}
+{{\texttt{simp}}-lemmas}
 
 The lemmas that {\verb`simp`} uses are "{\verb`simp`}-lemmas": carefully selected lemmas to have, among others, two basic features
 * they assert an equality or an iff;
