@@ -137,6 +137,7 @@ texConversions () {
           a \\\]
           a \\\bigskip
         }
+        s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
       ' "${1}" |
     replaceXWithLR '`' '{\\verb`' '`}' - |
     sed /"${sep}"/' {
