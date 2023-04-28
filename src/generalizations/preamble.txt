@@ -8,6 +8,7 @@
 
 \usepackage{newunicodechar}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
 \newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
 \newunicodechar{ᵐ}{\ensuremath{^m}}
 \newunicodechar{ᶜ}{\ensuremath{^c}}
@@ -21,3 +22,5 @@
 \begin{document}
 
 \frame{\titlepage}
+
+\begin{frame}[fragile]
