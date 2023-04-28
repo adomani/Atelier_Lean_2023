@@ -121,7 +121,7 @@ texConversions () {
           s/---/\\end{frame}/         # we close the frame + we open a new one on the next line
           a \\\begin{frame}[fragile]
         }
-        s/\(.\)\[^[0-9][0-9]*\]/\1\\footnotemark/g
+        s/\(.\)\[^[0-9][0-9]*\]/\1{\\footnotemark}/g
         s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
         s/^\* *\(.*\)/\\begin{itemize}\n\\item\n  \1\n\\end{itemize}/
         s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
