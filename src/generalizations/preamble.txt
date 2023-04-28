@@ -26,11 +26,14 @@
 \title{Automatization in Lean}
 \author{Damiano Testa}
 \institute{University of Warwick}
-\date{May 2nd, 2023\\
+\date{\\
 \vspace{50pt}
 RNTA mini symposium
+\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}\\
+\vspace{20pt}
+May 2nd, 2023
+}
 
-\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}}
 
 \begin{document}
 
