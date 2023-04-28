@@ -34,12 +34,12 @@ In the context of formalization of mathematics, the computer
 \item
   helps producing more complicated arguments, as it helps separating neatly different parts of the argument;
 \item
-  informs, ideally, the ***discovery*** of new mathematical results;
+  informs, ideally, the {\textbf{discovery}} of new mathematical results;
 \item
-  works *very well* to detect unnecessary hypotheses
+  works {\emph{very well}} to detect unnecessary hypotheses
 \end{itemize}
 
-  > however, the resulting generality is often only useful to simplify *formalization*, rather than *discovery* of mathematics.
+  > however, the resulting generality is often only useful to simplify {\emph{formalization}}, rather than {\emph{discovery}} of mathematics.
 
 
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
@@ -49,7 +49,7 @@ Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-f
 
 The first main ``automation'' tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
 
-Really, *any* tactic is a form of automation.
+Really, {\emph{any}} tactic is a form of automation.
 
 Tactics allow us to maintain an abstraction:
 
@@ -82,7 +82,7 @@ by library_search
 --  Try this: exact pow_add a b c
 \end{minted}
 
-\footnotetext{``Basic'' means *really* basic, to a level that you may not even consider them ``lemmas''.}
+\footnotetext{``Basic'' means {\emph{really}} basic, to a level that you may not even consider them ``lemmas''.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -120,7 +120,7 @@ The lemmas that {\verb`simp`} uses are ``{\verb`simp`}-lemmas'': carefully selec
 \item
   they assert an equality or an iff;
 \item
-  the LHS *looks more complicated* than the RHS.
+  the LHS {\emph{looks more complicated}} than the RHS.
 \end{itemize}
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}

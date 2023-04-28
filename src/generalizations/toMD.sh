@@ -124,6 +124,8 @@ texConversions () {
         s/\(.\)\[^[0-9][0-9]*\]/\1\\footnotemark/g
         s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
         s/^\* *\(.*\)/\\begin{itemize}\n\\item\n  \1\n\\end{itemize}/
+        s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
+        s/\*\([a-zA-Z ]*\)\*/{\\emph{\1}}/g
       ' "${1}" |
     replaceXWithLR '`' '{\\verb`' '`}' - |
     sed /"${sep}"/' {
