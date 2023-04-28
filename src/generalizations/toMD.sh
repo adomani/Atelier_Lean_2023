@@ -126,6 +126,17 @@ texConversions () {
         s/^\* *\(.*\)/\\begin{itemize}\n\\item\n  \1\n\\end{itemize}/
         s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
         s/\*\([a-zA-Z ]*\)\*/{\\emph{\1}}/g
+        /^\[.*\]$/ {
+          i \\\smallskip
+          i \\\[
+          i \ \ \\\left[ \\\;
+          i \ \ \\\makebox{\\\parbox{0.8\\textwidth}{\\\small
+          s/\[\(.*\)\]/'"${sep}  \1"'/
+          a \ \ }}
+          a \ \ \\\; \\right]
+          a \\\]
+          a \\\bigskip
+        }
       ' "${1}" |
     replaceXWithLR '`' '{\\verb`' '`}' - |
     sed /"${sep}"/' {
@@ -135,6 +146,7 @@ texConversions () {
     }' |
     replaceXWithLR '"' '``' "''" - |  ##  and now for some line-break management
     sed -z '
+      s/\n\n[\n]*/\n\n/g
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
       s/[\n]*\\end{itemize}[\n ]*\\begin{itemize}[\n]*/\n/g
