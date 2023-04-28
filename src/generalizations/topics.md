@@ -10,7 +10,11 @@ In the context of formalization of mathematics, the computer also
 
 [The resulting generality is often only useful to simplify *formalization*, rather than *discovery* of mathematics.]
 
-Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
+Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available.
+
+&nbsp;
+
+There is lots of interest and steady progress on this front.
 
 ---
 
