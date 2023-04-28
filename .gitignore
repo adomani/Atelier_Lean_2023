@@ -25,3 +25,11 @@ doc/.content.tex.kate-swp
 *.snm
 *.toc
 *.vrb
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.pyg
+*.gz
