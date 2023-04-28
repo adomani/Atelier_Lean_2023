@@ -97,13 +97,23 @@ We do not even need to know what the computer's internal representation is: tact
 
 \begin{frame}[fragile]{{\texttt{library\_search}}}
 
-{\verb`mathlib`} is a massive repository.
-
-It contains over 1 million lines of code and over 60 thousand lemmas.
+{\verb`mathlib`} is a massive repository: it contains
+\begin{itemize}
+\item
+  over 1 million lines of code
+\item
+  over 60 thousand lemmas.
+\end{itemize}
 
 Most of the basic{\footnotemark} lemmas are already available.
+\bigskip
 
 {\verb`library_search`} helps you find them!
+
+\footnotetext{``Basic'' may mean {\emph{really}} basic, to a level that you may not even consider them ``lemmas''.}
+\end{frame}
+
+\begin{frame}[fragile]
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
 import tactic
@@ -113,15 +123,10 @@ by library_search
 
 --  Try this: exact pow_add a b c
 \end{minted}
+\bigskip
 
-\footnotetext{``Basic'' means {\emph{really}} basic, to a level that you may not even consider them ``lemmas''.}
-\end{frame}
-
-\begin{frame}[fragile]
-
-I personally used {\verb`library_search`} constantly, when I had just started using Lean.
-
-Later on, I became more familiar with {\verb`mathlib`}'s [naming convention](https://leanprover-community.github.io/contribute/naming.html) I now use {\verb`library_search`} more rarely.
+Besides {\verb`library_search`}, {\verb`mathlib`} has a very helpful \href{https://leanprover-community.github.io/contribute/naming.html}{naming convention} that allows you to ``guess'' names of lemmas.
+\bigskip
 \end{frame}
 
 \begin{frame}[fragile]{{\texttt{simp}}}

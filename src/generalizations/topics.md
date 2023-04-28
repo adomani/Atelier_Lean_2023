@@ -45,13 +45,19 @@ We do not even need to know what the computer's internal representation is: tact
 
 ## `library_search`
 
-`mathlib` is a massive repository.
-
-It contains over 1 million lines of code and over 60 thousand lemmas.
+`mathlib` is a massive repository: it contains
+* over 1 million lines of code
+* over 60 thousand lemmas.
 
 Most of the basic[^1] lemmas are already available.
 
+&nbsp;
+
 `library_search` helps you find them!
+
+[^1]: "Basic" may mean *really* basic, to a level that you may not even consider them "lemmas".
+
+---
 
 ```lean
 import tactic
@@ -62,13 +68,12 @@ by library_search
 --  Try this: exact pow_add a b c
 ```
 
-[^1]: "Basic" means *really* basic, to a level that you may not even consider them "lemmas".
+&nbsp;
 
----
+Besides `library_search`, `mathlib` has a very helpful [naming convention](https://leanprover-community.github.io/contribute/naming.html) that allows you to "guess" names of lemmas.
 
-I personally used `library_search` constantly, when I had just started using Lean.
+&nbsp;
 
-Later on, I became more familiar with `mathlib`'s [naming convention](https://leanprover-community.github.io/contribute/naming.html) I now use `library_search` more rarely.
 
 ---
 
