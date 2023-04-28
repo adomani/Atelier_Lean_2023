@@ -82,11 +82,10 @@ Here, `simp` used the lemmas
 
 ---
 
-##  `simp`-lemmas
+##  "`simp`-lemmas": lemmas that `simp` uses
 
-The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to have, among others, two basic features
-* they assert an equality or an iff;
-* the LHS *looks more complicated* than the RHS.
+* They assert an equality or an iff.
+* The LHS **looks more complicated** than the RHS.
 
 ```lean
 #print one_mul   -- means:   1 * a = a
@@ -98,6 +97,7 @@ The lemmas that `simp` uses are "`simp`-lemmas": carefully selected lemmas to ha
 #print neg_mul   -- means:  -a * b = -(a * b)
 ```
 
-The asymmetry helps Lean: it only tries to apply the lemmas in the direction `hard --> easy`.
+The asymmetry helps Lean: it flows along
+$${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
 
 [Being a "`simp`-lemma" is something that *you* must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are `simp`-lemmas.]

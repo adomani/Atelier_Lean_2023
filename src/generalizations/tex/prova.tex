@@ -136,33 +136,33 @@ Here, {\verb`simp`} used the lemmas
 {\verb`mul_zero`}, {\verb`zero_mul`}.
 \end{frame}
 
-\begin{frame}[fragile]{{\texttt{simp}}-lemmas}
+\begin{frame}[fragile]{``{\texttt{simp}}-lemmas'': lemmas that {\texttt{simp}} uses}
 
-The lemmas that {\verb`simp`} uses are ``{\verb`simp`}-lemmas'': carefully selected lemmas to have, among others, two basic features
 \begin{itemize}
 \item
-  they assert an equality or an iff;
+  They assert an equality or an iff.
 \item
-  the LHS {\emph{looks more complicated}} than the RHS.
+  The LHS {\textbf{looks more complicated}} than the RHS.
 \end{itemize}
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
-#print one_mul:   -- shortened output:      1 * a = a
-#print zero_mul:  -- shortened output:      0 * a = 0
-#print add_zero:  -- shortened output:      a + 0 = 0
-#print neg_neg:   -- shortened output:       - -a = a
-#print mul_zero:  -- shortened output:      a * 0 = 0
-#print mul_one:   -- shortened output:      a * 1 = a
-#print neg_mul:   -- shortened output:     -a * b = -(a * b)
+#print one_mul   -- means:   1 * a = a
+#print zero_mul  -- means:   0 * a = 0
+#print add_zero  -- means:   a + 0 = 0
+#print neg_neg   -- means:    - -a = a
+#print mul_zero  -- means:   a * 0 = 0
+#print mul_one   -- means:   a * 1 = a
+#print neg_mul   -- means:  -a * b = -(a * b)
 \end{minted}
 
-The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard --> easy.
+The asymmetry helps Lean: it flows along
+$${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
 
 \smallskip
 \[
   \left[ \;
   \makebox{\parbox{0.8\textwidth}{\small
-  Being a ``{\texttt{simp}}-lemma'' is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\texttt{simp}}-lemmas.
+  Being a ``{\texttt{simp}}-lemma'' is something that {\emph{you}} must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\texttt{simp}}-lemmas.
   }}
   \; \right]
 \]
