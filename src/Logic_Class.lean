@@ -32,8 +32,8 @@ begin
 end
 
 /- **not ¬**
-`not P`, with notation `¬ P`, is *defined* to mean `P → false`, so the fact that P implies false.
-You can easily check with a truth table that P → false and ¬ P are equivalent. -/
+`not P`, with notation `¬P`, is *defined* to mean `P → false`, so the fact that `P` implies `false`.
+You can easily check with a truth table that `P → false` and `¬P` are equivalent. -/
 
 
 theorem modus_tollens (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=
@@ -48,12 +48,12 @@ For the following, we need to argue _by contradiction_, which can be done by the
 -/
 theorem double_negation_elimination (P : Prop) : ¬ (¬ P) → P :=
 begin
-  sorry,
+  sorry
 end
 
 /- **∧**
-Given two propositions `P` and `Q`, `P ∧ Q` is the proposition that is true precisely if both `P` and `Q`
-are true. Hence, in order to prove something like this, you can use
+Given two propositions `P` and `Q`, `P ∧ Q` is the proposition that is true precisely if both `P`
+and `Q` are true. Hence, in order to prove something like this, you can use
 
 ## split
 * the tactic `split`: split the goal into two sub-goals.
@@ -66,9 +66,9 @@ end
 
 /-- ## cases
  If you want to _use_ an assumption of the form `P ∧ Q`, you can use
-* the tactic `cases`: destructure the **assumption** into two sub-assumptions, one being `P` and
+* the tactic `cases`: destructure the *assumption* into two sub-assumptions, one being `P` and
   the other being `Q`
-This is the first tactic seen so far that does not act on the goal but on something in orange. -/
+**This is the first tactic seen so far that does not act on the goal but on something in orange.** -/
 
 theorem and.elim_left (P Q : Prop) : P ∧ Q → P :=
 begin
@@ -81,7 +81,7 @@ Similarly, given propositions `P` and `Q`, the proposition `P ∨ Q` is true whe
 `P` or `Q` is true. Here, the tactic `cases` produces two sub-goals, one assuming that `P` is true,
 the other assuming that `Q` is true
 
-**Hint** When `P` and `¬ P` are both hypotheses, something is weird: the proposition to prove is
+*Hint* When `P` and `¬ P` are both hypotheses, something is weird: the proposition to prove is
 false, so we can try to argue `by_contradiction`. -/
 
 theorem or_not_left (P Q : Prop) : P ∨ Q → ¬ P → Q :=

@@ -9,7 +9,7 @@ namespace rome
 example (X Y Z : Type) (f : X → Y) (g : Y → Z)
   (hf : surjective f) (hg : surjective g) : surjective (g ∘ f) :=
 begin
-  sorry,
+  sorry
 end
 
 /- ### The λ notation:
@@ -28,6 +28,13 @@ because it "evaluates a λ-term", transforming, for instance
 `(λ x, 2 * x + 1) 3` into `2 * 3 + 1`.
 -/
 
+/-
+Some useful lemmas, beyond those introduced in class, are
+* *add_left_inj : ∀ x y z, x + z = y + z ↔ x = y*
+* *nat.succ_ne_zero : ∀ (n : ℕ), n.succ ≠ 0*: here it is crucial to understand that `x ≠ y`
+is _defined_ as the implication ` (x = y) → false`. Also, recall that adding `1` is _by definition_
+the successor, so `n.succ = n + 1` (whereas `1 + n = n.succ` is _theorem_).
+-/
 
 definition A : ℕ → ℕ := λ n, n + 1
 
@@ -67,11 +74,11 @@ theorem linear_add_cnst_of_affine (f : ℝ → ℝ) : is_affine f → (∃ a : �
 theorem affine_of_linear_add_cnst (f : ℝ → ℝ) : (∃ b : ℝ, ∃ g : ℝ → ℝ,
   (f = g + (λ x, b)) ∧ is_linear g) → is_affine f := sorry
 
--- that we proved in the lesson.
+-- that we proved in Class.
 
-example (f : ℝ → ℝ) : is_affine f ↔ ∃ a : ℝ, ∃ g : ℝ → ℝ, (f = g + (λ x, a)) ∧ is_linear g := -- iff.intro (linear_add_cnst_of_affine _) (affine_of_linear_add_cnst _)
+example (f : ℝ → ℝ) : is_affine f ↔ ∃ a : ℝ, ∃ g : ℝ → ℝ, (f = g + (λ x, a)) ∧ is_linear g := 
 begin
-  sorry,
+  sorry
 end
 
 end rome
