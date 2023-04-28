@@ -123,9 +123,8 @@ texConversions () {
         }
         s/\(.\)\[^[0-9][0-9]*\]/\1\\footnotemark/g
         s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
+        s/^\* *\(.*\)/\\begin{itemize}\n\\item\n  \1\n\\end{itemize}/
       ' "${1}" |
-#    sed -z 's/parbreak/\n\n/g'
-#  replaceXWithLR '```' '\\begin{minted}' '\\end{minted}' - |
     replaceXWithLR '`' '{\\verb`' '`}' - |
     sed /"${sep}"/' {
       s/^'"${sep}"'//
@@ -135,10 +134,8 @@ texConversions () {
     sed -z '
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
+      s/[\n]*\\end{itemize}[\n ]*\\begin{itemize}[\n]*/\n/g
     '
-    #replaceXWithLR '`' '{\\verb`' '`}' -
-    # |
-    #replaceXWithLR '\[^[0-9][0-9]*\]' '\\footnotemark' '\\footnotetext' -
 }
 
 toTex () {
