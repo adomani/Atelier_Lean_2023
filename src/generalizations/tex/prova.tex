@@ -37,11 +37,9 @@ In the context of formalization of mathematics, the computer
 
 
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
-
 \end{frame}
-\begin{frame}[fragile]
 
-{Tactics}
+\begin{frame}[fragile]{Tactics}
 
 The first main "automation" tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
 
@@ -53,11 +51,9 @@ Tactics allow us to maintain an abstraction:
 *  the computer has its own internal representation for these same concepts.
 
 Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
-
 \end{frame}
-\begin{frame}[fragile]
 
-{{\texttt{library\_search}}}
+\begin{frame}[fragile]{{\texttt{library\_search}}}
 
 {\verb`mathlib`} is a massive repository.
 
@@ -77,18 +73,16 @@ by library_search
 \end{minted}
 
 \footnotetext{"Basic" means *really* basic, to a level that you may not even consider them "lemmas".}
-
 \end{frame}
+
 \begin{frame}[fragile]
 
 I personally used {\verb`library_search`} constantly, when I had just started using Lean.
 
 Later on, I became more familiar with {\verb`mathlib`}'s [naming convention](https://leanprover-community.github.io/contribute/naming.html) I now use {\verb`library_search`} more rarely.
-
 \end{frame}
-\begin{frame}[fragile]
 
-{{\texttt{simp}}}
+\begin{frame}[fragile]{{\texttt{simp}}}
 
 As the name suggests, the {\verb`simp`}lifier tries to simplify a goal (or a target hypothesis).
 
@@ -99,11 +93,9 @@ begin
 end
 \end{minted}
 In the previous example, {\verb`simp`} used the lemmas {\verb`one_mul, zero_mul, add_zero, neg_neg, mul_zero, mul_one, neg_mul`}.
-
 \end{frame}
-\begin{frame}[fragile]
 
-{{\texttt{simp}}-lemmas}
+\begin{frame}[fragile]{{\texttt{simp}}-lemmas}
 
 The lemmas that {\verb`simp`} uses are "{\verb`simp`}-lemmas": carefully selected lemmas to have, among others, two basic features
 * they assert an equality or an iff;
