@@ -2,6 +2,8 @@
 
 Computers take on repetitive tasks.
 
+&nbsp;
+
 In the context of formalization of mathematics, the computer also
 
 * helps producing more complicated arguments, as it separates neatly different parts of the argument;
@@ -22,14 +24,22 @@ There is lots of interest and steady progress on this front.
 
 The first main "automation" tactics that you will likely run into are `library_search` and `simp`.
 
+&nbsp;
+
 Really, *any* tactic is a form of automation.
 
-Tactics allow us to maintain an abstraction:
+&nbsp;
 
-*  we humans, think that we are talking about mathematical concepts,
-*  the computer has its own internal representation for these same concepts.
+Tactics allow to maintain abstraction:
 
-Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
+*  we humans talk about mathematical concepts,
+*  the computer has some representation for these concepts.
+
+Tactics bridge this gap.
+
+&nbsp;
+
+We do not even need to know what the computer's internal representation is: tactics handle the translation.
 
 ---
 

@@ -43,6 +43,7 @@ May 2nd, 2023
 {Automation}
 
 Computers take on repetitive tasks.
+\bigskip
 
 In the context of formalization of mathematics, the computer also
 
@@ -74,19 +75,24 @@ There is lots of interest and steady progress on this front.
 \begin{frame}[fragile]{Tactics}
 
 The first main ``automation'' tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
+\bigskip
 
 Really, {\emph{any}} tactic is a form of automation.
+\bigskip
 
-Tactics allow us to maintain an abstraction:
+Tactics allow to maintain abstraction:
 
 \begin{itemize}
 \item
-  we humans, think that we are talking about mathematical concepts,
+  we humans talk about mathematical concepts,
 \item
-  the computer has its own internal representation for these same concepts.
+  the computer has some representation for these concepts.
 \end{itemize}
 
-Tactics bridge this gap: we do not even need to know what the computer's internal representation is: tactics handle the translation.
+Tactics bridge this gap.
+\bigskip
+
+We do not even need to know what the computer's internal representation is: tactics handle the translation.
 \end{frame}
 
 \begin{frame}[fragile]{{\texttt{library\_search}}}
