@@ -8,7 +8,7 @@ In the context of formalization of mathematics, the computer also
 * informs, ideally, the **discovery** of new mathematical results;
 * works *very well* to detect unnecessary hypotheses.
 
-  [The resulting generality is often only useful to simplify *formalization*, rather than *discovery* of mathematics.]
+[The resulting generality is often only useful to simplify *formalization*, rather than *discovery* of mathematics.]
 
 
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available, though there is lots of interest and steady progress on this front.
