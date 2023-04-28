@@ -130,7 +130,8 @@ texConversions () {
       s/^'"${sep}"'//
       s/\\verb`/\\texttt{/g
       s/`/}/g ; s/_/\\_/g
-    }' |  ##  and now for some line-break management
+    }' |
+    replaceXWithLR '"' '``' "''" - |  ##  and now for some line-break management
     sed -z '
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g

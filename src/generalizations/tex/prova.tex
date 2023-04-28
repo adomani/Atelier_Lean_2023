@@ -47,7 +47,7 @@ Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-f
 
 \begin{frame}[fragile]{Tactics}
 
-The first main "automation" tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
+The first main ``automation'' tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
 
 Really, *any* tactic is a form of automation.
 
@@ -82,7 +82,7 @@ by library_search
 --  Try this: exact pow_add a b c
 \end{minted}
 
-\footnotetext{"Basic" means *really* basic, to a level that you may not even consider them "lemmas".}
+\footnotetext{``Basic'' means *really* basic, to a level that you may not even consider them ``lemmas''.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -107,7 +107,7 @@ In the previous example, {\verb`simp`} used the lemmas {\verb`one_mul, zero_mul,
 
 \begin{frame}[fragile]{{\texttt{simp}}-lemmas}
 
-The lemmas that {\verb`simp`} uses are "{\verb`simp`}-lemmas": carefully selected lemmas to have, among others, two basic features
+The lemmas that {\verb`simp`} uses are ``{\verb`simp`}-lemmas'': carefully selected lemmas to have, among others, two basic features
 \begin{itemize}
 \item
   they assert an equality or an iff;
@@ -127,6 +127,6 @@ The lemmas that {\verb`simp`} uses are "{\verb`simp`}-lemmas": carefully selecte
 
 The asymmetry helps Lean: it only tries to apply the lemmas in the direction hard --> easy.
 
-[Being a "{\verb`simp`}-lemma" is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\verb`simp`}-lemmas.]
+[Being a ``{\verb`simp`}-lemma'' is just something that you must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\verb`simp`}-lemmas.]
 \end{frame}
 \end{document}
