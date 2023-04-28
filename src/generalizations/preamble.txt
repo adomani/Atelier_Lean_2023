@@ -9,10 +9,10 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=blue,          % color of internal links
-    citecolor=magenta,        % color of links to bibliography
-    filecolor=green,      % color of file links
-    urlcolor=purple           % color of external links
+    linkcolor=blue,        % color of internal links
+    citecolor=magenta,     % color of links to bibliography
+    filecolor=green,       % color of file links
+    urlcolor=purple        % color of external links
 }
 
 \usepackage{newunicodechar}
