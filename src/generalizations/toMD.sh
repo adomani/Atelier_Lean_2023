@@ -139,7 +139,7 @@ texConversions () {
         }
         s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
       ' "${1}" |
-    replaceXWithLR '`' '{\\verb`' '`}' - |
+    replaceXWithLR '`' '{\\color{purple}\\verb`' '`}' - |
     sed /"${sep}"/' {
       s/^'"${sep}"'//
       s/\\verb`/\\texttt{/g

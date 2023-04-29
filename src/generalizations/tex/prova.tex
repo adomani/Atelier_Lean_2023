@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\usepackage{color}
+\usepackage{xcolor}
 
 \usetheme{Boadilla}
 \usefonttheme{serif}
@@ -25,6 +25,9 @@
 \newunicodechar{ᵐ}{\ensuremath{^m}}
 \newunicodechar{ᶜ}{\ensuremath{^c}}
 \newunicodechar{ᶠ}{\ensuremath{^f}}
+
+%\let\OldTexttt\texttt
+%\renewcommand{\texttt}[1]{\color{purple}{\OldTexttt{#1}}}
 
 \title{Automatization in Lean}
 \author{Damiano Testa}
@@ -98,29 +101,30 @@ We do not need to know what the computer's internal representation is: tactics h
 
 \begin{frame}[fragile]
 
-In the previous talks, you have already seen some tactics ({\verb`exact`}, {\verb`intro`}, {\verb`apply`}, {\verb`rw`}, ...).
+In the previous talks, you have already seen some tactics ({\color{purple}\verb`exact`}, {\color{purple}\verb`intro`}, {\color{purple}\verb`apply`}, {\color{purple}\verb`rw`}, ...).
 \bigskip
 
-Now, we talk about {\verb`library_search`} and {\verb`simp`}.
+Now, we talk about {\color{purple}\verb`library_search`} and {\color{purple}\verb`simp`}.
 \bigskip
 
 These tactics probably feel closer to an intuitive idea of ``automation'' that you may have.
 \end{frame}
 
-\begin{frame}[fragile]{{\texttt{library\_search}}}
+\begin{frame}[fragile]{{\color{purple}\texttt{library\_search}}}
 
-{\verb`mathlib`} is a massive repository: it contains
+{\color{purple}\verb`mathlib`} is a massive repository: it contains
 \begin{itemize}
 \item
   over 1 million lines of code
 \item
   over 60 thousand lemmas.
 \end{itemize}
+\bigskip
 
 Most of the basic{\footnotemark} lemmas are already available.
 \bigskip
 
-{\verb`library_search`} helps you find them!
+{\color{purple}\verb`library_search`} helps you find them!
 
 \footnotetext{``Basic'' may mean {\emph{really}} basic, to a level that you may not even consider them ``lemmas''.}
 \end{frame}
@@ -135,39 +139,45 @@ by library_search
 
 --  Try this: exact pow_add a b c
 \end{minted}
+
+\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20c%20%3A%20%E2%84%95%7D%20%3A%20a%20%5E%20%28b%20%2B%20c%29%20%3D%20a%20%5E%20b%20*%20a%20%5E%20c%20%3A%3D%0Aby%20library_search}{Click here to open the Lean web editor}.
+\bigskip
 \bigskip
 
-Besides {\verb`library_search`}, {\verb`mathlib`} has a very helpful \href{https://leanprover-community.github.io/contribute/naming.html}{naming convention} that allows you to ``guess'' names of lemmas.
-\bigskip
+Besides {\color{purple}\verb`library_search`}, {\color{purple}\verb`mathlib`} has a very helpful \href{https://leanprover-community.github.io/contribute/naming.html}{naming convention} that allows you to ``guess'' names of lemmas.
 \end{frame}
 
-\begin{frame}[fragile]{The {\texttt{simp}}-lifier}
+\begin{frame}[fragile]{The {\color{purple}\texttt{simp}}-lifier}
 
-As the name suggests, the {\verb`simp`}-lifier tries to simplify a goal.
+As the name suggests, the {\color{purple}\verb`simp`}-lifier tries to simplify a goal.
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+import tactic
+
 example {a b : ℤ} :
   - (-1 * a + 0 * b) = a * (1 + a * 0) :=
 begin
   simp,
 end
 \end{minted}
+
+\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20%3A%20%E2%84%A4%7D%20%3A%0A%20%20-%20%28-1%20*%20a%20%2B%200%20*%20b%29%20%3D%20a%20*%20%281%20%2B%20a%20*%200%29%20%3A%3D%0Abegin%0A%20%20simp%2C%0Aend}{Click here to open the Lean web editor}.
 \bigskip
 
-Here, {\verb`simp`} used the lemmas
+{\color{purple}\verb`simp`} automatically used the lemmas
 \bigskip
 
 \begin{tabular}{|l|l|l|}
 \hline
-{\verb`neg_mul`} & {\verb`neg_neg`} & {\verb`add_zero`} \\
-{\verb`one_mul`} & {\verb`mul_one`} &\\
-{\verb`mul_zero`} & {\verb`zero_mul`} &\\
+{\color{purple}\verb`neg_mul`} & {\color{purple}\verb`neg_neg`} & {\color{purple}\verb`add_zero`} \\
+{\color{purple}\verb`one_mul`} & {\color{purple}\verb`mul_one`} &\\
+{\color{purple}\verb`mul_zero`} & {\color{purple}\verb`zero_mul`} &\\
 \hline
 \end{tabular}
 
 \end{frame}
 
-\begin{frame}[fragile]{``{\texttt{simp}}-lemmas'': lemmas that {\texttt{simp}} uses}
+\begin{frame}[fragile]{``{\color{purple}\texttt{simp}}-lemmas'': lemmas that {\color{purple}\texttt{simp}} uses}
 
 \begin{itemize}
 \item
@@ -193,10 +203,15 @@ $${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
 \[
   \left[ \;
   \makebox{\parbox{0.8\textwidth}{\small
-  Being a ``{\texttt{simp}}-lemma'' is something that {\emph{you}} must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\texttt{simp}}-lemmas.
+  Being a ``{\color{purple}\texttt{simp}}-lemma'' is something that {\emph{you}} must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\color{purple}\texttt{simp}}-lemmas.
   }}
   \; \right]
 \]
 \bigskip
+\end{frame}
+
+\begin{frame}[fragile]
+
+Let's switch over to an \href{https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fadomani_polys%2Fsrc%2Fgeneralizations%2F1.generalizations.presentationTemplate.lean}{interactive demo}.
 \end{frame}
 \end{document}
