@@ -184,26 +184,6 @@ texConversions () {
 toTex () {
   cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
   texConversions "${1}"
-#     |
-#  awk 'BEGIN{ inframe=0 }{
-#    if ($0 ~ /^##*  */) {  ## convert `# [title]`
-#      sub(/^#*  */, "")
-#      printf"\n\\begin{frame}[fragile]{%s}\n", $0
-#      inframe=1
-#    }
-#    else if ($0 == "---") {
-#      printf"\n\\end{frame}\n\n"
-#      inframe=0
-#    }
-#    else if ($0 == "```lean") { printf "\\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\\small]{Lean}\n"
-#      printf"\n\\end{frame}\n\n"
-#    }
-#    else if ($0 == "```") { printf "\\end{minted}\n"
-#      printf"\n\\end{frame}\n\n"
-#    }
-#    else if (inframe == 1) { print }
-#    #elif (inframe == 0)
-#  }' "${1}"
   echo '\end{frame}'
   echo '\end{document}'
 }
