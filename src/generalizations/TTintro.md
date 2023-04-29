@@ -114,6 +114,10 @@ The Type `myℕ` contains an element (really, a `term`), that we call `zero`.
 
 We also postulate the existence of a function `succ` from `myℕ` to `myℕ`.
 
+&nbsp;
+
+Lean's Type Theory takes care of making `myℕ` "universal".
+
 ---
 
  is a Type, containing
