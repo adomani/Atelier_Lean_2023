@@ -66,9 +66,9 @@ This normally comes with
 
 \begin{itemize}
 \item
-  a more or less ``primitive'' concept of a {\color{purple}\verb`set`};
+  a more or less ``primitive'' concept of a {\color{violet}\verb`set`};
 \item
-  the {\color{purple}\verb`belongs-to`} relation $\in$ among sets;
+  the {\color{violet}\verb`belongs-to`} relation $\in$ among sets;
 \item
   an empty set;
 \item
@@ -116,27 +116,53 @@ Descending inside all the nested sets of sets of sets until we reach the empty s
 
 \begin{frame}[fragile]
 
-We may ``undo'' one nesting or two, but, after that, we probably stop and think about {\color{purple}\verb`structured`} sets.
+We may ``undo'' one nesting or two, but, after that, we probably stop and think about {\color{violet}\verb`structured`} sets.
 \bigskip
 
 For instance, if $f \colon A \longrightarrow B$ is a function, we may think of it as a way of converting an element of the set $A$ to an element of the set $B$.
 
-$\to$ No undoing: a {\color{purple}\verb`structured`} function.
+$\to$ No undoing: a {\color{violet}\verb`structured`} function.
 \bigskip
 
-Sometimes, it can be useful to think of the ``graph of $f$'' (which, in Set Theory {\color{purple}\verb`is`} the function).
+Sometimes, it can be useful to think of the ``graph of $f$'' (which, in Set Theory {\color{violet}\verb`is`} the function).
 
-$\to$ 1 undoing: {\color{purple}\verb`structured`} ordered pairs.
+$\to$ 1 undoing: {\color{violet}\verb`structured`} ordered pairs.
 \bigskip
 
-How often have you then used the Kuratowski's encoding of ordered pairs to {\color{purple}\verb`really`} understand $f$?
+How often have you then used the Kuratowski's encoding of ordered pairs to {\color{violet}\verb`really`} understand $f$?
 
-$\to$ 2 undoings: {\color{purple}\verb`unstructured`} chaos.
+$\to$ 2 undoings: {\color{violet}\verb`unstructured`} chaos.
 \end{frame}
 
 \begin{frame}[fragile]{Types as structured sets}
 
-From the perspective of Set Theory, a Type is like a set, except that it also has some internal {\color{purple}\verb`structure`}.
+From the perspective of Set Theory,
+\begin{itemize}
+\item
+  a {\color{violet}\verb`Type`} is like a set,
+\item
+  its elements are called {\color{violet}\verb`terms`},
+\item
+  the {\color{violet}\verb`belong-to`} relation is denoted by {\color{violet}\verb`:`}.
+\end{itemize}
+\bigskip
+
+Thus, if {\color{violet}\verb`t`} is a term of a Type {\color{violet}\verb`T`}, we can write {\color{violet}\verb`t : T`}.
+\bigskip
+
+A fundamental axiom is that every term has a unique Type.
+\bigskip
+
+Types usually come with rules, called {\color{violet}\verb`constructors`}, for building terms of the given Type.
+\bigskip
+
+The constructors endow their Type with some internal {\color{violet}\verb`structure`}.
+\bigskip
+
+Let's see the definition of natural numbers in Lean.
+\end{frame}
+
+\begin{frame}[fragile]
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
 inductive myℕ
@@ -146,16 +172,16 @@ inductive myℕ
 {\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A}{Click here to open the Lean web editor}.}}
 \bigskip
 
-The code above defines a Type {\color{purple}\verb`myℕ`}.
+The code above defines a Type {\color{violet}\verb`myℕ`}.
 \bigskip
 
-The Type {\color{purple}\verb`myℕ`} contains an element (really, a {\color{purple}\verb`term`}), that we call {\color{purple}\verb`zero`}.
+The Type {\color{violet}\verb`myℕ`} contains an element (really, a {\color{violet}\verb`term`}), that we call {\color{violet}\verb`zero`}.
 \bigskip
 
-We also postulate the existence of a function {\color{purple}\verb`succ`} from {\color{purple}\verb`myℕ`} to {\color{purple}\verb`myℕ`}.
+We also postulate the existence of a function {\color{violet}\verb`succ`} from {\color{violet}\verb`myℕ`} to {\color{violet}\verb`myℕ`}.
 \bigskip
 
-Lean's Type Theory takes care of making {\color{purple}\verb`myℕ`} ``universal''.
+Lean's Type Theory takes care of making {\color{violet}\verb`myℕ`} ``universal''.
 \end{frame}
 
 \begin{frame}[fragile]

@@ -93,7 +93,32 @@ $\to$ 2 undoings: `unstructured` chaos.
 
 ##  Types as structured sets
 
-From the perspective of Set Theory, a Type is like a set, except that it also has some internal `structure`.
+From the perspective of Set Theory,
+* a `Type` is like a set,
+* its elements are called `terms`,
+* the `belong-to` relation is denoted by `:`.
+
+&nbsp;
+
+Thus, if `t` is a term of a Type `T`, we can write `t : T`.
+
+&nbsp;
+
+A fundamental axiom is that every term has a unique Type.
+
+&nbsp;
+
+Types usually come with rules, called `constructors`, for building terms of the given Type.
+
+&nbsp;
+
+The constructors endow their Type with some internal `structure`.
+
+&nbsp;
+
+Let's see the definition of natural numbers in Lean.
+
+---
 
 ```lean
 inductive myℕ
