@@ -130,9 +130,9 @@ texConversions () {
           i \\\smallskip
           i \\\[
           i \ \ \\\left[ \\\;
-          i \ \ \\\makebox{\\\parbox{0.8\\textwidth}{\\\small
+          i \ \ \\\parbox{0.8\\textwidth}{\\centering\\\small
           s/\[\(.*\)\]/'"${sep}  \1"'/
-          a \ \ }}
+          a \ \ }
           a \ \ \\\; \\right]
           a \\\]
           a \\\bigskip
