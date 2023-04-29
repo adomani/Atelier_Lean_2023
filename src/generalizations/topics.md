@@ -59,6 +59,8 @@ These tactics probably feel closer to an intuitive idea of "automation" that you
 * over 1 million lines of code
 * over 60 thousand lemmas.
 
+&nbsp;
+
 Most of the basic[^1] lemmas are already available.
 
 &nbsp;
@@ -78,11 +80,14 @@ by library_search
 --  Try this: exact pow_add a b c
 ```
 
+[Click here to open the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20c%20%3A%20%E2%84%95%7D%20%3A%20a%20%5E%20%28b%20%2B%20c%29%20%3D%20a%20%5E%20b%20*%20a%20%5E%20c%20%3A%3D%0Aby%20library_search).
+
+
+&nbsp;
+
 &nbsp;
 
 Besides `library_search`, `mathlib` has a very helpful [naming convention](https://leanprover-community.github.io/contribute/naming.html) that allows you to "guess" names of lemmas.
-
-&nbsp;
 
 
 ---
@@ -92,6 +97,8 @@ Besides `library_search`, `mathlib` has a very helpful [naming convention](https
 As the name suggests, the `simp`-lifier tries to simplify a goal.
 
 ```lean
+import tactic
+
 example {a b : ℤ} :
   - (-1 * a + 0 * b) = a * (1 + a * 0) :=
 begin
@@ -99,9 +106,11 @@ begin
 end
 ```
 
+[Click here to open the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20%3A%20%E2%84%A4%7D%20%3A%0A%20%20-%20%28-1%20*%20a%20%2B%200%20*%20b%29%20%3D%20a%20*%20%281%20%2B%20a%20*%200%29%20%3A%3D%0Abegin%0A%20%20simp%2C%0Aend).
+
 &nbsp;
 
-Here, `simp` used the lemmas
+`simp` automatically used the lemmas
 
 &nbsp;
 
@@ -132,3 +141,7 @@ The asymmetry helps Lean: it flows along
 $${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
 
 [Being a "`simp`-lemma" is something that *you* must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are `simp`-lemmas.]
+
+---
+
+Let's switch over to an [interactive demo](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fadomani_polys%2Fsrc%2Fgeneralizations%2F1.generalizations.presentationTemplate.lean).
