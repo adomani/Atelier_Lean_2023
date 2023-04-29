@@ -143,7 +143,7 @@ inductive myℕ
   | zero : myℕ
   | succ : myℕ → myℕ
 \end{minted}
-\href{https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A}{Click here to open the Lean web editor}
+{\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A}{Click here to open the Lean web editor}.}}
 \bigskip
 
 The code above defines a Type {\color{purple}\verb`myℕ`}.
@@ -153,6 +153,9 @@ The Type {\color{purple}\verb`myℕ`} contains an element (really, a {\color{pur
 \bigskip
 
 We also postulate the existence of a function {\color{purple}\verb`succ`} from {\color{purple}\verb`myℕ`} to {\color{purple}\verb`myℕ`}.
+\bigskip
+
+Lean's Type Theory takes care of making {\color{purple}\verb`myℕ`} ``universal''.
 \end{frame}
 
 \begin{frame}[fragile]

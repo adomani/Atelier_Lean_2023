@@ -138,6 +138,9 @@ texConversions () {
           a \\\bigskip
         }
         s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
+        /Click here to open the Lean web editor/ {
+          s/^/{\\small{/; s/$/}}/
+        }
       ' "${1}" |
     replaceXWithLR '`' '{\\color{purple}\\verb`' '`}' - |
     sed /"${sep}"/' {
