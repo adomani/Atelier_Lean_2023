@@ -143,6 +143,111 @@ We also postulate the existence of a function `succ` from `myℕ` to `myℕ`.
 
 Lean's Type Theory takes care of making `myℕ` "universal".
 
+&nbsp;
+
+For instance, Lean auto-generates the induction principle.
+
+---
+
+In Lean's Type Theory, there is an inbuilt axiom:
+
+* *every* term has a *unique* Type.
+
+&nbsp;
+
+For instance, the Type `myℕ` above contains the term `zero` (really, the term is `myℕ.zero`).
+
+&nbsp;
+
+Imagine that we eventually we define `myℤ.zero`.
+
+&nbsp;
+
+The two terms `myℕ.zero : myℕ` and `myℤ.zero : myℤ` are *different*.
+
+&nbsp;
+
+We can make Lean aware of the unique homomorphism `myℕ → myℤ`.
+
+---
+
+However, we can pretend that `myℕ.zero` and `myℤ.zero` are "the same", only as long as some tactic takes care of converting between the two.
+
+&nbsp;
+
+Notice also that in Set Theory, the usual definitions of
+$$
+  0 \in \mathbb{N} \qquad {\textrm{and}} \qquad 0 \in \mathbb{Z}
+$$
+yield *different* elements.
+
+&nbsp;
+
+Even the containment $\mathbb{N} \subset \mathbb{Z}$ is false.
+
+&nbsp;
+
+Type Theory simply makes us more aware of these (usually inconsequential) inconsistencies.
+
+---
+
+## Why many proof checkers use Type Theory?
+
+Using a proof checker, ultimately means writing a computer program to verify a mathematical reasoning.
+
+&nbsp;
+
+In Set Theory, there are **a lot** of garbage statements that are actually syntactically correct.
+
+&nbsp;
+
+For instance, deciding whether the relations
+
+$$
+  \mathbb{N} \in \pi
+  \qquad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e
+  \qquad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset
+$$
+hold is "meaningful".
+
+&nbsp;
+
+In Type Theory, none of the above `Type-checks`.
+
+---
+
+$$
+  \mathbb{N} \in \pi
+  \qquad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e
+  \qquad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset
+$$
+
+&nbsp;
+
+In the background, Lean is constantly Type-checking every assertion that we write.
+
+&nbsp;
+
+This means that it can alert us to the fact that we are writing "non-sense" *before* a proof-checker based on Set Theory would.
+
+&nbsp;
+
+You can think of `Type-checking` as `dimensional-analysis` in physics:
+
+[if you compute the speed of your car to be $70$Kg, you are sure that you've made a mistake!]
+
+---
+
+Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
+
+Sometimes, it may lead us to prefer one approach over another.
+
+In practice, the main difference of Type Theory using Lean vs ""
+
 ---
 
  is a Type, containing

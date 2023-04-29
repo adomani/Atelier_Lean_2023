@@ -182,6 +182,111 @@ We also postulate the existence of a function {\color{violet}\verb`succ`} from {
 \bigskip
 
 Lean's Type Theory takes care of making {\color{violet}\verb`myℕ`} ``universal''.
+\bigskip
+
+For instance, Lean auto-generates the induction principle.
+\end{frame}
+
+\begin{frame}[fragile]
+
+In Lean's Type Theory, there is an inbuilt axiom:
+
+\begin{itemize}
+\item
+  {\emph{every}} term has a {\emph{unique}} Type.
+\end{itemize}
+\bigskip
+
+For instance, the Type {\color{violet}\verb`myℕ`} above contains the term {\color{violet}\verb`zero`} (really, the term is {\color{violet}\verb`myℕ.zero`}).
+\bigskip
+
+Imagine that we eventually we define {\color{violet}\verb`myℤ.zero`}.
+\bigskip
+
+The two terms {\color{violet}\verb`myℕ.zero : myℕ`} and {\color{violet}\verb`myℤ.zero : myℤ`} are {\emph{different}}.
+\bigskip
+
+We can make Lean aware of the unique homomorphism {\color{violet}\verb`myℕ → myℤ`}.
+\end{frame}
+
+\begin{frame}[fragile]
+
+However, we can pretend that {\color{violet}\verb`myℕ.zero`} and {\color{violet}\verb`myℤ.zero`} are ``the same'', only as long as some tactic takes care of converting between the two.
+\bigskip
+
+Notice also that in Set Theory, the usual definitions of
+$$
+  0 \in \mathbb{N} \qquad {\textrm{and}} \qquad 0 \in \mathbb{Z}
+$$
+yield {\emph{different}} elements.
+\bigskip
+
+Even the containment $\mathbb{N} \subset \mathbb{Z}$ is false.
+\bigskip
+
+Type Theory simply makes us more aware of these (usually inconsequential) inconsistencies.
+\end{frame}
+
+\begin{frame}[fragile]{Why many proof checkers use Type Theory?}
+
+Using a proof checker, ultimately means writing a computer program to verify a mathematical reasoning.
+\bigskip
+
+In Set Theory, there are {\textbf{a lot}} of garbage statements that are actually syntactically correct.
+\bigskip
+
+For instance, deciding whether the relations
+
+$$
+  \mathbb{N} \in \pi
+  \qquad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e
+  \qquad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset
+$$
+hold is ``meaningful''.
+\bigskip
+
+In Type Theory, none of the above {\color{violet}\verb`Type-checks`}.
+\end{frame}
+
+\begin{frame}[fragile]
+
+$$
+  \mathbb{N} \in \pi
+  \qquad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e
+  \qquad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset
+$$
+\bigskip
+
+In the background, Lean is constantly Type-checking every assertion that we write.
+\bigskip
+
+This means that it can alert us to the fact that we are writing ``non-sense'' {\emph{before}} a proof-checker based on Set Theory would.
+\bigskip
+
+You can think of {\color{violet}\verb`Type-checking`} as {\color{violet}\verb`dimensional-analysis`} in physics:
+
+\smallskip
+\[
+  \left[ \;
+  \makebox{\parbox{0.8\textwidth}{\small
+  if you compute the speed of your car to be $70$Kg, you are sure that you've made a mistake!
+  }}
+  \; \right]
+\]
+\bigskip
+\end{frame}
+
+\begin{frame}[fragile]
+
+Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
+
+Sometimes, it may lead us to prefer one approach over another.
+
+In practice, the main difference of Type Theory using Lean vs ``''
 \end{frame}
 
 \begin{frame}[fragile]
