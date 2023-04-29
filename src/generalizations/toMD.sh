@@ -155,7 +155,7 @@ texConversions () {
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
       s/[\n]*\\end{itemize}[\n ]*\\begin{itemize}[\n]*/\n/g
-    ' |
+    ' |                               ##  dealing with tables
     awk -F'|' 'BEGIN{ dentro=0 }
       ! ((1 < NF) && $1 == "") {
         if (3 <= dentro) { print "\\hline\n\\end{tabular}\n"; dentro=0 }
