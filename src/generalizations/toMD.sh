@@ -182,7 +182,15 @@ texConversions () {
 }
 
 toTex () {
-  cat ~/Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt
+  local pre='Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt'
+  if [ "$(basename "${1}")" == "TTintro.md" ]; then
+    sed '
+      s/^\\title{Automatization in Lean}$/\\title{Introduction to Type Theory}/
+      s/^May 2nd, 2023$/May 3rd, 2023/
+    ' ~/"${pre}"
+  else
+    cat ~/"${pre}"
+  fi
   texConversions "${1}"
   echo '\end{frame}'
   echo '\end{document}'
