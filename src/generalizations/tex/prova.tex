@@ -1,6 +1,9 @@
 \documentclass{beamer}
 \usepackage{color}
 
+\usetheme{Boadilla}
+\usefonttheme{serif}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
@@ -25,8 +28,8 @@
 
 \title{Automatization in Lean}
 \author{Damiano Testa}
-\institute{University of Warwick}
-\date{\\
+\institute[]{University of Warwick}
+\date[\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}]{\\
 \vspace{50pt}
 RNTA mini symposium
 \href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}\\
@@ -74,10 +77,7 @@ There is lots of interest and steady progress on this front.
 
 \begin{frame}[fragile]{Tactics}
 
-The first main ``automation'' tactics that you will likely run into are {\verb`library_search`} and {\verb`simp`}.
-\bigskip
-
-Really, {\emph{any}} tactic is a form of automation.
+{\emph{Any}} tactic is a form of automation.
 \bigskip
 
 Tactics allow to maintain abstraction:
@@ -88,11 +88,23 @@ Tactics allow to maintain abstraction:
 \item
   the computer has some representation for these concepts.
 \end{itemize}
+\bigskip
 
 Tactics bridge this gap.
 \bigskip
 
-We do not even need to know what the computer's internal representation is: tactics handle the translation.
+We do not need to know what the computer's internal representation is: tactics handle the translation.
+\end{frame}
+
+\begin{frame}[fragile]
+
+In the previous talks, you have already seen some tactics ({\verb`exact`}, {\verb`intro`}, {\verb`apply`}, {\verb`rw`}, ...).
+\bigskip
+
+Now, we talk about {\verb`library_search`} and {\verb`simp`}.
+\bigskip
+
+These tactics probably feel closer to an intuitive idea of ``automation'' that you may have.
 \end{frame}
 
 \begin{frame}[fragile]{{\texttt{library\_search}}}
@@ -129,17 +141,21 @@ Besides {\verb`library_search`}, {\verb`mathlib`} has a very helpful \href{https
 \bigskip
 \end{frame}
 
-\begin{frame}[fragile]{{\texttt{simp}}}
+\begin{frame}[fragile]{The {\texttt{simp}}-lifier}
 
-As the name suggests, the {\verb`simp`}lifier tries to simplify a goal (or a target hypothesis).
+As the name suggests, the {\verb`simp`}-lifier tries to simplify a goal.
 
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
-example {a b : ℤ} : - (-1 * a + 0 * b) = a * (1 + a * 0) :=
+example {a b : ℤ} :
+  - (-1 * a + 0 * b) = a * (1 + a * 0) :=
 begin
   simp,
 end
 \end{minted}
+\bigskip
+
 Here, {\verb`simp`} used the lemmas
+\bigskip
 
 \begin{tabular}{|l|l|l|}
 \hline

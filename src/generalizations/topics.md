@@ -22,11 +22,7 @@ There is lots of interest and steady progress on this front.
 
 ##  Tactics
 
-The first main "automation" tactics that you will likely run into are `library_search` and `simp`.
-
-&nbsp;
-
-Really, *any* tactic is a form of automation.
+*Any* tactic is a form of automation.
 
 &nbsp;
 
@@ -35,11 +31,25 @@ Tactics allow to maintain abstraction:
 *  we humans talk about mathematical concepts,
 *  the computer has some representation for these concepts.
 
+&nbsp;
+
 Tactics bridge this gap.
 
 &nbsp;
 
-We do not even need to know what the computer's internal representation is: tactics handle the translation.
+We do not need to know what the computer's internal representation is: tactics handle the translation.
+
+---
+
+In the previous talks, you have already seen some tactics (`exact`, `intro`, `apply`, `rw`, ...).
+
+&nbsp;
+
+Now, we talk about `library_search` and `simp`.
+
+&nbsp;
+
+These tactics probably feel closer to an intuitive idea of "automation" that you may have.
 
 ---
 
@@ -77,17 +87,23 @@ Besides `library_search`, `mathlib` has a very helpful [naming convention](https
 
 ---
 
-## `simp`
+## The `simp`-lifier
 
-As the name suggests, the `simp`lifier tries to simplify a goal (or a target hypothesis).
+As the name suggests, the `simp`-lifier tries to simplify a goal.
 
 ```lean
-example {a b : ℤ} : - (-1 * a + 0 * b) = a * (1 + a * 0) :=
+example {a b : ℤ} :
+  - (-1 * a + 0 * b) = a * (1 + a * 0) :=
 begin
   simp,
 end
 ```
+
+&nbsp;
+
 Here, `simp` used the lemmas
+
+&nbsp;
 
 ||||
 |-|-|-|
