@@ -160,10 +160,10 @@ texConversions () {
       }
       ((1 < NF) && $1 == "") {
         if (dentro == 0) {
-          row=""
+          row=""; cols=NF-1
           if (! /^\|*$/) {
             for (i=2; i<=NF-2; i++) row=row $i " &"
-            row=row " " $(NF-1) " \\\\\n\\hline\n"
+            row=row " " $cols " \\\\\n\\hline\n"
           }
         }
         if (dentro == 1) {
@@ -175,7 +175,7 @@ texConversions () {
           printf "}\n\\hline\n%s", row
         }
         if (2 <= dentro) {
-          for (i=2; i<=NF-1; i++) printf "%s%s", $i, i == NF-1 ? "\\\\\n" : "&"
+          for (i=2; i<=cols; i++) printf "%s%s", $i, i == cols ? "\\\\\n" : "&"
         }
       dentro++
     }'

@@ -89,10 +89,9 @@ end
 ```
 Here, `simp` used the lemmas
 
-|||
-|-|-|
-|`neg_mul` | `neg_neg` |
-|`add_zero` | |
+||||
+|-|-|-|
+|`neg_mul` | `neg_neg` | `add_zero` |
 |`one_mul` | `mul_one` |
 |`mul_zero` | `zero_mul` |
 
