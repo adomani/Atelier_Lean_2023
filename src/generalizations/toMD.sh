@@ -152,7 +152,33 @@ texConversions () {
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
       s/[\n]*\\end{itemize}[\n ]*\\begin{itemize}[\n]*/\n/g
-    '
+    ' |
+    awk -F'|' 'BEGIN{ dentro=0 }
+      ! ((1 < NF) && $1 == "") {
+        if (3 <= dentro) { print "\\hline\n\\end{tabular}\n"; dentro=0 }
+        print
+      }
+      ((1 < NF) && $1 == "") {
+        if (dentro == 0) {
+          row=""
+          if (! /^\|*$/) {
+            for (i=2; i<=NF-2; i++) row=row $i " &"
+            row=row " " $(NF-1) " \\\\\n\\hline\n"
+          }
+        }
+        if (dentro == 1) {
+          printf "\\begin{tabular}{|"
+          for (i=2; i<=NF-1; i++)
+            if      ($i ~ /^ *[:]?--* *$/) { printf "l|" }
+            else if ($i ~ /^ *:--*: *$/) { printf "c|" }
+            else if ($i ~ /^ *--*: *$/) { printf "r|" }
+          printf "}\n\\hline\n%s", row
+        }
+        if (2 <= dentro) {
+          for (i=2; i<=NF-1; i++) printf "%s%s", $i, i == NF-1 ? "\\\\\n" : "&"
+        }
+      dentro++
+    }'
 }
 
 toTex () {
