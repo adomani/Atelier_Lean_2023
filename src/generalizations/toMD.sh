@@ -142,7 +142,7 @@ texConversions () {
           s/^/{\\small{/; s/$/}}/
         }
       ' "${1}" |
-    replaceXWithLR '`' '{\\color{purple}\\verb`' '`}' - |
+    replaceXWithLR '`' '{\\color{violet}\\verb`' '`}' - |
     sed /"${sep}"/' {
       s/^'"${sep}"'//
       s/\\verb`/\\texttt{/g
