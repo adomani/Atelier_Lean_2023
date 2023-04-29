@@ -1,5 +1,8 @@
 \documentclass{beamer}
-\usepackage{color}
+\usepackage{xcolor}
+
+\usetheme{Boadilla}
+\usefonttheme{serif}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -25,8 +28,8 @@
 
 \title{Automatization in Lean}
 \author{Damiano Testa}
-\institute{University of Warwick}
-\date{\\
+\institute[]{University of Warwick}
+\date[\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}]{\\
 \vspace{50pt}
 RNTA mini symposium
 \href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}\\
