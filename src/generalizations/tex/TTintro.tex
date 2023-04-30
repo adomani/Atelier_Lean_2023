@@ -277,26 +277,30 @@ $\ldots$ and Lean will let you know.
 \begin{frame}[fragile]{Implementation details}
 
 Formalizing mathematics made me focus on the separation:
-\[
-  \left[ \;
-  \parbox{0.8\textwidth}{\centering\small
-  mathematical concept  \qquad vs \qquad its realization in set theory
-  }
-  \; \right]
-\]
 
-{\color{violet}\verb`Example:`} implementations of the polynomial ring $\mathbb{Z}[x]$
+{\centering
+\begin{tabular}{|c|c|}
+\hline
+Platonic world &  Real-world mirror \\
+\hline
+mathematical concept & realization in set theory \\
+abstract idea        & implementation detail \\
+\hline
+\end{tabular}
+
+}
+
+{\color{violet}\verb`Example.`} Implementations of the polynomial ring $\mathbb{Z}[x]$:
 \\
-
 \vspace{-13pt}
 \begin{itemize}
 \setlength\itemsep{-12pt}
 \item
-  Formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$
+  formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$;
 \item
-  ``Meaningful'', linear combinations of the ``power'' functions $\{ x^n \}_{n \in \mathbb{N}}$
+  ``meaningful'', finite $\mathbb{Z}$-linear sums of the power functions $\{ x^n \}_{n \in \mathbb{N}}$;
 \item
-  Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product
+  Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product;
 \item
   A commutative ring with unit representing the forgetful functor
 \end{itemize}

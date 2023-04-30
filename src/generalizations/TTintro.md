@@ -179,14 +179,19 @@ $\ldots$ and Lean will let you know.
 ##  Implementation details
 
 Formalizing mathematics made me focus on the separation:
-[mathematical concept <!-- \qquad vs \qquad--> its realization in set theory]
 
-`Example:` implementations of the polynomial ring $\mathbb{Z}[x]$
+<!--{\centering-->
+|Platonic world| Real-world mirror|
+| :---: | :---: |
+|mathematical concept | realization in set theory |
+|abstract idea        | implementation detail |
+<!--}-->
+
+`Example.` Implementations of the polynomial ring $\mathbb{Z}[x]$:
 <!--\\-->
-
-* Formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$
-* "Meaningful", linear combinations of the "power" functions $\{ x^n \}_{n \in \mathbb{N}}$
-* Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product
+* formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$;
+* "meaningful", finite $\mathbb{Z}$-linear sums of the power functions $\{ x^n \}_{n \in \mathbb{N}}$;
+* Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product;
 * A commutative ring with unit representing the forgetful functor
 $$
   \begin{array}{rcl}
