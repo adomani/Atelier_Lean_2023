@@ -123,7 +123,7 @@ texConversions () {
         }
         s/\(.\)\[^[0-9][0-9]*\]/\1{\\footnotemark}/g
         s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
-        s/^\*  *\(.*\)/\\vspace{-18pt}\n\\begin{itemize}\n\\setlength\\itemsep{-18pt}\n\\item\n  \1\n\\end{itemize}/
+        s/^\*  *\(.*\)/\\vspace{-13pt}\n\\begin{itemize}\n\\setlength\\itemsep{-12pt}\n\\item\n  \1\n\\end{itemize}/
         s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
         s/\*\([a-zA-Z ]*\)\*/{\\emph{\1}}/g
         /^\[.*\]$/ {
@@ -139,7 +139,7 @@ texConversions () {
         }
         s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
         /Click here to open the Lean web editor/ {
-          s/^/{\\small{/; s/$/}}/
+          s/^/\\vspace{-20pt}\n{\\small{/; s/$/}}/
         }
       s/<!--\(.*\)-->$/\1/            ##  custom tex replacement
       ' "${1}" |
@@ -155,8 +155,8 @@ texConversions () {
       s/\n&nbsp;/\\bigskip/g
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
-      s/[\n]*\\end{itemize}[\n ]*\\vspace{-18pt}[\n ]*\\begin{itemize}[\n]*/\n/g
-      s/\([^}]\)\n\\setlength\\itemsep{-18pt}/\1/g
+      s/[\n]*\\end{itemize}[\n ]*\\vspace{-13pt}[\n ]*\\begin{itemize}[\n]*/\n/g
+      s/\([^}]\)\n\\setlength\\itemsep{-12pt}/\1/g
     ' |                               ##  dealing with tables
     awk -F'|' 'BEGIN{ dentro=0 }
       ! ((1 < NF) && $1 == "") {
