@@ -263,8 +263,6 @@ In the background, {\color{violet}\verb`Lean`} constantly {\color{violet}\verb`T
 This means that it can alert us to the fact that we are writing ``non-sense'' {\color{violet}\verb`before`} a proof-checker based on Set Theory would.
 
 You can think of {\color{violet}\verb`Type-checking`} as {\color{violet}\verb`dimensional-analysis`} in physics:
-
-\smallskip
 \[
   \left[ \;
   \parbox{0.8\textwidth}{\centering\small
@@ -272,19 +270,45 @@ You can think of {\color{violet}\verb`Type-checking`} as {\color{violet}\verb`di
   }
   \; \right]
 \]
-\bigskip
 
 $\ldots$ and Lean will let you know.
 \end{frame}
 
-\begin{frame}[fragile]{Type Theory vs Set Theory}
+\begin{frame}[fragile]{Implementation details}
 
-To me, the most insightful consequence of formalizing mathematics in Type Theory came from focusing on the separation:
+Formalizing mathematics made me focus on the separation:
+\[
+  \left[ \;
+  \parbox{0.8\textwidth}{\centering\small
+  mathematical concept  \qquad vs \qquad its realization in set theory
+  }
+  \; \right]
+\]
 
- mathematical concept
+{\color{violet}\verb`Example:`} implementations of the polynomial ring $\mathbb{Z}[x]$
+\\
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  Formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$
+\item
+  ``Meaningful'', linear combinations of the ``power'' functions $\{ x^n \}_{n \in \mathbb{N}}$
+\item
+  Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product
+\item
+  A commutative ring with unit representing the forgetful functor
+\end{itemize}
+$$
+  \begin{array}{rcl}
+    {\textbf{CommRings}} & \longrightarrow & {\textbf{Sets}} \\
+    R & \longmapsto & R
+  \end{array}
+$$
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile]{Type Theory vs Set Theory}
 
 Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
 

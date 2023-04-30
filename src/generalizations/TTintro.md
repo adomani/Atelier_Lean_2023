@@ -170,21 +170,34 @@ In the background, `Lean` constantly `Type-checks` every assertion.
 This means that it can alert us to the fact that we are writing "non-sense" `before` a proof-checker based on Set Theory would.
 
 You can think of `Type-checking` as `dimensional-analysis` in physics:
-
 [if you compute the speed of your bike to be $12$Kg, you are sure that you've made a mistake!]
 
 $\ldots$ and Lean will let you know.
 
 ---
 
-##  Type Theory vs Set Theory
+##  Implementation details
 
-To me, the most insightful consequence of formalizing mathematics in Type Theory came from focusing on the separation:
+Formalizing mathematics made me focus on the separation:
+[mathematical concept <!-- \qquad vs \qquad--> its realization in set theory]
 
- mathematical concept
+`Example:` implementations of the polynomial ring $\mathbb{Z}[x]$
+<!--\\-->
 
+* Formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$
+* "Meaningful", linear combinations of the "power" functions $\{ x^n \}_{n \in \mathbb{N}}$
+* Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product
+* A commutative ring with unit representing the forgetful functor
+$$
+  \begin{array}{rcl}
+    {\textbf{CommRings}} & \longrightarrow & {\textbf{Sets}} \\
+    R & \longmapsto & R
+  \end{array}
+$$
 
 ---
+
+##  Type Theory vs Set Theory
 
 Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
 
