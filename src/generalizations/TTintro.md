@@ -42,15 +42,11 @@ Everything is a set. Everything. EVERYTHING.
 
 # Set Theory -- really?
 
-I imagine that most mathematicians *could* explain how to encode their favourite mathematical concept using only the rules for forming sets out of old sets, starting from the empty set.
+Most mathematicians `can` explain how to encode their favourite mathematical concept using only the basic axioms of set theory.
 
-&nbsp;
+Most mathematicians would probably `not want` to do that.
 
-I also imagine that most mathematicians would rather *not* do that.
-
-&nbsp;
-
-Descending inside all the nested sets of sets of sets until we reach the empty set is probably detrimental to developing an intuition about modular forms, or schemes.
+`Descending` inside all the nested sets of sets of sets until we reach the empty set is probably even `detrimental` to developing an `intuition` about modular forms, schemes, or any `advanced` mathematical concept.
 
 ---
 
