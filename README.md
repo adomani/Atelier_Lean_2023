@@ -40,14 +40,10 @@ The [Class][Logic_Class] and the [Tutorial][Logic_Tutorial]
 Part B: Functions.
 The [Class][Functions_Class] and the [Tutorial][Functions_Tutorial]
 
-Part C: Limits.
-The [Class][Limits_Class] and the [Tutorial][Limits_Tutorial]
-
-Part D: Rings and Ideals.
+Part C: Rings and Ideals.
 The [Class][Ring_Ideals_Class] and the [Tutorial][Ring_Ideals_Tutorial]
 
-Part E: some Number Theory.
-The [Class][NumberTheory_Class] and the [Tutorial][NumberTheory_Tutorial].
+Part D: some [Number Theory][NumberTheory].
 
 ---
 
@@ -82,9 +78,6 @@ The [Class][NumberTheory_Class] and the [Tutorial][NumberTheory_Tutorial].
 [Logic_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Logic_Tutorial.lean "Logic Tutorial"
 [Functions_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Functions_Class.lean "Functions Class"
 [Functions_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Functions_Tutorial.lean "Functions Tutorial"
-[Limits_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Class.lean "Limits Class"
-[Limits_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits_Tutorial.lean "Limits Tutorial"
 [Ring_Ideals_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Class.lean "Ring Ideals Class"
 [Ring_Ideals_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Tutorial.lean "Ring Ideals Tutorial"
-[NumberTheory_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Class.lean "Number Theory Class"
-[NumberTheory_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory_Tutorial.lean "Number Theory Tutorial"
+[NumberTheory]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory.lean "Number Theory"
