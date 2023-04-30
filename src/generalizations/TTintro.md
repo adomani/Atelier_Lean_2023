@@ -149,11 +149,13 @@ In Set Theory, **many** syntactically correct statements are `garbage`.
 
 For instance, deciding whether the relations
 $$
-  \mathbb{N} \in \pi
-  \qquad {\textrm{or}} \qquad
-  \mathbb{Q}_{\le 0} \subset e
-  \qquad {\textrm{or}} \qquad
-  \sqrt{2} ^ 2 = \emptyset
+  \left(
+    {\textrm{Norm}} \colon \mathbb{Q}\left( \sqrt{2} \right) \to \mathbb{Q}
+  \right) \in \pi,
+  \quad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e,
+  \quad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset.
 $$
 hold is "meaningful".
 Usually, `no one cares` about the answers.
@@ -165,11 +167,13 @@ In Type Theory, none of the above `Type-checks`.
 ##  Type-checking feedback
 
 $$
-  \mathbb{N} \in \pi
-  \qquad {\textrm{or}} \qquad
-  \mathbb{Q}_{\le 0} \subset e
-  \qquad {\textrm{or}} \qquad
-  \sqrt{2} ^ 2 = \emptyset
+  \left(
+    {\textrm{Norm}} \colon \mathbb{Q}\left( \sqrt{2} \right) \to \mathbb{Q}
+  \right) \in \pi,
+  \quad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e,
+  \quad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset.
 $$
 
 In the background, `Lean` constantly `Type-checks` every assertion.
