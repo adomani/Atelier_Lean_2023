@@ -156,7 +156,7 @@ texConversions () {
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
       s/[\n]*\\end{itemize}[\n ]*\\vspace{-18pt}[\n ]*\\begin{itemize}[\n]*/\n/g
-      s/[^}]\n\\setlength\\itemsep{-18pt}//g
+      s/\([^}]\)\n\\setlength\\itemsep{-18pt}/\1/g
     ' |                               ##  dealing with tables
     awk -F'|' 'BEGIN{ dentro=0 }
       ! ((1 < NF) && $1 == "") {

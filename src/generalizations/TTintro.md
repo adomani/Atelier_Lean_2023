@@ -67,9 +67,7 @@ Have you ever used Kuratowski's encoding of ordered pairs to `really` understand
 
 ##  Types as structured sets
 
-From the perspective of Set Theory,
-
-* a `Type` is like a set,
+* A `Type` is like a set,
 * its elements are called `terms`,
 * the `belong-to` relation is denoted by `:`.
 
@@ -83,7 +81,6 @@ Types usually come with rules, called `constructors`, for building terms of the 
 <!--\vspace{-10pt}-->
 
 The constructors endow their Type with some internal `structure`.
-<!--\vspace{-10pt}-->
 
 Let's see the definition of natural numbers in Lean.
 
