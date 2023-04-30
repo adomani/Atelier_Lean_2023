@@ -123,7 +123,7 @@ texConversions () {
         }
         s/\(.\)\[^[0-9][0-9]*\]/\1{\\footnotemark}/g
         s/^\[^[0-9][0-9]*\]: *\(.*\)/\\footnotetext{\1}/g
-        s/^\*  *\(.*\)/\\vspace{-15pt}\n\\begin{itemize}\n\\setlength\\itemsep{-18pt}\n\\item\n  \1\n\\end{itemize}/
+        s/^\*  *\(.*\)/\\vspace{-18pt}\n\\begin{itemize}\n\\setlength\\itemsep{-18pt}\n\\item\n  \1\n\\end{itemize}/
         s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
         s/\*\([a-zA-Z ]*\)\*/{\\emph{\1}}/g
         /^\[.*\]$/ {
@@ -154,7 +154,7 @@ texConversions () {
       s/\n&nbsp;/\\bigskip/g
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
-      s/[\n]*\\end{itemize}[\n ]*\\vspace{-15pt}[\n ]*\\begin{itemize}[\n]*/\n/g
+      s/[\n]*\\end{itemize}[\n ]*\\vspace{-18pt}[\n ]*\\begin{itemize}[\n]*/\n/g
       s/[^}]\n\\setlength\\itemsep{-18pt}//g
       s/ *<!--c1-->\n/ \\\\/g         ##  custom tag 1: line-break with small spacing
     ' |                               ##  dealing with tables
