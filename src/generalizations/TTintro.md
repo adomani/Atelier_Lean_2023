@@ -52,19 +52,16 @@ Most mathematicians would probably `not want` to do that.
 
 We may `undo` one nesting or two, but, after that, we probably stop and think about `structured` sets.
 
-If $f \colon A \longrightarrow B$ is a `function`, we may think of it as a rule to `convert` elements of $A$ to elements of $B$. <!--c1-->
+If $f \colon A \longrightarrow B$ is a `function`, we may think of it as a rule to `convert` elements of $A$ to elements of $B$.
+* No undoing: a `structured` function.
 
-$\to$ No undoing: a `structured` function.
+Sometimes, it can be useful to think of the `graph` of $f$.
+<!--\\-->
+In Set Theory this `is` the function.
+* 1 undoing: `structured` ordered pairs.
 
-Sometimes, it can be useful to think of the `graph` of $f$.  <!--c1-->
-
-In Set Theory this `is` the function. <!--c1-->
-
-$\to$ 1 undoing: `structured` ordered pairs.
-
-Have you ever used Kuratowski's encoding of ordered pairs to `really` understand $f$? <!--c1-->
-
-$\to$ 2 undoings: `unstructured` chaos.
+Have you ever used Kuratowski's encoding of ordered pairs to `really` understand $f$?
+* 2 undoings: `unstructured` chaos.
 
 ---
 
@@ -77,12 +74,16 @@ From the perspective of Set Theory,
 * the `belong-to` relation is denoted by `:`.
 
 Thus, if `t` is a term of a Type `T`, we can write `t : T`.
+<!--\vspace{-10pt}-->
 
 A fundamental axiom is that every term has a unique Type.
+<!--\vspace{-10pt}-->
 
 Types usually come with rules, called `constructors`, for building terms of the given Type.
+<!--\vspace{-10pt}-->
 
 The constructors endow their Type with some internal `structure`.
+<!--\vspace{-10pt}-->
 
 Let's see the definition of natural numbers in Lean.
 
