@@ -35,15 +35,15 @@ In the previous talks, you have already seen some tactics (`exact`, `intro`, `ap
 
 Now, we talk about `library_search` and `simp`.
 
-These tactics probably feel closer to an intuitive idea of "automation" that you may have.
+These tactics probably feel closer to an intuitive idea of `automation` that you may have.
 
 ---
 
 ## `library_search`
 
 `mathlib` is a massive repository: it contains
-* over 1 million lines of code
-* over 60 thousand lemmas.
+* over `1 million` lines of code
+* over `60 thousand` lemmas.
 
 Most of the basic[^1] lemmas are already available.
 
@@ -96,10 +96,10 @@ end
 
 ---
 
-##  "`simp`-lemmas": lemmas that `simp` uses
+##  `simp`-lemmas: lemmas that `simp` uses
 <!--\vphantom{}-->
-* They assert an equality or an iff.
-* The LHS **looks more complicated** than the RHS.
+* They assert an `equality` or an `iff`.
+* The `LHS` **looks more complicated** than the `RHS`.
 <!--\vspace{-20pt}-->
 ```lean
 #print mul_zero  -- means:   a * 0 = 0
@@ -111,7 +111,7 @@ end
 #print add_zero  -- means:   a + 0 = 0
 ```
 <!--\vspace{-10pt}-->
-The asymmetry helps Lean to flow along
+The `asymmetry` helps Lean to flow along
 $$
   {\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.
 $$
@@ -121,15 +121,15 @@ $$
 
 ## `simp`-normal-form and confluence
 
-`simp`-lifying LHS to RHS leads to questions of `confluence`.
+`simp`-lifying `LHS` to `RHS` leads to questions of `confluence`.
 
 Ideally, `simp` invariably `converges` to an "optimal" final shape.
 
-In reality, there are practical and theoretical reasons why this cannot be the case.
+In reality, there are `practical` and `theoretical` reasons why this cannot be the case.
 
 Still, `simp` is a very useful automation tool.
 
-"Locally", it achieves normalization efficiently and effectively.
+"Locally", it achieves `normalization` efficiently and effectively.
 
 ---
 

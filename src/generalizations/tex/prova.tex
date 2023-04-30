@@ -101,7 +101,7 @@ In the previous talks, you have already seen some tactics ({\color{violet}\verb`
 
 Now, we talk about {\color{violet}\verb`library_search`} and {\color{violet}\verb`simp`}.
 
-These tactics probably feel closer to an intuitive idea of ``automation'' that you may have.
+These tactics probably feel closer to an intuitive idea of {\color{violet}\verb`automation`} that you may have.
 \end{frame}
 
 \begin{frame}[fragile]{{\color{violet}\texttt{library\_search}}}
@@ -111,9 +111,9 @@ These tactics probably feel closer to an intuitive idea of ``automation'' that y
 \begin{itemize}
 \setlength\itemsep{-12pt}
 \item
-  over 1 million lines of code
+  over {\color{violet}\verb`1 million`} lines of code
 \item
-  over 60 thousand lemmas.
+  over {\color{violet}\verb`60 thousand`} lemmas.
 \end{itemize}
 
 Most of the basic{\footnotemark} lemmas are already available.
@@ -170,15 +170,15 @@ end
 
 \end{frame}
 
-\begin{frame}[fragile]{``{\color{violet}\texttt{simp}}-lemmas'': lemmas that {\color{violet}\texttt{simp}} uses}
+\begin{frame}[fragile]{{\color{violet}\texttt{simp}}-lemmas: lemmas that {\color{violet}\texttt{simp}} uses}
 \vphantom{}
 \vspace{-13pt}
 \begin{itemize}
 \setlength\itemsep{-12pt}
 \item
-  They assert an equality or an iff.
+  They assert an {\color{violet}\verb`equality`} or an {\color{violet}\verb`iff`}.
 \item
-  The LHS {\textbf{looks more complicated}} than the RHS.
+  The {\color{violet}\verb`LHS`} {\textbf{looks more complicated}} than the {\color{violet}\verb`RHS`}.
 \end{itemize}
 \vspace{-20pt}
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
@@ -191,7 +191,7 @@ end
 #print add_zero  -- means:   a + 0 = 0
 \end{minted}
 \vspace{-10pt}
-The asymmetry helps Lean to flow along
+The {\color{violet}\verb`asymmetry`} helps Lean to flow along
 $$
   {\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.
 $$
@@ -206,15 +206,15 @@ $$
 
 \begin{frame}[fragile]{{\color{violet}\texttt{simp}}-normal-form and confluence}
 
-{\color{violet}\verb`simp`}-lifying LHS to RHS leads to questions of {\color{violet}\verb`confluence`}.
+{\color{violet}\verb`simp`}-lifying {\color{violet}\verb`LHS`} to {\color{violet}\verb`RHS`} leads to questions of {\color{violet}\verb`confluence`}.
 
 Ideally, {\color{violet}\verb`simp`} invariably {\color{violet}\verb`converges`} to an ``optimal'' final shape.
 
-In reality, there are practical and theoretical reasons why this cannot be the case.
+In reality, there are {\color{violet}\verb`practical`} and {\color{violet}\verb`theoretical`} reasons why this cannot be the case.
 
 Still, {\color{violet}\verb`simp`} is a very useful automation tool.
 
-``Locally'', it achieves normalization efficiently and effectively.
+``Locally'', it achieves {\color{violet}\verb`normalization`} efficiently and effectively.
 \end{frame}
 
 \begin{frame}[fragile]
