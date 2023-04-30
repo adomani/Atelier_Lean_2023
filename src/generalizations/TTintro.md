@@ -99,7 +99,7 @@ We also postulate the existence of a function `succ` from `myℕ` to `myℕ`.
 
 Lean's Type Theory takes care of making `myℕ` "universal".
 
-For instance, Lean auto-generates the induction principle.
+For instance, Lean `auto-generates` the `induction` principle.
 
 ---
 
