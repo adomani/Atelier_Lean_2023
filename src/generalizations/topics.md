@@ -18,16 +18,16 @@ There is `lots` of interest and `steady progress` on this front.
 
 ##  Tactics
 
-*Any* tactic is a form of automation.
+`Any` tactic is a form of automation.
 
-Tactics allow to maintain abstraction:
+Tactics allow to maintain `abstraction`:
 
-*  we humans talk about mathematical concepts,
-*  the computer has some representation for these concepts.
+*  we humans talk about `mathematical concepts`,
+*  the computer has some `representation` for these concepts.
 
-Tactics bridge this gap.
+`Tactics` bridge this gap.
 
-We do not need to know what the computer's internal representation is: tactics handle the translation.
+We do not need to know what the computer's internal representation is: tactics handle the `translation`.
 
 ---
 
