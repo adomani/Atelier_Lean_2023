@@ -165,19 +165,15 @@ $$
   \sqrt{2} ^ 2 = \emptyset
 $$
 
-&nbsp;
+In the background, `Lean` constantly `Type-checks` every assertion.
 
-In the background, Lean is constantly Type-checking every assertion.
-
-&nbsp;
-
-This means that it can alert us to the fact that we are writing "non-sense" *before* a proof-checker based on Set Theory would.
-
-&nbsp;
+This means that it can alert us to the fact that we are writing "non-sense" `before` a proof-checker based on Set Theory would.
 
 You can think of `Type-checking` as `dimensional-analysis` in physics:
 
-[if you compute the speed of your car to be $70$Kg, you are sure that you've made a mistake!]
+[if you compute the speed of your bike to be $12$Kg, you are sure that you've made a mistake!]
+
+$\ldots$ and Lean will let you know.
 
 ---
 
