@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage{xcolor}
 
+\usepackage[skip=22pt plus1pt, indent=0pt]{parskip}
+
 \usetheme{Boadilla}
 \usefonttheme{serif}
 
