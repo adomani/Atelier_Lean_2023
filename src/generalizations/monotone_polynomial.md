@@ -1,4 +1,4 @@
-#  Generalizations, automatizations, `library_search`, `simp`, tactics
+#  Generalizations, automation, `library_search`, `simp`, tactics
 
 ## [Atelier Lean 2023](http://www.rnta.eu/7MSRNTA/index.html)
 
@@ -112,12 +112,12 @@ The syntax is
   `(Goldbach: ∀ n : ℕ, ∃ p q, prime p ∧ prime q ∧ p + q = n)`.
 
   Bonus: to "see" Type-inference at work, look at the outputs of
-  
+
 
 ```lean
   #check     ∀ n, ∃ p q, prime p ∧ prime q ∧ p + q = n
   #check ∀ n : ℕ, ∃ p q, prime p ∧ prime q ∧ p + q = n
-  
+
 ```
 
 * <proof> is the actual proof term.

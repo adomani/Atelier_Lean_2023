@@ -188,7 +188,7 @@ toTex () {
   local pre='Matematica/Atelier_Lean_2023/src/generalizations/preamble.txt'
   if [ "$(basename "${1}")" == "TTintro.md" ]; then
     sed '
-      s/^\\title{Automatization in Lean}$/\\title{Introduction to Type Theory}/
+      s/^\\title{Automation in Lean}$/\\title{Introduction to Type Theory}/
       s/^May 2nd, 2023$/May 3rd, 2023/
     ' ~/"${pre}"
   else

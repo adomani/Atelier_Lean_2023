@@ -28,7 +28,7 @@
 \newunicodechar{ᶜ}{\ensuremath{^c}}
 \newunicodechar{ᶠ}{\ensuremath{^f}}
 
-\title{Automatization in Lean}
+\title{Automation in Lean}
 \author{Damiano Testa}
 \institute[]{University of Warwick}
 \date[\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}]{\\
