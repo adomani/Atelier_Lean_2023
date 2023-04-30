@@ -127,7 +127,6 @@ texConversions () {
         s/\*\*\([a-zA-Z ]*\)\*\*/{\\textbf{\1}}/g
         s/\*\([a-zA-Z ]*\)\*/{\\emph{\1}}/g
         /^\[.*\]$/ {
-          i \\\smallskip
           i \\\[
           i \ \ \\\left[ \\\;
           i \ \ \\\parbox{0.8\\textwidth}{\\centering\\\small
@@ -135,13 +134,12 @@ texConversions () {
           a \ \ }
           a \ \ \\\; \\right]
           a \\\]
-          a \\\bigskip
         }
         s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
         /Click here to open the Lean web editor/ {
           s/^/\\vspace{-17pt}\n{\\small{/; s/$/}}/
         }
-      s/<!--\(.*\)-->$/\1/            ##  custom tex replacement
+      s/<!--\(.*\)-->/\1/             ##  custom tex replacement
       ' "${1}" |
     replaceXWithLR '`' '{\\color{violet}\\verb`' '`}' - |
     sed /"${sep}"/' {
