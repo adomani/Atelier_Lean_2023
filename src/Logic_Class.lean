@@ -9,9 +9,10 @@ towards an easier one.
 
  ## intro(s), exact, apply
 The main tools here are the tactics
-* `intro`: introduce a *generic* object (and `intros` introduces several objects at once)
-* `exact`: tell Lean that the goal is already a hypothesis;
-* `apply`: transform a goal `P` into a goal `Q` when applying a hypothesis `H : Q → P`.
+* `intro`: introduces a *generic* object (and `intros` introduces several objects at once), like
+  _let_ in "usual" pen-and-paper mathematics.
+* `exact`: tells Lean that the goal is already a hypothesis;
+* `apply`: transforms a goal `P` into a goal `Q` when applying a hypothesis `H : Q → P`.
 -/
 
 -- **The implication →**
@@ -21,7 +22,7 @@ begin
   sorry,
 end
 
-theorem forall_imp (P Q R : Prop) : (P → Q → R) → (P → Q) → (P → R) :=
+theorem syllogism (P Q R : Prop) : (P → Q → R) → (P → Q) → (P → R) :=
 begin
   sorry,
 end
@@ -48,7 +49,7 @@ For the following, we need to argue _by contradiction_, which can be done by the
 -/
 theorem double_negation_elimination (P : Prop) : ¬ (¬ P) → P :=
 begin
-  sorry
+  sorry,
 end
 
 /- **∧**
@@ -64,7 +65,7 @@ begin
   sorry,
 end
 
-/-- ## cases
+/- ## cases
  If you want to _use_ an assumption of the form `P ∧ Q`, you can use
 * the tactic `cases`: destructure the *assumption* into two sub-assumptions, one being `P` and
   the other being `Q`
@@ -78,9 +79,16 @@ end
 
 /- **∨**
 Similarly, given propositions `P` and `Q`, the proposition `P ∨ Q` is true whenever at least one of
-`P` or `Q` is true. Here, the tactic `cases` produces two sub-goals, one assuming that `P` is true,
-the other assuming that `Q` is true
+`P` or `Q` is true. To prove such a statement, you can either prove `P`or `Q` *using* thr truth of
+one of the two propositions:-/
 
+theorem trivial' (P Q : Prop) : P → P ∨ Q :=
+begin
+  sorry,
+end
+
+/- Here, the tactic `cases` perfomed on a `P ∨ Q `-hypothesis produces two sub-goals, one assuming
+that `P` is true, the other assuming that `Q` is true.
 *Hint* When `P` and `¬ P` are both hypotheses, something is weird: the proposition to prove is
 false, so we can try to argue `by_contradiction`. -/
 
