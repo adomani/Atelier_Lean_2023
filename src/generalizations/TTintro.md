@@ -50,24 +50,15 @@ Most mathematicians would probably `not want` to do that.
 
 ---
 
-We may "undo" one nesting or two, but, after that, we probably stop and think about `structured` sets.
+We may `undo` one nesting or two, but, after that, we probably stop and think about `structured` sets.
 
-&nbsp;
-
-For instance, if $f \colon A \longrightarrow B$ is a function, we may think of it as a way of converting an element of the set $A$ to an element of the set $B$.
-
+For instance, if $f \colon A \longrightarrow B$ is a function, we may think of it as a way of converting an element of the set $A$ to an element of the set $B$. \\
 $\to$ No undoing: a `structured` function.
 
-&nbsp;
-
-Sometimes, it can be useful to think of the "graph of $f$" (which, in Set Theory `is` the function).
-
+Sometimes, it can be useful to think of the `graph` of $f$ (which, in Set Theory `is` the function). \\
 $\to$ 1 undoing: `structured` ordered pairs.
 
-&nbsp;
-
-How often have you then used the Kuratowski's encoding of ordered pairs to `really` understand $f$?
-
+How often have you then used the Kuratowski's encoding of ordered pairs to `really` understand $f$? \\
 $\to$ 2 undoings: `unstructured` chaos.
 
 ---
