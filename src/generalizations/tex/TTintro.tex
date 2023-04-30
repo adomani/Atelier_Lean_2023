@@ -1,0 +1,374 @@
+\documentclass{beamer}
+\usepackage{xcolor}
+
+\usepackage[skip=15pt plus1pt, indent=0pt]{parskip}
+
+\usetheme{Boadilla}
+\usefonttheme{serif}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{minted}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links
+    citecolor=magenta,     % color of links to bibliography
+    filecolor=green,       % color of file links
+    urlcolor=purple        % color of external links
+}
+
+\usepackage{newunicodechar}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+
+\newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
+\newunicodechar{ᵐ}{\ensuremath{^m}}
+\newunicodechar{ᶜ}{\ensuremath{^c}}
+\newunicodechar{ᶠ}{\ensuremath{^f}}
+
+\title{Introduction to Type Theory}
+\author{Damiano Testa}
+\institute[]{University of Warwick}
+\date[\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}]{\\
+\vspace{50pt}
+RNTA mini symposium
+\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}\\
+\vspace{20pt}
+May 3rd, 2023
+}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+{Introduction to Type Theory}
+
+This talk is an extended digression on {\color{violet}\verb`Type Theory`}.
+
+As is usually the case, {\color{violet}\verb`foundations`} of mathematics have a {\color{violet}\verb`marginal impact`} on ``real-world'' mathematics.
+
+This is true also when using {\color{violet}\verb`Lean`}
+
+$\ldots$ most of the times!
+\end{frame}
+
+\begin{frame}[fragile]{Set Theory}
+
+{\color{violet}\verb`Set Theory`} is a common choice of {\color{violet}\verb`foundation`} for mathematics.
+
+This normally comes with
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  a more or less ``primitive'' concept of a {\color{violet}\verb`set`};
+\item
+  the {\color{violet}\verb`belongs-to`} relation $\in$ among sets;
+\item
+  several rules for constructing new sets from old ones;
+\item
+  an empty set.
+\end{itemize}
+
+{\color{violet}\verb`Mathematics`} is then built on top of these {\color{violet}\verb`foundations`}.
+\end{frame}
+
+\begin{frame}[fragile]{Everything is a set}
+
+We practice Set Theory by ensuring that {\color{violet}\verb`everything is a set`}:
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  the {\color{violet}\verb`natural numbers`} are a {\color{violet}\verb`set`},
+\item
+  {\color{violet}\verb`ordered pairs`} are a {\color{violet}\verb`set`},
+\item
+  the {\color{violet}\verb`real numbers`} are a {\color{violet}\verb`set`},
+\item
+  {\color{violet}\verb`functions`} are a {\color{violet}\verb`set`},
+\item
+  {\color{violet}\verb`sequences`} are functions (and hence are a {\color{violet}\verb`set`}),
+\item
+  $\ldots$
+\end{itemize}
+
+{\color{violet}\verb`Everything`} is a set. {\color{violet}\verb`Everything`}. {\color{violet}\verb`EVERYTHING`}.
+\end{frame}
+
+\begin{frame}[fragile]{Set Theory -- really?}
+
+Most mathematicians {\color{violet}\verb`can`} explain how to {\color{violet}\verb`encode`} their favourite mathematical concept using only the {\color{violet}\verb`basic`} axioms of {\color{violet}\verb`set theory`}.
+
+Most mathematicians would probably {\color{violet}\verb`not want`} to do that.
+
+{\color{violet}\verb`Descending`} inside all the nested sets of sets of sets until we reach the empty set is probably even {\color{violet}\verb`detrimental`} to developing an {\color{violet}\verb`intuition`}.
+
+Imagine doing it for {\color{violet}\verb`modular forms`}, {\color{violet}\verb`schemes`}, or any {\color{violet}\verb`advanced`} mathematical concept.
+\end{frame}
+
+\begin{frame}[fragile]
+
+We may {\color{violet}\verb`undo`} one nesting or two, but, after that, we probably stop and think about {\color{violet}\verb`structured`} sets.
+
+If $f \colon A \longrightarrow B$ is a {\color{violet}\verb`function`}, we may think of it as a rule to {\color{violet}\verb`convert`} elements of $A$ to elements of $B$.
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  No undoing: a {\color{violet}\verb`structured`} function.
+\end{itemize}
+
+Sometimes, it can be useful to think of the {\color{violet}\verb`graph`} of $f$.
+\\
+In Set Theory this {\color{violet}\verb`is`} the function.
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  1 undoing: {\color{violet}\verb`structured`} ordered pairs.
+\end{itemize}
+
+Have you ever used Kuratowski's encoding of ordered pairs to {\color{violet}\verb`really`} understand $f$?
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  2 undoings: {\color{violet}\verb`unstructured`} chaos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Types as structured sets}
+
+\vspace{10pt}
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  A {\color{violet}\verb`Type`} is like a set,
+\item
+  its ``elements'' are called {\color{violet}\verb`terms`},
+\item
+  the {\color{violet}\verb`belong-to`} relation is denoted by {\color{violet}\verb`:`} (a colon).
+\end{itemize}
+
+Thus, {\color{violet}\verb`t : T`} means that {\color{violet}\verb`t`} is a term of a Type {\color{violet}\verb`T`}.
+
+A fundamental axiom is that {\color{violet}\verb`every term`} has a {\color{violet}\verb`unique`} Type.
+
+Each Type come with rules, called {\color{violet}\verb`constructors`}, to build its terms.
+\\
+The constructors endow their Type with some internal {\color{violet}\verb`structure`}.
+
+Let's see the definition of the {\color{violet}\verb`natural numbers`} in Lean.
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+inductive myℕ
+  | zero : myℕ
+  | succ : myℕ → myℕ
+\end{minted}
+\vspace{-17pt}
+{\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A}{Click here to open the Lean web editor}.}}
+
+The code above defines a Type {\color{violet}\verb`myℕ`}.
+
+The Type {\color{violet}\verb`myℕ`} contains an element (really, a {\color{violet}\verb`term`}), that we call {\color{violet}\verb`zero`}.
+
+We also postulate the existence of a function {\color{violet}\verb`succ`} from {\color{violet}\verb`myℕ`} to {\color{violet}\verb`myℕ`}.
+
+Lean's Type Theory takes care of making {\color{violet}\verb`myℕ`} ``universal''.
+
+For instance, Lean {\color{violet}\verb`auto-generates`} the {\color{violet}\verb`induction`} principle.
+\end{frame}
+
+\begin{frame}[fragile]{Every {\color{violet}\texttt{term}} has a unique {\color{violet}\texttt{Type}}}
+
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+inductive myℕ
+  | zero : myℕ
+  | succ : myℕ → myℕ
+\end{minted}
+
+In Lean's Type Theory, there is an inbuilt {\color{violet}\verb`axiom`}:
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  {\color{violet}\verb`every`} term has a {\color{violet}\verb`unique`} Type.
+\end{itemize}
+
+The Type {\color{violet}\verb`myℕ`} contains the term {\color{violet}\verb`zero`} (really, the term is {\color{violet}\verb`myℕ.zero`}).
+
+Imagine that eventually we define {\color{violet}\verb`myℤ.zero`}.
+
+The two terms {\color{violet}\verb`myℕ.zero : myℕ`} and {\color{violet}\verb`myℤ.zero : myℤ`} are {\emph{different}}.
+\end{frame}
+
+\begin{frame}[fragile]
+
+We {\color{violet}\verb`can`} make Lean aware of the unique homomorphism {\color{violet}\verb`myℕ → myℤ`}.
+
+However, we {\color{violet}\verb`can't`} pretend that {\color{violet}\verb`myℕ.zero`} and {\color{violet}\verb`myℤ.zero`} are ``the same'', unless some {\color{violet}\verb`tactic`} takes care of the {\color{violet}\verb`conversion`}.
+
+Also in Set Theory, the usual definitions of
+$$
+  0 \in \mathbb{N} \qquad {\textrm{and}} \qquad 0 \in \mathbb{Z}
+$$
+yield {\color{violet}\verb`different`} elements.
+
+{\emph{A fortiori}}, the {\color{violet}\verb`containment`} $\mathbb{N} \subset \mathbb{Z}$ is {\color{violet}\verb`false`}.
+
+{\color{violet}\verb`Type Theory`} simply makes us more {\color{violet}\verb`aware`} of these (usually inconsequential) inconsistencies.
+\end{frame}
+
+\begin{frame}[fragile]
+
+We highlight another consequence of ``Every term has a unique Type''.
+
+In Set Theory, the {\color{violet}\verb`real number`} $1 \in \mathbb{R}$ is also {\color{violet}\verb`contained`} in the set of {\color{violet}\verb`non-negative real numbers`}: $1 \in \mathbb{R}_{\ge 0}$.
+
+In Type Theory, the term {\color{violet}\verb`1`} belongs to {\color{violet}\verb`at most one`} of $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$.
+
+(Of course, both $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$ have their unit, but they are {\color{violet}\verb`different`}.)
+
+In {\color{violet}\verb`mathlib`}'s formalization, the Type $\mathbb{R}_{\ge 0}$ is a type of pairs
+$$
+  (x, h) \; : \; \mathbb{R}_{\ge 0}
+$$
+where {\color{violet}\verb`x : ℝ`} is a real number and {\color{violet}\verb`h`} is a proof of the inequality $0 \le x$.
+\end{frame}
+
+\begin{frame}[fragile]{Why many proof checkers use Type Theory?}
+
+Using a {\color{violet}\verb`proof checker`}, ultimately means writing a {\color{violet}\verb`computer program`} to {\color{violet}\verb`verify`} mathematical {\color{violet}\verb`reasoning`}.
+
+In Set Theory, {\textbf{many}} syntactically correct statements are {\color{violet}\verb`garbage`}.
+
+For instance, deciding whether the relations
+$$
+  \left(
+    {\textrm{Norm}} \colon \mathbb{Q}\left( \sqrt{2} \right) \to \mathbb{Q}
+  \right) \in \pi,
+  \quad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e,
+  \quad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset.
+$$
+hold is ``meaningful''.
+Usually, {\color{violet}\verb`no one cares`} about the answers.
+
+In Type Theory, none of the above {\color{violet}\verb`Type-checks`}.
+\end{frame}
+
+\begin{frame}[fragile]{Type-checking feedback}
+
+$$
+  \left(
+    {\textrm{Norm}} \colon \mathbb{Q}\left( \sqrt{2} \right) \to \mathbb{Q}
+  \right) \in \pi,
+  \quad {\textrm{or}} \qquad
+  \mathbb{Q}_{\le 0} \subset e,
+  \quad {\textrm{or}} \qquad
+  \sqrt{2} ^ 2 = \emptyset.
+$$
+
+In the background, {\color{violet}\verb`Lean`} constantly {\color{violet}\verb`Type-checks`} every assertion.
+
+This means that it can {\color{violet}\verb`alert`} us to the fact that we are writing ``non-sense'' {\color{violet}\verb`before`} a proof-checker based on Set Theory would.
+
+You can think of {\color{violet}\verb`Type-checking`} as {\color{violet}\verb`dimensional-analysis`} in physics:
+\[
+  \left[ \;
+  \parbox{0.8\textwidth}{\centering\small
+  if you compute the speed of your bike to be $12$Kg, you are sure that you've made a mistake!
+  }
+  \; \right]
+\]
+
+$\ldots$ and Lean will let you know.
+\end{frame}
+
+\begin{frame}[fragile]{Implementation details}
+
+Formalizing mathematics made me focus on the separation:
+
+{\centering
+\begin{tabular}{|c|c|}
+\hline
+{\color{violet}\verb`Platonic world`} &  {\color{violet}\verb`Real-world mirror`}  \\
+\hline
+mathematical {\color{violet}\verb`concept`} & {\color{violet}\verb`realization`} in set theory \\
+abstract {\color{violet}\verb`idea`}        & {\color{violet}\verb`implementation detail`} \\
+\hline
+\end{tabular}
+
+}
+
+{\textbf{Example}}. {\color{violet}\verb`Implementations`} of the polynomial ring $\mathbb{Z}[x]$:
+\\
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  formal, linear combinations of symbols $\{ x^n \}_{n \in \mathbb{N}}$;
+\item
+  ``meaningful'', finite $\mathbb{Z}$-linear sums of the power functions $\{ x^n \}_{n \in \mathbb{N}}$;
+\item
+  Finitely supported functions $\mathbb{Z} \to \mathbb{N}$ with the convolution product;
+\item
+  A commutative ring with unit representing the forgetful functor
+\end{itemize}
+$$
+  \begin{array}{rcl}
+    {\textbf{CommRings}} & \longrightarrow & {\textbf{Sets}} \\
+    R & \longmapsto & R
+  \end{array}
+$$
+\end{frame}
+
+\begin{frame}[fragile]{Type Theory vs Set Theory}
+
+The {\color{violet}\verb`distinction`} between Set Theory and Type Theory as foundations for mathematics is an {\color{violet}\verb`implementation detail`}.
+
+Most of the times, it {\color{violet}\verb`does not matter`}.
+
+Indeed, {\color{violet}\verb`foundations`} are almost {\color{violet}\verb`invisible`} (unless you focus on logic).
+
+This applies to {\color{violet}\verb`pen-and-paper`}, as well as {\color{violet}\verb`formalized`} mathematics.
+
+\[
+  \left[ \;
+  \parbox{0.8\textwidth}{\centering\small
+  Lean's version of Type Theory is {\color{violet}\texttt{equiconsistent}} with \\``ZFC + there exist countably many inaccessible cardinals''.
+  }
+  \; \right]
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Conclusion}
+
+The {\color{violet}\verb`foundations`} used for formalization, should be {\color{violet}\verb`invisible`}.
+
+They mostly are, in practice, with surprisingly few exceptions.
+
+When these {\color{violet}\verb`exceptions`} arise, they often bring an {\color{violet}\verb`insight`} on some topic that you thought had no {\color{violet}\verb`surprises`} left!
+\bigskip
+\bigskip
+
+\LARGE\centerline{
+{\textbf{Questions}}?
+}
+\end{frame}
+\end{document}

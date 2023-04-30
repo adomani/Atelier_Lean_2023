@@ -1,0 +1,224 @@
+\documentclass{beamer}
+\usepackage{xcolor}
+
+\usepackage[skip=15pt plus1pt, indent=0pt]{parskip}
+
+\usetheme{Boadilla}
+\usefonttheme{serif}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{minted}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links
+    citecolor=magenta,     % color of links to bibliography
+    filecolor=green,       % color of file links
+    urlcolor=purple        % color of external links
+}
+
+\usepackage{newunicodechar}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+\newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
+\newunicodechar{ᵐ}{\ensuremath{^m}}
+\newunicodechar{ᶜ}{\ensuremath{^c}}
+\newunicodechar{ᶠ}{\ensuremath{^f}}
+
+\title{Automation in Lean}
+\author{Damiano Testa}
+\institute[]{University of Warwick}
+\date[\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}]{\\
+\vspace{50pt}
+RNTA mini symposium
+\href{http://www.rnta.eu/7MSRNTA/lean.html}{Atelier Lean 2023}\\
+\vspace{20pt}
+May 2nd, 2023
+}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+{Automation}
+
+{\color{violet}\verb`Computers`} take on {\color{violet}\verb`repetitive`} tasks.
+
+In the context of {\color{violet}\verb`formalization`} of mathematics, the computer also
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  helps {\color{violet}\verb`verifying`} complicated reasoning, as it {\color{violet}\verb`separates`} neatly different parts of the argument;
+\item
+  informs, ideally, the {\color{violet}\verb`discovery`} of {\color{violet}\verb`new`} mathematical results;
+\item
+  detects {\color{violet}\verb`very well`} unnecessary hypotheses.
+\end{itemize}
+
+\[
+  \left[ \;
+  \parbox{0.8\textwidth}{\centering\small
+  The resulting generality is sometimes only useful to simplify {\emph{formalization}}, rather than {\emph{discovery}} of mathematics.
+  }
+  \; \right]
+\]
+
+Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available.
+
+There is {\color{violet}\verb`lots`} of interest and {\color{violet}\verb`steady progress`} on this front.
+\end{frame}
+
+\begin{frame}[fragile]{Tactics}
+
+{\color{violet}\verb`Any`} tactic is a form of automation.
+
+Tactics allow to maintain {\color{violet}\verb`abstraction`}:
+
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  we humans talk about {\color{violet}\verb`mathematical concepts`},
+\item
+  the computer has some {\color{violet}\verb`representation`} for these concepts.
+\end{itemize}
+
+{\color{violet}\verb`Tactics`} bridge this gap.
+
+We do not need to know what the computer's internal representation is: tactics handle the {\color{violet}\verb`translation`}.
+\end{frame}
+
+\begin{frame}[fragile]
+
+In the previous talks, you have already seen some tactics ({\color{violet}\verb`exact`}, {\color{violet}\verb`intro`}, {\color{violet}\verb`apply`}, {\color{violet}\verb`rw`}, ...).
+
+Now, we talk about {\color{violet}\verb`library_search`} and {\color{violet}\verb`simp`}.
+
+These tactics probably feel closer to an intuitive idea of {\color{violet}\verb`automation`} that you may have.
+\end{frame}
+
+\begin{frame}[fragile]{{\color{violet}\texttt{library\_search}}}
+
+{\color{violet}\verb`mathlib`} is a massive repository: it contains
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  over {\color{violet}\verb`1 million`} lines of code
+\item
+  over {\color{violet}\verb`60 thousand`} lemmas.
+\end{itemize}
+
+Most of the basic{\footnotemark} lemmas are already available.
+
+{\color{violet}\verb`library_search`} helps you find them!
+
+\footnotetext{``Basic'' may mean {\emph{really}} basic, to a level that you may not even consider them ``lemmas''.}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+import tactic
+
+example {a b c : ℕ} : a ^ (b + c) = a ^ b * a ^ c :=
+by library_search
+
+--  Try this: exact pow_add a b c
+\end{minted}
+
+\vspace{-17pt}
+{\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20c%20%3A%20%E2%84%95%7D%20%3A%20a%20%5E%20%28b%20%2B%20c%29%20%3D%20a%20%5E%20b%20*%20a%20%5E%20c%20%3A%3D%0Aby%20library_search}{Click here to open the Lean web editor}.}}
+
+\bigskip
+
+Besides {\color{violet}\verb`library_search`}, {\color{violet}\verb`mathlib`} has a very helpful \href{https://leanprover-community.github.io/contribute/naming.html}{naming convention} that allows you to ``guess'' names of lemmas.
+\end{frame}
+
+\begin{frame}[fragile]{The {\color{violet}\texttt{simp}}-lifier}
+
+As the name suggests, the {\color{violet}\verb`simp`}-lifier tries to simplify a goal.
+
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+import tactic
+
+example {a b : ℤ} :
+  - (-1 * a + 0 * b) = a * (1 + a * 0) :=
+begin
+  simp,
+end
+\end{minted}
+
+\vspace{-17pt}
+{\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20%3A%20%E2%84%A4%7D%20%3A%0A%20%20-%20%28-1%20*%20a%20%2B%200%20*%20b%29%20%3D%20a%20*%20%281%20%2B%20a%20*%200%29%20%3A%3D%0Abegin%0A%20%20simp%2C%0Aend}{Click here to open the Lean web editor}.}}
+
+{\color{violet}\verb`simp`} automatically used the lemmas
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+ {\color{violet}\verb`mul_zero`} & {\color{violet}\verb`zero_mul`} & {\color{violet}\verb`one_mul`} & {\color{violet}\verb`mul_one`} \\
+{\color{violet}\verb`neg_neg`} & {\color{violet}\verb`neg_mul`} & {\color{violet}\verb`add_zero`} &\\
+\hline
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}[fragile]{{\color{violet}\texttt{simp}}-lemmas: lemmas that {\color{violet}\texttt{simp}} uses}
+\vphantom{}
+\vspace{-13pt}
+\begin{itemize}
+\setlength\itemsep{-12pt}
+\item
+  They assert an {\color{violet}\verb`equality`} or an {\color{violet}\verb`iff`}.
+\item
+  The {\color{violet}\verb`LHS`} {\textbf{looks more complicated}} than the {\color{violet}\verb`RHS`}.
+\end{itemize}
+\vspace{-20pt}
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+#print mul_zero  -- means:   a * 0 = 0
+#print zero_mul  -- means:   0 * a = 0
+#print one_mul   -- means:   1 * a = a
+#print mul_one   -- means:   a * 1 = a
+#print neg_neg   -- means:    - -a = a
+#print neg_mul   -- means:  -a * b = -(a * b)
+#print add_zero  -- means:   a + 0 = 0
+\end{minted}
+\vspace{-10pt}
+The {\color{violet}\verb`asymmetry`} helps Lean to flow along
+$$
+  {\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.
+$$
+\[
+  \left[ \;
+  \parbox{0.8\textwidth}{\centering\small
+  Being a ``{\color{violet}\texttt{simp}}-lemma'' is something that {\emph{you}} must communicate to Lean: there is no automated mechanism that makes Lean self-select which lemmas are {\color{violet}\texttt{simp}}-lemmas.
+  }
+  \; \right]
+\]
+\end{frame}
+
+\begin{frame}[fragile]{{\color{violet}\texttt{simp}}-normal-form and confluence}
+
+{\color{violet}\verb`simp`}-lifying {\color{violet}\verb`LHS`} to {\color{violet}\verb`RHS`} leads to questions of {\color{violet}\verb`confluence`}.
+
+Ideally, {\color{violet}\verb`simp`} invariably {\color{violet}\verb`converges`} to an ``optimal'' final shape.
+
+In reality, there are {\color{violet}\verb`practical`} and {\color{violet}\verb`theoretical`} reasons why this cannot be the case.
+
+Still, {\color{violet}\verb`simp`} is a very useful automation tool.
+
+``Locally'', it achieves {\color{violet}\verb`normalization`} efficiently and effectively.
+\end{frame}
+
+\begin{frame}[fragile]
+
+Let's switch over to an \href{https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fadomani_polys%2Fsrc%2Fgeneralizations%2F1.generalizations.presentationTemplate.lean}{interactive demo}.
+\end{frame}
+\end{document}
