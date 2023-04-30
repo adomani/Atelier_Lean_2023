@@ -18,10 +18,10 @@ This normally comes with
 
 * a more or less "primitive" concept of a `set`;
 * the `belongs-to` relation $\in$ among sets;
-* an empty set;
-* several rules for constructing new sets from old ones.
+* several rules for constructing new sets from old ones;
+* an empty set.
 
-Mathematics is then built on top of these foundations (often assuming the existence of an infinite set).
+Mathematics is then built on top of these foundations.
 
 ---
 
