@@ -204,9 +204,17 @@ $$
 \]
 \end{frame}
 
-\begin{frame}[fragile]{{\color{violet}\texttt{simp}} and confluence}
+\begin{frame}[fragile]{{\color{violet}\texttt{simp}}-normal-form and confluence}
 
-The way in which {\color{violet}\verb`simp`} converts LHS to RHS leads to questions of {\color{violet}\verb`confluence`}.
+{\color{violet}\verb`simp`}-lifying LHS to RHS leads to questions of {\color{violet}\verb`confluence`}.
+
+Ideally, {\color{violet}\verb`simp`} invariably {\color{violet}\verb`converges`} to an ``optimal'' final shape.
+
+In reality, there are practical and theoretical reasons why this cannot be the case.
+
+Still, {\color{violet}\verb`simp`} is a very useful automation tool.
+
+``Locally'', it achieves normalization efficiently and effectively.
 \end{frame}
 
 \begin{frame}[fragile]

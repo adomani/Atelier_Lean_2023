@@ -119,4 +119,18 @@ $$
 
 ---
 
+## `simp`-normal-form and confluence
+
+`simp`-lifying LHS to RHS leads to questions of `confluence`.
+
+Ideally, `simp` invariably `converges` to an "optimal" final shape.
+
+In reality, there are practical and theoretical reasons why this cannot be the case.
+
+Still, `simp` is a very useful automation tool.
+
+"Locally", it achieves normalization efficiently and effectively.
+
+---
+
 Let's switch over to an [interactive demo](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fadomani%2FAtelier_Lean_2023%2Fadomani_polys%2Fsrc%2Fgeneralizations%2F1.generalizations.presentationTemplate.lean).
