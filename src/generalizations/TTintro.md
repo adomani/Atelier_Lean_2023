@@ -139,9 +139,9 @@ Even the `containment` $\mathbb{N} \subset \mathbb{Z}$ is `false`.
 
 ## Why many proof checkers use Type Theory?
 
-Using a proof checker, ultimately means writing a computer program to verify a mathematical reasoning.
+Using a proof checker, ultimately means writing a computer program to verify mathematical reasoning.
 
-In Set Theory, **many** syntactically correct statements are garbage.
+In Set Theory, **many** syntactically correct statements are `garbage`.
 
 For instance, deciding whether the relations
 $$
