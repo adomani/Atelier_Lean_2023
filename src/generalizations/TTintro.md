@@ -141,6 +141,21 @@ yield `different` elements.
 
 ---
 
+We highlight another consequence of "Every term has a unique Type".
+
+In Set Theory, the `real number` $1 \in \mathbb{R}$ is also `contained` in the set of `non-negative real numbers`: $1 \in \mathbb{R}_{\ge 0}$.
+
+In Type Theory, the term `1` belongs to `at most one` of $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$.
+
+(Of course, both $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$ have their unit, but they are `different`.)
+
+In `mathlib`'s formalization, the Type $\mathbb{R}_{\ge 0}$ is a type of pairs
+$$
+  (x, h) \; : \; \mathbb{R}_{\ge 0}
+$$
+where `x : ℝ` is a real number and `h` is a proof of the inequality $0 \le x$.
+---
+
 ## Why many proof checkers use Type Theory?
 
 Using a `proof checker`, ultimately means writing a `computer program` to `verify` mathematical `reasoning`.

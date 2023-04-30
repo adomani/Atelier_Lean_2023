@@ -22,7 +22,9 @@
 
 \usepackage{newunicodechar}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
 \newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+
 \newunicodechar{Ñ}{\ensuremath{\mathcal{N}}}
 \newunicodechar{ᵐ}{\ensuremath{^m}}
 \newunicodechar{ᶜ}{\ensuremath{^c}}
@@ -229,6 +231,23 @@ yield {\color{violet}\verb`different`} elements.
 {\emph{A fortiori}}, the {\color{violet}\verb`containment`} $\mathbb{N} \subset \mathbb{Z}$ is {\color{violet}\verb`false`}.
 
 {\color{violet}\verb`Type Theory`} simply makes us more {\color{violet}\verb`aware`} of these (usually inconsequential) inconsistencies.
+\end{frame}
+
+\begin{frame}[fragile]
+
+We highlight another consequence of ``Every term has a unique Type''.
+
+In Set Theory, the {\color{violet}\verb`real number`} $1 \in \mathbb{R}$ is also {\color{violet}\verb`contained`} in the set of {\color{violet}\verb`non-negative real numbers`}: $1 \in \mathbb{R}_{\ge 0}$.
+
+In Type Theory, the term {\color{violet}\verb`1`} belongs to {\color{violet}\verb`at most one`} of $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$.
+
+(Of course, both $\mathbb{R}$ and $\mathbb{R}_{\ge 0}$ have their unit, but they are {\color{violet}\verb`different`}.)
+
+In {\color{violet}\verb`mathlib`}'s formalization, the Type $\mathbb{R}_{\ge 0}$ is a type of pairs
+$$
+  (x, h) \; : \; \mathbb{R}_{\ge 0}
+$$
+where {\color{violet}\verb`x : ℝ`} is a real number and {\color{violet}\verb`h`} is a proof of the inequality $0 \le x$.
 \end{frame}
 
 \begin{frame}[fragile]{Why many proof checkers use Type Theory?}
