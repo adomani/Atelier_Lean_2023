@@ -204,10 +204,19 @@ $$
 
 ##  Type Theory vs Set Theory
 
-Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
+The `distinction` between Set Theory and Type Theory as foundations for mathematics is an `implementation detail`.
 
-Sometimes, it may lead us to prefer one approach over another.
+Most of the times, it does not matter.
+
+Indeed, foundations are almost invisible (unless you focus on logic).
+
+This applies to `pen-and-paper`, as well as `formalized` mathematics.
+
+---
 
 In practice, the main difference of Type Theory using Lean vs ""
 
----
+
+, has little bearing on the theorems that we can prove.
+
+Sometimes, it may lead us to prefer one approach over another.
