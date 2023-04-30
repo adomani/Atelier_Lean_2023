@@ -27,7 +27,7 @@ Mathematics is then built on top of these foundations.
 
 # Everything is a set
 
-Whenever we introduce a new concept, we practice Set Theory by making sure that "it is a set":
+We practice Set Theory by ensuring that "everything is a set":
 
 * the natural numbers are a set,
 * ordered pairs are a set,
@@ -36,12 +36,7 @@ Whenever we introduce a new concept, we practice Set Theory by making sure that 
 * sequences are functions (and hence are a set),
 * $\ldots$
 
-
-&nbsp;
-
-After all, everything is a set. Everything. EVERYTHING.
-
-&nbsp;
+Everything is a set. Everything. EVERYTHING.
 
 ---
 
