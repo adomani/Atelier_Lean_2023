@@ -215,22 +215,18 @@ The two terms {\color{violet}\verb`myℕ.zero : myℕ`} and {\color{violet}\verb
 \begin{frame}[fragile]
 
 We can make Lean aware of the unique homomorphism {\color{violet}\verb`myℕ → myℤ`}.
-\bigskip
 
-However, we can pretend that {\color{violet}\verb`myℕ.zero`} and {\color{violet}\verb`myℤ.zero`} are ``the same'', only as long as some tactic takes care of converting between the two.
-\bigskip
+However, we {\color{violet}\verb`can't`} pretend that {\color{violet}\verb`myℕ.zero`} and {\color{violet}\verb`myℤ.zero`} are ``the same'', unless some {\color{violet}\verb`tactic`} takes care of the {\color{violet}\verb`conversion`}.
 
-Notice also that in Set Theory, the usual definitions of
+Also that in Set Theory, the usual definitions of
 $$
   0 \in \mathbb{N} \qquad {\textrm{and}} \qquad 0 \in \mathbb{Z}
 $$
-yield {\emph{different}} elements.
-\bigskip
+yield {\color{violet}\verb`different`} elements.
 
-Even the containment $\mathbb{N} \subset \mathbb{Z}$ is false.
-\bigskip
+Even the {\color{violet}\verb`containment`} $\mathbb{N} \subset \mathbb{Z}$ is {\color{violet}\verb`false`}.
 
-Type Theory simply makes us more aware of these (usually inconsequential) inconsistencies.
+{\color{violet}\verb`Type Theory`} simply makes us more {\color{violet}\verb`aware`} of these (usually inconsequential) inconsistencies.
 \end{frame}
 
 \begin{frame}[fragile]{Why many proof checkers use Type Theory?}

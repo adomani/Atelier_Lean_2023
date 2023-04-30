@@ -123,25 +123,17 @@ The two terms `myℕ.zero : myℕ` and `myℤ.zero : myℤ` are *different*.
 
 We can make Lean aware of the unique homomorphism `myℕ → myℤ`.
 
-&nbsp;
+However, we `can't` pretend that `myℕ.zero` and `myℤ.zero` are "the same", unless some `tactic` takes care of the `conversion`.
 
-However, we can pretend that `myℕ.zero` and `myℤ.zero` are "the same", only as long as some tactic takes care of converting between the two.
-
-&nbsp;
-
-Notice also that in Set Theory, the usual definitions of
+Also that in Set Theory, the usual definitions of
 $$
   0 \in \mathbb{N} \qquad {\textrm{and}} \qquad 0 \in \mathbb{Z}
 $$
-yield *different* elements.
+yield `different` elements.
 
-&nbsp;
+Even the `containment` $\mathbb{N} \subset \mathbb{Z}$ is `false`.
 
-Even the containment $\mathbb{N} \subset \mathbb{Z}$ is false.
-
-&nbsp;
-
-Type Theory simply makes us more aware of these (usually inconsequential) inconsistencies.
+`Type Theory` simply makes us more `aware` of these (usually inconsequential) inconsistencies.
 
 ---
 
