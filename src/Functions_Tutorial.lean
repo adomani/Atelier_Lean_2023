@@ -70,7 +70,7 @@ definition is_affine (f : ℝ → ℝ) : Prop := ∃ a, ∀ x y, f (y) - f(x) = 
 -- together with the
 theorem linear_add_cnst_of_affine (f : ℝ → ℝ) : is_affine f → (∃ a : ℝ, ∃ g : ℝ → ℝ,
   (f = g + (λ x, a)) ∧ is_linear g) := sorry
--- as well as
+-- as well as the
 theorem affine_of_linear_add_cnst (f : ℝ → ℝ) : (∃ b : ℝ, ∃ g : ℝ → ℝ,
   (f = g + (λ x, b)) ∧ is_linear g) → is_affine f := sorry
 

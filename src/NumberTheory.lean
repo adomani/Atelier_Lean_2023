@@ -1,5 +1,6 @@
 import number_theory.sum_two_squares
 import number_theory.zsqrtd.basic
+
 open zsqrtd complex nat
 open_locale nat
 
@@ -27,28 +28,7 @@ Something about the factorial function now:
 
 theorem euclid (n : ℕ) : ∃ p : ℕ, n ≤ p ∧ p.prime :=
 begin
-  have := nat.min_fac,
-  let p := nat.min_fac (n! + 1),
-  have h1 : n! + 1 ≠ 1,
-  {apply ne_of_gt,
-    apply succ_lt_succ,
-    exact factorial_pos n},
-  have h_le : n ≤ p,
-  { apply le_of_not_ge,
-    intro h_ge,
-    have h_dvd : p ∣ n!,
-    { apply dvd_factorial,
-      apply min_fac_pos,
-      exact h_ge },
-    have h_one : p ∣ 1,
-    -- apply nat.dvd_add_iff_right.mpr,--does not work! Why?
-    { apply (nat.dvd_add_iff_right h_dvd).mpr,
-      exact min_fac_dvd (n!+1)},--but `exact min_fac_dvd _` works, and `apply min_fac_dvd` also!
-    { apply nat.prime.not_dvd_one,
-      apply min_fac_prime h1,
-      exact h_one } },
-  use p,
-  exact ⟨h_le, min_fac_prime h1⟩,
+  sorry,
 end
 
 /-
@@ -83,7 +63,7 @@ Now some **algebraic number theory**: we prove that every prime p that is not in
 -/
 
 
-theorem sum_of_squares_if_split {p : ℕ} (hp : p.prime) (h_p_irred : ¬irreducible (p : ℤ[i])) : 
+theorem sum_of_squares_if_split (p : ℕ) (hp : p.prime) (h_p_irred : ¬irreducible (p : ℤ[i])) : 
   ∃ a b, a^2 + b^2 = p :=
 begin
   have h_p_notunit : ¬ is_unit (p : ℤ[i]),
@@ -125,15 +105,53 @@ begin
 end
 
 
+/--
+We now prove that every prime `p` that is irreducible in `ℤ[i]` must be congruent to `3 (mod 4)`,
+written `p % 4 = 3`. This we do by contradiction, using the above theorem: first, we show how to
+_compute decidably_ with the tactic *dec_trivial*: below, `zmod 4` is "the" finite set with `4`
+elements seen as `ℤ/4ℤ`. 
 
+**Important note on `≠`* By _definition_, `a ≠ b` means `¬ a = b` hence `a = b → false`.
+-/
 
+lemma sum_squares_mod_4 : ∀ a b : zmod 4, a^2 + b^2 ≠ 3 :=
+begin
+  sorry,
+  -- dec_trivial,
+end
 
+/- We can then prove the following result, using some trivialities on "reduction modulo `n`":
+* *zmod.nat_cast_mod* : `∀ (a n : ℕ), ↑(a % n) = ↑a` which means that `a % n` is congruent to `a`
+  `mod n` (the *natural* number `a % n` is the value `≤ n - 1` congruent to `a (mod n)`).
+The small `↑` means that we are looking at both terms in `zmod n = ℤ/nℤ`. The fact that this
+reduction is a ring homomorphism is expressed by
+* *cast_pow* : `∀ (n m : ℕ), ↑(n ^ m) = ↑n ^ m`
+* *cast_add* : `∀ (m n : ℕ), ↑(m + n) = ↑m + ↑n`
+* *cast_mul* : ` ∀ (m n : ℕ), ↑(m * n) = ↑m * ↑n`
+-/
 
--- In a similar manner, one can prove the
-theorem three_mod_four_if_inert {p : ℕ} (h_prime : p.prime) (h_p_irred : irreducible (p : ℤ[i])) : 
+theorem three_mod_four_is_inert (p : ℕ) (hp : p.prime) (hp3 : p % 4 = 3) :
+  irreducible (p : ℤ[i]) :=
+begin
+ sorry,
+end
+
+--What is much longer to prove (and I suggest that you *skip* the proof) is the
+theorem three_mod_four_if_inert (p : ℕ) (hp : p.prime) (h_p_irred : irreducible (p : ℤ[i])) : 
   p % 4 = 3 := sorry
 
+/-- But using the above, it is a simple matter to get Fermat's theorem: to prove "trivial"
+  (in)equalities you can invoke the tactic `linarith`-/
 
--- **Fermat's Theorem**: a prime p that is one modulo four is the sum of two squares
+theorem Fermat {p : ℕ} (hp : p.prime) (h1 : p % 4 = 1) : ∃ a b, a ^ 2 + b ^2 = p :=
+begin
+  sorry,
+end
 
--- theorem Fermat {p : ℕ} (h_prime : prime p) (h1 : p % 4 = 1) : ∃ a b, a ^ 2 + b ^2 = p :=
+/-- Some exercises playing with the above results: the fact that `2` is prime exists in the library
+and is called *prime_two*. -/
+
+lemma not_inert_two : ¬ irreducible (2 : ℤ[i]) :=
+begin
+  sorry,
+end

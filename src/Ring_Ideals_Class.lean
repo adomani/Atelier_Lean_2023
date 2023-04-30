@@ -15,8 +15,8 @@ and therefore also the
 `add_mem' : ∀ {a b : M}, a ∈ self.carrier → b ∈ self.carrier → a + b ∈ self.carrier`
 `zero_mem' : 0 ∈ self.carrier`
 `smul_mem' : ∀ (c : A) {x : M}, x ∈ self.carrier → c • x ∈ self.carrier`
-A submodule of a module is one which is closed under vector operations. Hence, finally, we also need
-the
+A submodule of a module is one which is closed under vector operations. Hence, finally, we also
+need the
 *def module* `[semiring A] [add_comm_monoid M] :`
 `to_distrib_mul_action : distrib_mul_action A M`
 `add_smul : ∀ (r s : A) (x : M), (r + s) • x = r • x + s • x`
