@@ -33,5 +33,4 @@ doc/.content.tex.kate-swp
 *.pdf
 *.pyg
 *.gz
-!src/generalizations/tex/prova.pdf
-!src/generalizations/tex/TTintro.pdf
+!src/generalizations/tex/*.pdf
