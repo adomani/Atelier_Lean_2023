@@ -2,15 +2,9 @@
 
 This talk is an extended digression on Type Theory.
 
-&nbsp;
-
 As is usually the case, foundations of mathematics have a marginal impact on "real-world" mathematics.
 
-&nbsp;
-
 This is true also when using Lean
-
-&nbsp;
 
 $\ldots$ most of the times!
 
@@ -18,18 +12,14 @@ $\ldots$ most of the times!
 
 # Set Theory
 
-Most mathematicians learn that Set Theory is the foundation of mathematics.
+Set Theory is a common choice of foundation for mathematics.
 
 This normally comes with
-
-&nbsp;
 
 * a more or less "primitive" concept of a `set`;
 * the `belongs-to` relation $\in$ among sets;
 * an empty set;
 * several rules for constructing new sets from old ones.
-
-&nbsp;
 
 Mathematics is then built on top of these foundations (often assuming the existence of an infinite set).
 
@@ -165,11 +155,11 @@ Imagine that we eventually we define `myℤ.zero`.
 
 The two terms `myℕ.zero : myℕ` and `myℤ.zero : myℤ` are *different*.
 
-&nbsp;
+---
 
 We can make Lean aware of the unique homomorphism `myℕ → myℤ`.
 
----
+&nbsp;
 
 However, we can pretend that `myℕ.zero` and `myℤ.zero` are "the same", only as long as some tactic takes care of converting between the two.
 
@@ -195,14 +185,9 @@ Type Theory simply makes us more aware of these (usually inconsequential) incons
 
 Using a proof checker, ultimately means writing a computer program to verify a mathematical reasoning.
 
-&nbsp;
-
-In Set Theory, there are **a lot** of garbage statements that are actually syntactically correct.
-
-&nbsp;
+In Set Theory, **many** syntactically correct statements are garbage.
 
 For instance, deciding whether the relations
-
 $$
   \mathbb{N} \in \pi
   \qquad {\textrm{or}} \qquad
@@ -211,8 +196,6 @@ $$
   \sqrt{2} ^ 2 = \emptyset
 $$
 hold is "meaningful".
-
-&nbsp;
 
 In Type Theory, none of the above `Type-checks`.
 
@@ -228,7 +211,7 @@ $$
 
 &nbsp;
 
-In the background, Lean is constantly Type-checking every assertion that we write.
+In the background, Lean is constantly Type-checking every assertion.
 
 &nbsp;
 
@@ -242,6 +225,15 @@ You can think of `Type-checking` as `dimensional-analysis` in physics:
 
 ---
 
+##  Type Theory vs Set Theory
+
+To me, the most insightful consequence of formalizing mathematics in Type Theory came from focusing on the separation:
+
+ mathematical concept
+
+
+---
+
 Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
 
 Sometimes, it may lead us to prefer one approach over another.
@@ -249,9 +241,3 @@ Sometimes, it may lead us to prefer one approach over another.
 In practice, the main difference of Type Theory using Lean vs ""
 
 ---
-
- is a Type, containing
-
-
-
- most mathematicians who are not logicians, is this

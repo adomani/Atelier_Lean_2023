@@ -1,6 +1,11 @@
 \documentclass{beamer}
 \usepackage{xcolor}
 
+\usepackage[skip=22pt plus1pt, indent=0pt]{parskip}
+%\usepackage{setspace}
+%%\onehalfspacing
+%\setstretch{1.5}
+
 \usetheme{Boadilla}
 \usefonttheme{serif}
 
@@ -46,35 +51,34 @@ May 3rd, 2023
 {Introduction to Type Theory}
 
 This talk is an extended digression on Type Theory.
-\bigskip
 
 As is usually the case, foundations of mathematics have a marginal impact on ``real-world'' mathematics.
-\bigskip
 
 This is true also when using Lean
-\bigskip
 
 $\ldots$ most of the times!
 \end{frame}
 
 \begin{frame}[fragile]{Set Theory}
 
-Most mathematicians learn that Set Theory is the foundation of mathematics.
+Set Theory is a common choice of foundation for mathematics.
 
 This normally comes with
-\bigskip
 
 \begin{itemize}
+\setlength\itemsep{-2em}
 \item
   a more or less ``primitive'' concept of a {\color{violet}\verb`set`};
+\setlength\itemsep{-2em}
 \item
   the {\color{violet}\verb`belongs-to`} relation $\in$ among sets;
+\setlength\itemsep{-2em}
 \item
   an empty set;
+\setlength\itemsep{-2em}
 \item
   several rules for constructing new sets from old ones.
 \end{itemize}
-\bigskip
 
 Mathematics is then built on top of these foundations (often assuming the existence of an infinite set).
 \end{frame}
@@ -84,16 +88,22 @@ Mathematics is then built on top of these foundations (often assuming the existe
 Whenever we introduce a new concept, we practice Set Theory by making sure that ``it is a set'':
 
 \begin{itemize}
+\setlength\itemsep{-2em}
 \item
   the natural numbers are a set,
+\setlength\itemsep{-2em}
 \item
   ordered pairs are a set,
+\setlength\itemsep{-2em}
 \item
   the real numbers are a set,
+\setlength\itemsep{-2em}
 \item
   functions are a set,
+\setlength\itemsep{-2em}
 \item
   sequences are functions (and hence are a set),
+\setlength\itemsep{-2em}
 \item
   $\ldots$
 \end{itemize}
@@ -138,10 +148,13 @@ $\to$ 2 undoings: {\color{violet}\verb`unstructured`} chaos.
 
 From the perspective of Set Theory,
 \begin{itemize}
+\setlength\itemsep{-2em}
 \item
   a {\color{violet}\verb`Type`} is like a set,
+\setlength\itemsep{-2em}
 \item
   its elements are called {\color{violet}\verb`terms`},
+\setlength\itemsep{-2em}
 \item
   the {\color{violet}\verb`belong-to`} relation is denoted by {\color{violet}\verb`:`}.
 \end{itemize}
@@ -192,6 +205,7 @@ For instance, Lean auto-generates the induction principle.
 In Lean's Type Theory, there is an inbuilt axiom:
 
 \begin{itemize}
+\setlength\itemsep{-2em}
 \item
   {\emph{every}} term has a {\emph{unique}} Type.
 \end{itemize}
@@ -204,12 +218,12 @@ Imagine that we eventually we define {\color{violet}\verb`myℤ.zero`}.
 \bigskip
 
 The two terms {\color{violet}\verb`myℕ.zero : myℕ`} and {\color{violet}\verb`myℤ.zero : myℤ`} are {\emph{different}}.
-\bigskip
-
-We can make Lean aware of the unique homomorphism {\color{violet}\verb`myℕ → myℤ`}.
 \end{frame}
 
 \begin{frame}[fragile]
+
+We can make Lean aware of the unique homomorphism {\color{violet}\verb`myℕ → myℤ`}.
+\bigskip
 
 However, we can pretend that {\color{violet}\verb`myℕ.zero`} and {\color{violet}\verb`myℤ.zero`} are ``the same'', only as long as some tactic takes care of converting between the two.
 \bigskip
@@ -230,13 +244,10 @@ Type Theory simply makes us more aware of these (usually inconsequential) incons
 \begin{frame}[fragile]{Why many proof checkers use Type Theory?}
 
 Using a proof checker, ultimately means writing a computer program to verify a mathematical reasoning.
-\bigskip
 
-In Set Theory, there are {\textbf{a lot}} of garbage statements that are actually syntactically correct.
-\bigskip
+In Set Theory, {\textbf{many}} syntactically correct statements are garbage.
 
 For instance, deciding whether the relations
-
 $$
   \mathbb{N} \in \pi
   \qquad {\textrm{or}} \qquad
@@ -245,7 +256,6 @@ $$
   \sqrt{2} ^ 2 = \emptyset
 $$
 hold is ``meaningful''.
-\bigskip
 
 In Type Theory, none of the above {\color{violet}\verb`Type-checks`}.
 \end{frame}
@@ -261,7 +271,7 @@ $$
 $$
 \bigskip
 
-In the background, Lean is constantly Type-checking every assertion that we write.
+In the background, Lean is constantly Type-checking every assertion.
 \bigskip
 
 This means that it can alert us to the fact that we are writing ``non-sense'' {\emph{before}} a proof-checker based on Set Theory would.
@@ -280,6 +290,13 @@ You can think of {\color{violet}\verb`Type-checking`} as {\color{violet}\verb`di
 \bigskip
 \end{frame}
 
+\begin{frame}[fragile]{Type Theory vs Set Theory}
+
+To me, the most insightful consequence of formalizing mathematics in Type Theory came from focusing on the separation:
+
+ mathematical concept
+\end{frame}
+
 \begin{frame}[fragile]
 
 Using Set Theory or Type Theory as foundations, has little bearing on the theorems that we can prove.
@@ -290,9 +307,5 @@ In practice, the main difference of Type Theory using Lean vs ``''
 \end{frame}
 
 \begin{frame}[fragile]
-
- is a Type, containing
-
- most mathematicians who are not logicians, is this
 \end{frame}
 \end{document}
