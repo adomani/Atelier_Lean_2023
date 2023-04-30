@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage{xcolor}
 
+\usepackage[skip=15pt plus1pt, indent=0pt]{parskip}
+
 \usetheme{Boadilla}
 \usefonttheme{serif}
 
@@ -46,11 +48,12 @@ May 2nd, 2023
 {Automation}
 
 Computers take on repetitive tasks.
-\bigskip
 
 In the context of formalization of mathematics, the computer also
 
+\vspace{-13pt}
 \begin{itemize}
+\setlength\itemsep{-12pt}
 \item
   helps producing more complicated arguments, as it separates neatly different parts of the argument;
 \item
@@ -59,7 +62,6 @@ In the context of formalization of mathematics, the computer also
   detects {\emph{very well}} unnecessary hypotheses.
 \end{itemize}
 
-\smallskip
 \[
   \left[ \;
   \parbox{0.8\textwidth}{\centering\small
@@ -67,10 +69,8 @@ In the context of formalization of mathematics, the computer also
   }
   \; \right]
 \]
-\bigskip
 
 Currently, Machine Learning, Artificial Intelligence, Neural Networks and auto-formalizations are not yet really available.
-\bigskip
 
 There is lots of interest and steady progress on this front.
 \end{frame}
@@ -78,20 +78,19 @@ There is lots of interest and steady progress on this front.
 \begin{frame}[fragile]{Tactics}
 
 {\emph{Any}} tactic is a form of automation.
-\bigskip
 
 Tactics allow to maintain abstraction:
 
+\vspace{-13pt}
 \begin{itemize}
+\setlength\itemsep{-12pt}
 \item
   we humans talk about mathematical concepts,
 \item
   the computer has some representation for these concepts.
 \end{itemize}
-\bigskip
 
 Tactics bridge this gap.
-\bigskip
 
 We do not need to know what the computer's internal representation is: tactics handle the translation.
 \end{frame}
@@ -99,10 +98,8 @@ We do not need to know what the computer's internal representation is: tactics h
 \begin{frame}[fragile]
 
 In the previous talks, you have already seen some tactics ({\color{violet}\verb`exact`}, {\color{violet}\verb`intro`}, {\color{violet}\verb`apply`}, {\color{violet}\verb`rw`}, ...).
-\bigskip
 
 Now, we talk about {\color{violet}\verb`library_search`} and {\color{violet}\verb`simp`}.
-\bigskip
 
 These tactics probably feel closer to an intuitive idea of ``automation'' that you may have.
 \end{frame}
@@ -110,16 +107,16 @@ These tactics probably feel closer to an intuitive idea of ``automation'' that y
 \begin{frame}[fragile]{{\color{violet}\texttt{library\_search}}}
 
 {\color{violet}\verb`mathlib`} is a massive repository: it contains
+\vspace{-13pt}
 \begin{itemize}
+\setlength\itemsep{-12pt}
 \item
   over 1 million lines of code
 \item
   over 60 thousand lemmas.
 \end{itemize}
-\bigskip
 
 Most of the basic{\footnotemark} lemmas are already available.
-\bigskip
 
 {\color{violet}\verb`library_search`} helps you find them!
 
@@ -137,8 +134,9 @@ by library_search
 --  Try this: exact pow_add a b c
 \end{minted}
 
+\vspace{-17pt}
 {\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20c%20%3A%20%E2%84%95%7D%20%3A%20a%20%5E%20%28b%20%2B%20c%29%20%3D%20a%20%5E%20b%20*%20a%20%5E%20c%20%3A%3D%0Aby%20library_search}{Click here to open the Lean web editor}.}}
-\bigskip
+
 \bigskip
 
 Besides {\color{violet}\verb`library_search`}, {\color{violet}\verb`mathlib`} has a very helpful \href{https://leanprover-community.github.io/contribute/naming.html}{naming convention} that allows you to ``guess'' names of lemmas.
@@ -158,45 +156,45 @@ begin
 end
 \end{minted}
 
+\vspace{-17pt}
 {\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=import%20tactic%0A%0Aexample%20%7Ba%20b%20%3A%20%E2%84%A4%7D%20%3A%0A%20%20-%20%28-1%20*%20a%20%2B%200%20*%20b%29%20%3D%20a%20*%20%281%20%2B%20a%20*%200%29%20%3A%3D%0Abegin%0A%20%20simp%2C%0Aend}{Click here to open the Lean web editor}.}}
-\bigskip
 
 {\color{violet}\verb`simp`} automatically used the lemmas
-\bigskip
 
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-{\color{violet}\verb`neg_mul`} & {\color{violet}\verb`neg_neg`} & {\color{violet}\verb`add_zero`} \\
-{\color{violet}\verb`one_mul`} & {\color{violet}\verb`mul_one`} &\\
-{\color{violet}\verb`mul_zero`} & {\color{violet}\verb`zero_mul`} &\\
+ {\color{violet}\verb`mul_zero`} & {\color{violet}\verb`zero_mul`} & {\color{violet}\verb`one_mul`} & {\color{violet}\verb`mul_one`} \\
+{\color{violet}\verb`neg_neg`} & {\color{violet}\verb`neg_mul`} & {\color{violet}\verb`add_zero`} &\\
 \hline
 \end{tabular}
 
 \end{frame}
 
 \begin{frame}[fragile]{``{\color{violet}\texttt{simp}}-lemmas'': lemmas that {\color{violet}\texttt{simp}} uses}
-
+\vphantom{}
+\vspace{-13pt}
 \begin{itemize}
+\setlength\itemsep{-12pt}
 \item
   They assert an equality or an iff.
 \item
   The LHS {\textbf{looks more complicated}} than the RHS.
 \end{itemize}
-
+\vspace{-20pt}
 \begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
-#print one_mul   -- means:   1 * a = a
-#print zero_mul  -- means:   0 * a = 0
-#print add_zero  -- means:   a + 0 = 0
-#print neg_neg   -- means:    - -a = a
 #print mul_zero  -- means:   a * 0 = 0
+#print zero_mul  -- means:   0 * a = 0
+#print one_mul   -- means:   1 * a = a
 #print mul_one   -- means:   a * 1 = a
+#print neg_neg   -- means:    - -a = a
 #print neg_mul   -- means:  -a * b = -(a * b)
+#print add_zero  -- means:   a + 0 = 0
 \end{minted}
-
-The asymmetry helps Lean: it flows along
-$${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
-
-\smallskip
+\vspace{-10pt}
+The asymmetry helps Lean to flow along
+$$
+  {\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.
+$$
 \[
   \left[ \;
   \parbox{0.8\textwidth}{\centering\small
@@ -204,7 +202,11 @@ $${\texttt{hard LHS}} \longrightarrow {\texttt{easy RHS}}.$$
   }
   \; \right]
 \]
-\bigskip
+\end{frame}
+
+\begin{frame}[fragile]{{\color{violet}\texttt{simp}} and confluence}
+
+The way in which {\color{violet}\verb`simp`} converts LHS to RHS leads to questions of {\color{violet}\verb`confluence`}.
 \end{frame}
 
 \begin{frame}[fragile]
