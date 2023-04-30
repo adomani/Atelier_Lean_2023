@@ -155,6 +155,7 @@ texConversions () {
       s/[\n]*\\end{frame}[\n ]*/\n\\end{frame}\n\n/g
       s/\[fragile\][\n ]*{/[fragile]{/g
       s/[\n]*\\end{itemize}[\n ]*\\begin{itemize}[\n]*/\n/g
+      s/ *<!--c1-->\n/ \\\\/g           ##  custom tag 1: line-break with small spacing
     ' |                               ##  dealing with tables
     awk -F'|' 'BEGIN{ dentro=0 }
       ! ((1 < NF) && $1 == "") {
