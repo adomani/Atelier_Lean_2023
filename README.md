@@ -7,7 +7,7 @@
 | 9.30-10.15  | Riccardo | <p>What does it mean to formalise and why do it</p> |
 | 10.20-11.05 | Filippo  | <p>Formalising Math 1</p> |
 | 11.05-11.35 |          | <p>Coffee Break</p> |
-| 11.35-12.20 | Damiano  | [<p>Generalizations, automation</p><p>`library_search`, `simp`, tactics</p>](src/generalizations/tex/TTintro.pdf) |
+| 11.35-12.20 | Damiano  | [<p>Generalizations, automation</p><p>`library_search`, `simp`, tactics</p>](src/generalizations/tex/automation.pdf) |
 | 12.25-13.10 | Filippo  | <p>Formalising Math 2 |
 |             | Lunch    |
 | 15-??       |          | <p>Hacking session |
