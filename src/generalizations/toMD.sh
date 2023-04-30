@@ -139,7 +139,7 @@ texConversions () {
         }
         s/\[\([^]]*\)\](\([^)]*\))/\\href{\2}{\1}/g
         /Click here to open the Lean web editor/ {
-          s/^/\\vspace{-20pt}\n{\\small{/; s/$/}}/
+          s/^/\\vspace{-17pt}\n{\\small{/; s/$/}}/
         }
       s/<!--\(.*\)-->$/\1/            ##  custom tex replacement
       ' "${1}" |
