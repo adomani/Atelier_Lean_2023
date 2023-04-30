@@ -190,6 +190,12 @@ For instance, Lean {\color{violet}\verb`auto-generates`} the {\color{violet}\ver
 
 \begin{frame}[fragile]
 
+\begin{minted}[mathescape, numbersep=5pt, frame=lines, framesep=2mm, fontsize=\small]{Lean}
+inductive myℕ
+  | zero : myℕ
+  | succ : myℕ → myℕ
+\end{minted}
+
 In Lean's Type Theory, there is an inbuilt axiom:
 
 \vspace{-13pt}
@@ -198,13 +204,10 @@ In Lean's Type Theory, there is an inbuilt axiom:
 \item
   {\emph{every}} term has a {\emph{unique}} Type.
 \end{itemize}
-\bigskip
 
-For instance, the Type {\color{violet}\verb`myℕ`} above contains the term {\color{violet}\verb`zero`} (really, the term is {\color{violet}\verb`myℕ.zero`}).
-\bigskip
+The Type {\color{violet}\verb`myℕ`} contains the term {\color{violet}\verb`zero`} (really, the term is {\color{violet}\verb`myℕ.zero`}).
 
-Imagine that we eventually we define {\color{violet}\verb`myℤ.zero`}.
-\bigskip
+Imagine that eventually we define {\color{violet}\verb`myℤ.zero`}.
 
 The two terms {\color{violet}\verb`myℕ.zero : myℕ`} and {\color{violet}\verb`myℤ.zero : myℤ`} are {\emph{different}}.
 \end{frame}

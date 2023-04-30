@@ -103,19 +103,19 @@ For instance, Lean `auto-generates` the `induction` principle.
 
 ---
 
+```lean
+inductive myℕ
+  | zero : myℕ
+  | succ : myℕ → myℕ
+```
+
 In Lean's Type Theory, there is an inbuilt axiom:
 
 * *every* term has a *unique* Type.
 
-&nbsp;
+The Type `myℕ` contains the term `zero` (really, the term is `myℕ.zero`).
 
-For instance, the Type `myℕ` above contains the term `zero` (really, the term is `myℕ.zero`).
-
-&nbsp;
-
-Imagine that we eventually we define `myℤ.zero`.
-
-&nbsp;
+Imagine that eventually we define `myℤ.zero`.
 
 The two terms `myℕ.zero : myℕ` and `myℤ.zero : myℤ` are *different*.
 
