@@ -91,23 +91,13 @@ inductive myℕ
 ```
 [Click here to open the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A).
 
-&nbsp;
-
 The code above defines a Type `myℕ`.
-
-&nbsp;
 
 The Type `myℕ` contains an element (really, a `term`), that we call `zero`.
 
-&nbsp;
-
 We also postulate the existence of a function `succ` from `myℕ` to `myℕ`.
 
-&nbsp;
-
 Lean's Type Theory takes care of making `myℕ` "universal".
-
-&nbsp;
 
 For instance, Lean auto-generates the induction principle.
 
