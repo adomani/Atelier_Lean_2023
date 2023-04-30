@@ -144,26 +144,24 @@ Have you ever used Kuratowski's encoding of ordered pairs to {\color{violet}\ver
 
 \begin{frame}[fragile]{Types as structured sets}
 
+\vspace{10pt}
 \vspace{-18pt}
 \begin{itemize}
 \setlength\itemsep{-18pt}
 \item
   A {\color{violet}\verb`Type`} is like a set,
 \item
-  its elements are called {\color{violet}\verb`terms`},
+  its ``elements'' are called {\color{violet}\verb`terms`},
 \item
-  the {\color{violet}\verb`belong-to`} relation is denoted by {\color{violet}\verb`:`}.
+  the {\color{violet}\verb`belong-to`} relation is denoted by {\color{violet}\verb`:`} (a colon).
 \end{itemize}
 
-Thus, if {\color{violet}\verb`t`} is a term of a Type {\color{violet}\verb`T`}, we can write {\color{violet}\verb`t : T`}.
-\vspace{-10pt}
+Thus, {\color{violet}\verb`t : T`} means that {\color{violet}\verb`t`} is a term of a Type {\color{violet}\verb`T`}.
 
-A fundamental axiom is that every term has a unique Type.
-\vspace{-10pt}
+A fundamental axiom is that {\color{violet}\verb`every term`} has a {\color{violet}\verb`unique`} Type.
 
-Types usually come with rules, called {\color{violet}\verb`constructors`}, for building terms of the given Type.
-\vspace{-10pt}
-
+Each Type come with rules, called {\color{violet}\verb`constructors`}, to build its terms.
+\\
 The constructors endow their Type with some internal {\color{violet}\verb`structure`}.
 
 Let's see the definition of natural numbers in Lean.
@@ -176,6 +174,7 @@ inductive myℕ
   | zero : myℕ
   | succ : myℕ → myℕ
 \end{minted}
+\vspace{-20pt}
 {\small{\href{https://leanprover-community.github.io/lean-web-editor/#code=inductive%20my%E2%84%95%0A%20%20%7C%20zero%20%3A%20my%E2%84%95%0A%20%20%7C%20succ%20%3A%20my%E2%84%95%20%E2%86%92%20my%E2%84%95%0A%0A%23print%20prefix%20my%E2%84%95%0A}{Click here to open the Lean web editor}.}}
 \bigskip
 

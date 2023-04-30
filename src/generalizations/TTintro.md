@@ -67,19 +67,17 @@ Have you ever used Kuratowski's encoding of ordered pairs to `really` understand
 
 ##  Types as structured sets
 
+<!--\vspace{10pt}-->
 * A `Type` is like a set,
-* its elements are called `terms`,
-* the `belong-to` relation is denoted by `:`.
+* its "elements" are called `terms`,
+* the `belong-to` relation is denoted by `:` (a colon).
 
-Thus, if `t` is a term of a Type `T`, we can write `t : T`.
-<!--\vspace{-10pt}-->
+Thus, `t : T` means that `t` is a term of a Type `T`.
 
-A fundamental axiom is that every term has a unique Type.
-<!--\vspace{-10pt}-->
+A fundamental axiom is that `every term` has a `unique` Type.
 
-Types usually come with rules, called `constructors`, for building terms of the given Type.
-<!--\vspace{-10pt}-->
-
+Each Type come with rules, called `constructors`, to build its terms.
+<!--\\-->
 The constructors endow their Type with some internal `structure`.
 
 Let's see the definition of natural numbers in Lean.
