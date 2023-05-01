@@ -8,7 +8,8 @@ open_locale nat
 The first theorem we want to prove is _Euclid's proof_ of the existence of an infinitude of prime
 numbers, following the usual "factorial" proof. As it is "well-known", there exists a proof that is
  _not_ by contradiction. We will need some stuff:
-* *min_fac (n)* returns the minimal prime factor of `n`: defined to be `2` for `n=0`.
+* *min_fac (n)* returns the minimal prime factor of `n`, but defined to be `2` for `n=0` and to be 
+  `1` for `n=1`.
 Almost by definition, one finds the thee following properties:
 * *min_fac_pos (n)*: `∀ n : ℕ, 0 < min_fac n`;
 * *min_fac_prime (n)*: `∀ n : ℕ, 1 < n → prime (min_fac n)`
@@ -138,7 +139,7 @@ end
 
 --What is much longer to prove (and I suggest that you *skip* the proof) is the
 theorem three_mod_four_if_inert (p : ℕ) (hp : p.prime) (h_p_irred : irreducible (p : ℤ[i])) : 
-  p % 4 = 3 := sorry
+  p % 4 = 3 := by admit
 
 /-- But using the above, it is a simple matter to get Fermat's theorem: to prove "trivial"
   (in)equalities you can invoke the tactic `linarith`-/
@@ -148,10 +149,45 @@ begin
   sorry,
 end
 
-/-- Some exercises playing with the above results: the fact that `2` is prime exists in the library
-and is called *prime_two*. -/
+/-- Some exercises playing with the above results: for each of them some hints about useful results 
+in the library are provided, but to practice researching on 
+https://leanprover-community.github.io/mathlib_docs/
+some are left to you. The main idea is to "guess" how a `lemma` _might_ be called, then type some
+letters and see what it is proposed. -/
 
-lemma not_inert_two : ¬ irreducible (2 : ℤ[i]) :=
+example : ¬ irreducible (2 : ℤ[i]) :=
+begin
+  sorry,
+end
+
+
+/- In the next example, we need to "write down explicitely" elements of `ℤ[i]`. They are pairs
+`⟨a, b⟩` (**remember*: `⟨` is typed `\<` and `⟩` is typed `\>`) representing the real and imaginary 
+part, respectively. So, for instance, `⟨0, 1⟩^2=⟨-1, 0⟩`. Nevertheless, since Lean knows that `ℤ[i]`
+is a ring, it understand the expression `±1 : ℤ[i]`, identifying `± 1` with `⟨±1, 0⟩`. The first and
+second component of an elelement `x : ℤ[i]` can be accessed as `x.re` and `x.im`, respectively.
+
+The main lemma you will need is
+* *zsqrtd.ext* `∀ x y : ℤ[i], x = y ↔ x.re = y.re ∧ X.im = y.im`.
+In this setting, `simp only` transforms `⟨a, b⟩.re` into `a` and `⟨a,b⟩.im` into `b`. As usual,
+this is purely cosmetic.
+An important object showing up when playing with elements in `ℤ[i]` is the function
+* *nat_abs* `: ℤ → ℕ` sending an integer `n` to the _natural_ number `(sign n)*n`. Its "trivial"
+properties (additivity, multiplicativity, preimages of `0` or `1`, etc...) are all in the library.
+You can search them on
+https://leanprover-community.github.io/mathlib_docs/
+by typing `nat_abs.---` and then following your heart, where `---` are the first candidate letters
+of the name of the lemma you are looking for.-/
+
+example (u : ℤ[i]) : is_unit u → u = 1 ∨ u = -1 ∨ u = ⟨0, 1⟩ ∨ u = ⟨0, -1⟩:=
+begin
+  sorry,
+end
+
+/- We now play a similar game with `𝒪` (typed as `\McO`), where `𝒪=ℤ[√-5]`-/
+local notation `𝒪` := zsqrtd (-5)
+
+example (u : ℤ[i]) : is_unit u → u = 1 ∨ u = -1 :=
 begin
   sorry,
 end

@@ -25,6 +25,8 @@ The tactic to "get rid" of a `λ` term is
 * `simp only` (possibly: `at h`)
 because it "evaluates a λ-term", transforming, for instance
 `(λ x, 2 * x + 1) 3` into `2 * 3 + 1`.
+In most cases it is only "cosmetic", but it is sometimes useful when `rw` does not work because the 
+expression is "too complicated" even for Lean.
 -/
 
 theorem injective_id (X : Type) : injective (λ x : X, x) :=
