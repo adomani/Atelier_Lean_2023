@@ -40,10 +40,13 @@ The [Class][Logic_Class] and the [Tutorial][Logic_Tutorial]
 Part B: Functions.
 The [Class][Functions_Class] and the [Tutorial][Functions_Tutorial]
 
+* Some [Exercises][Limits] on limits of real valued-functions.
+
 Part C: Rings and Ideals.
 The [Class][Ring_Ideals_Class] and the [Tutorial][Ring_Ideals_Tutorial]
 
-Part D: some [Number Theory][NumberTheory].
+Part D: some [Number Theory][NumberTheory]
+
 
 ---
 
@@ -78,6 +81,7 @@ Part D: some [Number Theory][NumberTheory].
 [Logic_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Logic_Tutorial.lean "Logic Tutorial"
 [Functions_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Functions_Class.lean "Functions Class"
 [Functions_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Functions_Tutorial.lean "Functions Tutorial"
+[Limits]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Limits.lean "Limits"
 [Ring_Ideals_Class]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Class.lean "Ring Ideals Class"
 [Ring_Ideals_Tutorial]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/Ring_Ideals_Tutorial.lean "Ring Ideals Tutorial"
 [NumberTheory]: https://leanprover-community.github.io/lean-web-editor/#url=https://raw.githubusercontent.com/adomani/Atelier_Lean_2023/master/src/NumberTheory.lean "Number Theory"
