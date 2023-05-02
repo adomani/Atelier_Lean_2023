@@ -8,16 +8,16 @@ variables {A B M: Type} [comm_ring A] [comm_ring B] [add_comm_monoid M]
 
 /-
 We start with copying the following
-*def ideal* `[semiring A] := submodule A A`
+* **def ideal** `[semiring A] := submodule A A`
 and therefore also the
-*def submodule* `[semiring A] [add_comm_monoid M] [module A M] :`
+* **def submodule** `[semiring A] [add_comm_monoid M] [module A M] :`
 `carrier : set M`
 `add_mem : ∀ {a b : M}, a ∈ self.carrier → b ∈ self.carrier → a + b ∈ self.carrier`
 `zero_mem : 0 ∈ self.carrier`
 `smul_mem : ∀ (c : A) {x : M}, x ∈ self.carrier → c • x ∈ self.carrier`
 A submodule of a module is one which is closed under vector operations. Hence, finally, we also need
 the
-*def module* `[semiring A] [add_comm_monoid M] :`
+* **def module** `[semiring A] [add_comm_monoid M] :`
 `to_distrib_mul_action : distrib_mul_action A M`
 `add_smul : ∀ (r s : A) (x : M), (r + s) • x = r • x + s • x`
 `zero_smul : ∀ (x : M), 0 • x = 0`
@@ -50,10 +50,10 @@ definition preimage (f : A →+* B) (J : ideal B) : (ideal A) :=
   smul_mem' := sorry}
 
 /- On the other hand, being prime is a (pair of) `Prop`, accessible with the
-* *is_prime_iff* `I.is_prime ↔ I ≠ ⊤ ∧ ∀ (x y : A), x * y ∈ I → x ∈ I ∨ y ∈ I`
+* **is_prime_iff** `I.is_prime ↔ I ≠ ⊤ ∧ ∀ (x y : A), x * y ∈ I → x ∈ I ∨ y ∈ I`
 where `⊤` is the whole ring `A` (seen as an ideal). For this, there are the convenient
-* *eq_top_iff_one* `I = ⊤ ↔ 1 ∈ I` and its contrapositive
-* *ne_top_iff_one* `I ≠ ⊤ ↔ 1 ∉ I` -/
+* **eq_top_iff_one** `I = ⊤ ↔ 1 ∈ I` and its contrapositive
+* **ne_top_iff_one** `I ≠ ⊤ ↔ 1 ∉ I` -/
 
 
 -- *** For the Tutorials ***
@@ -92,27 +92,27 @@ begin
 end
 
 /- The next example can be painful (or fun?). One thing that you will almost certainly need is the
-*ideal.mul_mem_mul* `r ∈ J1 → s ∈ J2 → r * s ∈ J1 * J2`
+* **ideal.mul_mem_mul** `r ∈ J1 → s ∈ J2 → r * s ∈ J1 * J2`
 The problem is that is **not** an `↔` (and hopefully so...). Now, you have (at least) two options:
 1. Start as you would do on paper, by picking `x : A` that is the the LHS, and try to prove that it
 is in the RHS. For this, you might alos need the following results:
-* *ideal.span_eq (J)* `∀ J, J = span J` where `span J` is the `A` span of `J` regarded as a set
-* *ideal.span_mul_span (X Y)* `∀ X Y, (span X) * (span Y) = `
+* **ideal.span_eq (J)** `∀ J, J = span J` where `span J` is the `A` span of `J` regarded as a set
+* **ideal.span_mul_span (X Y)** `∀ X Y, (span X) * (span Y) = `
   `ideal.span (⋃ (x : A) (H : x ∈ X) (y : A) (H : y ∈ Y), {x * y})`
   This describes the product of the span of two sets as the span all elements of the form `x * y` 
   with `x ∈ X` and `y ∈ Y`. But, for consistency reasons, `x * y` must appear as the singleton
   `{x * y}` rather than as an element. For this you have the convenient
-* *set.mem_singleton_iff* `a ∈ {b} ↔ a = b`.
+* **set.mem_singleton_iff** `a ∈ {b} ↔ a = b`.
   Further, to play with `span`'s, you have the
-* *ideal.mem_span* : `x ∈ span X ↔ ∀ (J : ideal A), X ⊆ J → x ∈ J`: the span of `X` is the
+* **ideal.mem_span** : `x ∈ span X ↔ ∀ (J : ideal A), X ⊆ J → x ∈ J`: the span of `X` is the
 _smallest_ ideal containing `X`; and finally,
-* *set.mem_Union (ι)* `(x ∈ ⋃ (i : ι), X i) ↔ ∃ (i : ι), x ∈ X i`: given a collection `X i` of sets 
+* **set.mem_Union (ι)** `(x ∈ ⋃ (i : ι), X i) ↔ ∃ (i : ι), x ∈ X i`: given a collection `X i` of sets 
 indexed over an indexing set `ι`, an element is in the union if and only if it belongs to one of
 the `X i`.
 
 2. The other option is _not_ to start by picking an element, but rather by invoking the
-* *ideal.mul_le (I J K)*: `I * J ≤ K ↔ ∀ (x : A), x ∈ I → ∀ (y : A), y ∈ J → x * y ∈ K`
-  that should be self-explanatory. Then, *ideal.mul_mem_mul* and some tactics suffice.-/
+* **ideal.mul_le (I J K)**: `I * J ≤ K ↔ ∀ (x : A), x ∈ I → ∀ (y : A), y ∈ J → x * y ∈ K`
+  that should be self-explanatory. Then, **ideal.mul_mem_mul** and some tactics suffice.-/
 
 example (J1 J2 : ideal B) (f : A →+* B) :
   (preimage f J1) * (preimage f J2) ≤ preimage f (J1 * J2) := 
@@ -120,9 +120,24 @@ begin
   sorry
 end
 
+
+/-The quotient ideal `(I : J)` defined as all elements `x` in `A` such that `x * J ⊆ I`. Recall
+that a statement of the form
+`a ∈ {x : A | ∀ (y : A), y ∈ J → x * y ∈ I}` means `∀ y, y ∈ J → a * y ∈ I` and therefore its proof
+**should** start by `intro y hy`, where `y` is an element of `A` and `hy` is `y ∈ J`.
+-/
+
+def quot (I J : ideal A) : ideal A :=
+{ carrier := {x : A | ∀ y ∈ J, x * y ∈ I},
+  add_mem' := sorry,
+  zero_mem' := sorry,
+  smul_mem' := sorry,
+}
+
+
 /- There are two ways to treat units:
 1. As elements of the _structure_ `Aˣ`, whose terms have four fields:
-*def Aˣ*:
+* **def Aˣ**:
 `u.val : α`
 `u.inv : α`
 `u.val_inv : u.val * u.inv = 1`
@@ -130,28 +145,27 @@ end
 The advantage is that we can write `u⁻¹` for elements in `Aˣ` and work as in a group; the problem
 is that `u : Aˣ` is _not_ a term of type `A`, only `u.1=u.val` is.
 2. As elements (=_terms_) `a : A` that satisfies an invertibility property, namely
-* *is_unit a* `∃ (u : Mˣ), ↑u = a`
+* **is_unit a** `∃ (u : Mˣ), ↑u = a`
 where the small arrow `↑` means "I know that I cannot say `u=a` since they belong to different 
 types, but be nice...". Formally, the arrow represents a _coercion_, a map that has been chosen
 _once and for all_ from `Aˣ` to `A`: it is
 `↑ _ : Aˣ → A, u ↦ u.val` (the first field), yielding the
-* *units.val_eq_coe (u)* : `u.val = ↑u` and the
-* *units.inv_eq_coe_inv (u)* : `u.inv = ↑(u⁻¹)`: here, `u⁻¹` makes sense since `Aˣ` is a group, and 
+* **units.val_eq_coe (u)** : `u.val = ↑u` and the
+* **units.inv_eq_coe_inv (u)** : `u.inv = ↑(u⁻¹)`: here, `u⁻¹` makes sense since `Aˣ` is a group, and 
 then we send it to `A`; the statement is then that the image coincides with `u.inv`, the second
 field. A statement like `u.inv = (u.val)⁻¹` makes Lean complain!
 
 For the exerice below, it can be useful to have the following simplified version of
-  *ideal.mem_span* for ideals spanned by singleton (beware the `'`!):
-* *mem_span_singleton' (x y)* `x ∈ span {y} ↔ ∃ (a : A), a * y = x`.
+  **ideal.mem_span** for ideals spanned by singleton (beware the `'`!):
+* **mem_span_singleton (x y)** `x ∈ span {y} ↔ ∃ (a : A), a * y = x`.
   Also useful are the (the second with a prime `'`!)
-* *is_unit_iff_exists_inv (u)* `is_unit u ↔ ∃ a : A, u * a = 1`
-* *is_unit_iff_exists_inv' (u)* `is_unit u ↔ ∃ a : A, a * u = 1` -/
+* **is_unit_iff_exists_inv (u)** `is_unit u ↔ ∃ a : A, u * a = 1`
+* **is_unit_iff_exists_inv' (u)** `is_unit u ↔ ∃ a : A, a * u = 1` -/
 
 example (u : A) : ideal.span ({u} : set A) = ⊤ ↔ is_unit u :=
 begin
   sorry,
 end
-
 
 
 

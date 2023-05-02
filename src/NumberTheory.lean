@@ -187,7 +187,7 @@ end
 /- We now play a similar game with `𝒪` (typed as `\McO`), where `𝒪=ℤ[√-5]`-/
 local notation `𝒪` := zsqrtd (-5)
 
-example (u : ℤ[i]) : is_unit u → u = 1 ∨ u = -1 :=
+example (u : 𝒪) : is_unit u → u = 1 ∨ u = -1 :=
 begin
   sorry,
 end
