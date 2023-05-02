@@ -10,12 +10,16 @@ is injective if for every pair of elements `a` and `b`...-/
 theorem injective_comp (X Y Z : Type) (f : X → Y) (g : Y → Z) 
   (hf : injective f) (hg : injective g) : injective (g ∘ f) :=
 begin
-  sorry,
+  intros x y h,
+  apply hf,
+  apply hg,
+  exact h,
 end
 
 /- ### The λ notation:
 In Lean (or in Type Theory, rather) the way to define a function is to use λ expressions: here,
-you could think that `λ = ∀`: so, the function `λ x, 3*x ^ 2 + 1` is nothing else that the
+you could think that `λ = ∀`: so, the function 
+  `λ x, 3*x ^ 2 + 1` is nothing else that the
 function `f(x)=3*x ^ 2 + 1` or `f : x ↦ 3*x ^ 2 + 1`.
 
 As for usual functions, the _name_ of the variable does not matter, so
@@ -31,14 +35,15 @@ expression is "too complicated" even for Lean.
 
 theorem injective_id (X : Type) : injective (λ x : X, x) :=
 begin
-  sorry,
+  intros x y h,
+  exact h,
 end
 
 /-- ## The tactics have and rewrite (rw)
-* `have h :` It introduces a _claim_, called `h`. After, you need to prove it. There is also
-* `have h :=` This gives the name `h` to the _expression_ on the right.
+* **have h :** It introduces a _claim_, called `h`. After, you need to prove it. There is also
+* **have h :=** This gives the name `h` to the _expression_ on the right.
 
-The tactic `rewrite` (or `rw`) takes an _equality_ (say, `h : P = Q`) and replaces every occurence
+The tactic **rewrite** (or **rw**) takes an _equality_ (say, `h : P = Q`) and replaces every occurence
 of `P` by `Q`. It can be very useful to treat "basic" algebraic manipulations, for instance using
 * **mul_one** : `∀ x, x * 1 = x`
 * **one_mul** : `∀ x, 1 * x = x`
@@ -56,7 +61,11 @@ definition is_linear (f : ℝ → ℝ) := ∀ c x y, f (c * x + y) = c * f (x) +
 
 theorem linear_at_0 (f : ℝ → ℝ) (H : is_linear f) : f 0 = 0 :=
 begin
-  sorry,
+  have h := H 1 0 0,
+  rw [one_mul (f 0)] at h,
+  rw one_mul at h,
+  rw add_zero at h,
+  apply self_eq_add_left.1 h,
 end
 
 /-- The tactics
@@ -70,7 +79,15 @@ end
 
 theorem linear_explicit (f : ℝ → ℝ) (H : is_linear f) : ∃ a, f = λ x, a * x :=
 begin
-  sorry,
+  use f 1,
+  funext t,
+  have h := H t 1 0,
+  rw mul_one at h,
+  rw add_zero at h,
+  rw [linear_at_0 f H] at h,
+  rw add_zero at h,
+  rw mul_comm at h,
+  exact h,
 end
 
 /--

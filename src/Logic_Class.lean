@@ -1,5 +1,6 @@
 import tactic
 
+
 namespace rome
 
 /- ### Introduction
@@ -19,27 +20,38 @@ The main tools here are the tactics
 
 theorem self_implication (P : Prop) : P → P :=
 begin
-  sorry,
+  intro P_is_true,
+  exact P_is_true,
 end
 
 theorem syllogism (P Q R : Prop) : (P → Q → R) → (P → Q) → (P → R) :=
 begin
-  sorry,
+  intro hPQR,
+  intro hPQ,
+  intro hP,
+  apply hPQR,
+  apply hP,
+  apply hPQ,
+  exact hP,
 end
 
 theorem modus_ponens (P Q : Prop) : P → (P → Q) → Q :=
 begin
-  sorry,
+  intro hP,
+  intro hPQ,
+  exact hPQ hP,
 end
 
 /- **not ¬**
 **not P**, with notation `¬P`, is *defined* to mean `P → false`, so the fact that `P` implies `false`.
 You can easily check with a truth table that `P → false` and `¬P` are equivalent. -/
 
-
 theorem modus_tollens (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=
 begin
-  sorry,
+  intro hPQ,
+  intro nQ,
+  intro hP,
+  exact nQ (hPQ hP),
 end
 
 
@@ -49,7 +61,10 @@ For the following, we need to argue _by contradiction_, which can be done by the
 -/
 theorem double_negation_elimination (P : Prop) : ¬ (¬ P) → P :=
 begin
-  sorry,
+  intro nnP,
+  by_contradiction something,
+  apply nnP,
+  exact something,
 end
 
 /- **∧**
@@ -62,18 +77,22 @@ and `Q` are true. Hence, in order to prove something like this, you can use
 
 theorem trivial (P Q : Prop) (hP : P) (hQ : Q) : P ∧ Q :=
 begin
-  sorry,
+  split,
+  exact hP,
+  exact hQ,
 end
 
 /- ## cases
  If you want to _use_ an assumption of the form `P ∧ Q`, you can use
-* the tactic **cases**: destructure the *assumption* into two sub-assumptions, one being `P` and
+* the tactic **cases**: destructures the *assumption* into two sub-assumptions, one being `P` and
   the other being `Q`
 **This is the first tactic seen so far that does not act on the goal but on something in orange.** -/
 
 theorem and.elim_left (P Q : Prop) : P ∧ Q → P :=
 begin
-  sorry,
+  intro hPQ,
+  cases hPQ with hP hQ,
+  exact hP,
 end
 
 
@@ -86,7 +105,9 @@ use the corresponding lemma (which I always got wrong)
 
 theorem trivial' (P Q : Prop) : P → P ∨ Q :=
 begin
-  sorry,
+  intro hP,
+  apply or.intro_left,
+  exact hP,
 end
 
 /- Here, the tactic `cases` perfomed on a `P ∨ Q `-hypothesis produces two sub-goals, one assuming
@@ -96,7 +117,13 @@ false, so we can try to argue `by_contradiction`. -/
 
 theorem or_not_left (P Q : Prop) : P ∨ Q → ¬ P → Q :=
 begin
-  sorry,
+  intro hPQ,
+  cases hPQ,
+  { intro nP,
+    by_contradiction h,
+    exact nP hPQ},
+  { intro nP,
+    exact hPQ, },
 end
 
 end rome
