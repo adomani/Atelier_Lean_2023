@@ -23,15 +23,15 @@ As for usual functions, the name of the variable does not matter, so
 `λ x, 3*x ^ 2 + 1` is the same as `λ w, 3*w ^ 2 + 1`
 
 The tactic to get rid of a `λ` term is
-* `simp only` (possibly: `simp only at h`)
+* **simp only** (possibly: `simp only at h`)
 because it "evaluates a λ-term", transforming, for instance
 `(λ x, 2 * x + 1) 3` into `2 * 3 + 1`.
 -/
 
 /-
 Some useful lemmas, beyond those introduced in class, are
-* *add_left_inj : ∀ x y z, x + z = y + z ↔ x = y*
-* *nat.succ_ne_zero : ∀ (n : ℕ), n.succ ≠ 0*: here it is crucial to understand that `x ≠ y`
+* **add_left_inj** : `∀ x y z, x + z = y + z ↔ x = y`
+* **nat.succ_ne_zero** : `∀ (n : ℕ), n.succ ≠ 0`: here it is crucial to understand that `x ≠ y`
 is _defined_ as the implication ` (x = y) → false`. Also, recall that adding `1` is _by definition_
 the successor, so `n.succ = n + 1` (whereas `1 + n = n.succ` is _theorem_).
 -/

@@ -22,7 +22,7 @@ As for usual functions, the _name_ of the variable does not matter, so
 `λ x, 3*x ^ 2 + 1` is the same as `λ w, 3*w ^ 2 + 1` 
 
 The tactic to "get rid" of a `λ` term is
-* `simp only` (possibly: `at h`)
+* **simp only** (possibly: `at h`)
 because it "evaluates a λ-term", transforming, for instance
 `(λ x, 2 * x + 1) 3` into `2 * 3 + 1`.
 In most cases it is only "cosmetic", but it is sometimes useful when `rw` does not work because the 
@@ -40,14 +40,14 @@ end
 
 The tactic `rewrite` (or `rw`) takes an _equality_ (say, `h : P = Q`) and replaces every occurence
 of `P` by `Q`. It can be very useful to treat "basic" algebraic manipulations, for instance using
-* *mul_one : ∀ x, x * 1 = x*
-* *one_mul : ∀ x, 1 * x = x*
-* *add_zero : ∀ x, x + 0 = x*
-* *mul_comm : ∀ x y, x * y = y * x* (here `∀` means _for all `x,y` in a commutative gadget_ and
+* **mul_one** : `∀ x, x * 1 = x`
+* **one_mul** : `∀ x, 1 * x = x`
+* **add_zero** : `∀ x, x + 0 = x`
+* **mul_comm** : `∀ x y, x * y = y * x` (here `∀` means _for all `x,y` in a commutative gadget_ and
   Lean is capable of understanding whether `x,y` are in a commutative structure or not)
 Actually `rw` can also "rewrite" _equivalences_, not only _equalities_:
-* *self_eq_add_right : ∀ x y, x = x + y ↔ y = 0*
-* *self_eq_add_left : ∀ x y, x = y + x ↔ x = 0* (here `rw` can replace _equivalences_)
+* **self_eq_add_right** : `∀ x y, x = x + y ↔ y = 0`
+* **self_eq_add_left** : `∀ x y, x = y + x ↔ x = 0` (here `rw` can replace _equivalences_)
 
 The tactic `rw` can be used `at h` to perform the change at the assumtion `h`.
 -/
@@ -60,32 +60,32 @@ begin
 end
 
 /-- The tactics
-* `ext`: the "extensionality rule": two functions `f,g` are equal if and only if for all
+* **funext**: the "extensionality rule": two functions `f,g` are equal if and only if for all
   `x`, `f x = g x`
 
-* `use a` specializes an existential quantifier at `a`
-* `obtain ⟨x, hx⟩ := H` where `H` is a statement of the form `H : ∃ x | P x` for some property `P`:
+* **use a** specializes an existential quantifier at `a`
+* **obtain ⟨x, hx⟩ := H** where `H` is a statement of the form `H : ∃ x | P x` for some property `P`:
   it produces an element `x` satisfying `P x` (and it calls `hx` this fact).
 -/
 
 theorem linear_explicit (f : ℝ → ℝ) (H : is_linear f) : ∃ a, f = λ x, a * x :=
 begin
-  sorry
+  sorry,
 end
 
 /--
 For the following _theorem_ we will also need the definition of the sum of two functions, namely
-* *pi.add_apply* : `∀ x, (f + g) x = f x + g x`
+* **pi.add_apply** : `∀ x, (f + g) x = f x + g x`
 
 The other are trivial: two basic about subtraction
-* *sub_zero* : `∀ x, x - 0 = x`
-* *sub_self* : `∀ x, x - x = 0`
+* **sub_zero** : `∀ x, x - 0 = x`
+* **sub_self** : `∀ x, x - x = 0`
 and, some "associativity/distributivity" rules
-* *mul_add* : `∀ x y z, x * (y + z) = x * y + x * z`
-* *sub_add* : `∀ x y z, x - y + z = x - (y - z)`
-* *mul_assoc* : `∀ x y z, x * y * z = x * (y * z)`--the LHS means `(x * y) * z`.
-* *add_sub_add_right_eq_sub* : `∀ x y z w, x + z - (y + z) = x - y`
-* *mul_sub* : `∀ x y z, x * (y - z) = x * y - x * z`
+* **mul_add** : `∀ x y z, x * (y + z) = x * y + x * z`
+* **sub_add** : `∀ x y z, x - y + z = x - (y - z)`
+* **mul_assoc** : `∀ x y z, x * y * z = x * (y * z)`--the LHS means `(x * y) * z`.
+* **add_sub_add_right_eq_sub** : `∀ x y z w, x + z - (y + z) = x - y`
+* **mul_sub** : `∀ x y z, x * (y - z) = x * y - x * z`
 We will also see that `rw ← h` performs the _opposite_ change: given `h : P = Q`, `rw h` looks for
 occurrences of `P` and replaces them with `Q`, while `rw ← h` looks for occurrences of `Q` and
 replaces them with `P`.

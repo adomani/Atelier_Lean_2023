@@ -3,20 +3,20 @@ import tactic
 
 namespace rome
 
-/-In this file you can play with *limits* of real-valued functions. Some helpful things about the
+/-In this file you can play with **limits** of real-valued functions. Some helpful things about the
   absolute value (typed simply using your keyboard key `|`: greek letters are typed as in LaTeX):
-* *abs_zero* : `| 0 | = 0` 
-* *abs_pos* : `0 < |a| ↔ a ≠ 0`
-* *div_pos* : `0 < a → 0 < b → 0 < a / b`
-* *abs_add* : `∀ x y, |x + y | ≤ |x| + |y|`
-* *abs_mul* `∀ x y, |x * y| = |x| * |y|`
-* *abs_le_max_abs_abs* `∀ a b c, a ≤ b → b ≤ c → |b| ≤ max |a| |b|`
+** **abs_zero** : `| 0 | = 0` 
+** **abs_pos** : `0 < |a| ↔ a ≠ 0`
+** **div_pos** : `0 < a → 0 < b → 0 < a / b`
+** **abs_add** : `∀ x y, |x + y | ≤ |x| + |y|`
+** **abs_mul** `∀ x y, |x ** y| = |x| ** |y|`
+** **abs_le_max_abs_abs** `∀ a b c, a ≤ b → b ≤ c → |b| ≤ max |a| |b|`
 Some results about inequalities:
-* *le_trans* `∀ a b c, a ≤ b → b ≤ c → a ≤ c`.
-* *lt_div_iff* `∀ a b c, 0 < c → (a < b / c ↔ c * a < b)`
-* *lt_of_le_of_lt* `∀ a b c, a ≤ b → b < c → a < c` (together with all possible permutations of
+** **le_trans** `∀ a b c, a ≤ b → b ≤ c → a ≤ c`.
+** **lt_div_iff** `∀ a b c, 0 < c → (a < b / c ↔ c ** a < b)`
+** **lt_of_le_of_lt** `∀ a b c, a ≤ b → b < c → a < c` (together with all possible permutations of
   `≤` and `<`, using `le` for the former and `lt` for the latter in the naming convention).
-* *sub_le_sub_right* `∀ a b c, a ≤ b → a - c ≤ b - c`
+** **sub_le_sub_right** `∀ a b c, a ≤ b → a - c ≤ b - c`
 
 I typically find these things myself with a "guess the name of the lemma" game at the adress
 https://leanprover-community.github.io/mathlib_docs/ -/
@@ -32,11 +32,11 @@ begin
   sorry,
 end
 
-/-- In case you need to use that `0 < 2`, this is called *two_pos*. Also, sometimes parenthesis help
+/-- In case you need to use that `0 < 2`, this is called **two_pos**. Also, sometimes parenthesis help
 so write `(ε/2)` rather than `ε/2`. Other useful `lemma`s for the `theorem` below: 
-* *half_add_self* : `∀ a, (a + a)/2 = a`
-* *add_div* `(a + b)/c = a/c + b/c`
-* *sub_eq_add_neg* : `∀ a b, a - b = a + (- b)`.-/
+** **half_add_self** : `∀ a, (a + a)/2 = a`
+** **add_div** `(a + b)/c = a/c + b/c`
+** **sub_eq_add_neg** : `∀ a b, a - b = a + (- b)`.-/
 
 theorem is_limit_add {a b : ℕ → ℝ} {l m : ℝ}
   (h1 : is_limit a l) (h2 : is_limit b m) :
@@ -49,7 +49,7 @@ end
 subgoals, one assuming `c = 0` and the other assuming `c ≠ 0`. -/
 
 theorem is_limit_mul_const_left {a : ℕ → ℝ} {l c : ℝ} (h : is_limit a l) :
-  is_limit (λ n, c * (a n)) (c * l) :=
+  is_limit (λ n, c ** (a n)) (c ** l) :=
 begin
   sorry,
 end
@@ -68,7 +68,7 @@ begin
 end
 
 /- For this one,
-* *sub_self* `∀ , a - a = 0`, can be useful. Moreover, the following limitation of `rw` can cause
+** **sub_self** `∀ , a - a = 0`, can be useful. Moreover, the following limitation of `rw` can cause
 problems: given an equality `h : P = Q` and a `λ` expression `λ n, P n`, the `rw h` tactic does not
 work to change `λ n, P n` into `λ n, Q n`, because `rw` cannot "read inside `λ`-terms". You can try
 the slightly more powerful tactic `simp_rw` in this case.-/
@@ -82,7 +82,7 @@ end
 
 example (a : ℕ → ℝ) (b : ℕ → ℝ) (α β c d : ℝ)
     (ha : is_limit a α) (hb : is_limit b β) :
-    is_limit ( λ n, c * (a n) + d * (b n) ) (c * α + d * β) :=
+    is_limit ( λ n, c ** (a n) + d ** (b n) ) (c ** α + d ** β) :=
 begin
   sorry,
 end

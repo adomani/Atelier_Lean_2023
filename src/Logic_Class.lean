@@ -9,10 +9,10 @@ towards an easier one.
 
  ## intro(s), exact, apply
 The main tools here are the tactics
-* `intro`: introduces a *generic* object (and `intros` introduces several objects at once), like
+* **intro**: introduces a *generic* object (and `intros` introduces several objects at once), like
   _let_ in "usual" pen-and-paper mathematics.
-* `exact`: tells Lean that the goal is already a hypothesis;
-* `apply`: transforms a goal `P` into a goal `Q` when applying a hypothesis `H : Q → P`.
+* **exact**: tells Lean that the goal is already a hypothesis;
+* **apply**: transforms a goal `P` into a goal `Q` when applying a hypothesis `H : Q → P`.
 -/
 
 -- **The implication →**
@@ -33,7 +33,7 @@ begin
 end
 
 /- **not ¬**
-`not P`, with notation `¬P`, is *defined* to mean `P → false`, so the fact that `P` implies `false`.
+**not P**, with notation `¬P`, is *defined* to mean `P → false`, so the fact that `P` implies `false`.
 You can easily check with a truth table that `P → false` and `¬P` are equivalent. -/
 
 
@@ -45,7 +45,7 @@ end
 
 /- ## by_contradiction
 For the following, we need to argue _by contradiction_, which can be done by the tactic
-* `by_contradiction`: introduce the _negation_ of the goal and transform the goal into `false`.
+* **by_contradiction**: introduce the _negation_ of the goal and transform the goal into `false`.
 -/
 theorem double_negation_elimination (P : Prop) : ¬ (¬ P) → P :=
 begin
@@ -57,7 +57,7 @@ Given two propositions `P` and `Q`, `P ∧ Q` is the proposition that is true pr
 and `Q` are true. Hence, in order to prove something like this, you can use
 
 ## split
-* the tactic `split`: split the goal into two sub-goals.
+* the tactic **split**: it splits the goal into two sub-goals.
 -/
 
 theorem trivial (P Q : Prop) (hP : P) (hQ : Q) : P ∧ Q :=
@@ -67,7 +67,7 @@ end
 
 /- ## cases
  If you want to _use_ an assumption of the form `P ∧ Q`, you can use
-* the tactic `cases`: destructure the *assumption* into two sub-assumptions, one being `P` and
+* the tactic **cases**: destructure the *assumption* into two sub-assumptions, one being `P` and
   the other being `Q`
 **This is the first tactic seen so far that does not act on the goal but on something in orange.** -/
 
@@ -79,8 +79,10 @@ end
 
 /- **∨**
 Similarly, given propositions `P` and `Q`, the proposition `P ∨ Q` is true whenever at least one of
-`P` or `Q` is true. To prove such a statement, you can either prove `P`or `Q` *using* thr truth of
-one of the two propositions:-/
+`P` or `Q` is true. To prove such a statement, you can/must first prove either `P`or `Q` and then
+use the corresponding lemma (which I always got wrong)
+* **or.intro_left** `∀ P Q, P → P ∨ Q`, or
+* **or.intro_right** `∀ P Q, Q → P ∨ Q`.-/
 
 theorem trivial' (P Q : Prop) : P → P ∨ Q :=
 begin
