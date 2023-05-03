@@ -11,9 +11,9 @@ We start with copying the following
 **def ideal** `[semiring A] := submodule A A`
 and therefore also the
 **def submodule** `[semiring A] [add_comm_monoid M] [module A M] :`
-`carrier : set M`
+`carrier : set M` (actually `carrier : M → Prop`)
 `add_mem' : ∀ {a b : M}, a ∈ self.carrier → b ∈ self.carrier → a + b ∈ self.carrier`
-`zero_mem' : 0 ∈ self.carrier`
+`zero_mem' : 0 ∈ carrier` (`carrier 0 = True`)
 `smul_mem' : ∀ (c : A) {x : M}, x ∈ self.carrier → c • x ∈ self.carrier`
 For the first time in the **definition** above, we see the symbol `∈`. This comes with the fact that,
 given a Type `α`, a set of `α` is _by definition_ a term of `α → Prop`: so, 
@@ -53,12 +53,16 @@ variable (I : ideal A)
 
 example (I : ideal A) (a b : A): a ∈ I → b ∈ I → (a + b) ∈ I :=
 begin
-  sorry
+  intros ha hb,
+  apply add_mem ha hb,
 end
 
-example (I : ideal A) (a x : A) : a ∈ I → (a * x) ∈ I ∧ (x * a) ∈ I :=
+example (I : ideal A) (a x : A) : a ∈ I → (x * a) ∈ I :=
 begin
-  sorry,
+  intros ha,
+  rw ← smul_eq_mul,
+  apply smul_mem,
+  exact ha,
 end
 
 /- The statement "the preimage of an ideal by a ring homomorphism is still an ideal" is a
@@ -74,9 +78,26 @@ fields, namely
 
 definition preimage (f : A →+* B) (J : ideal B) : (ideal A) :=
 { carrier := {a : A | f a ∈ J},
-  add_mem' := sorry,
-  zero_mem' := sorry,
-  smul_mem' := sorry}
+  add_mem' := 
+  begin
+    intros a b ha hb,
+    have H : f(a + b) ∈ J,
+    { rw map_add,
+      apply add_mem,
+      exact ha,
+      exact hb},
+    exact H,
+  end,
+  zero_mem' :=
+  begin
+    -- have H : f 0 = 0,
+    -- { rw f.map_zero},
+    have hJ : (0 : B) ∈ J, 
+    { apply zero_mem },
+    rw ← f.map_zero at hJ,
+    exact hJ,
+  end,
+  smul_mem' := sorry }
 
 /- On the other hand, being prime is a (pair of) `Prop`, accessible with the
 * **is_prime_iff** `I.is_prime ↔ I ≠ ⊤ ∧ ∀ (x y : A), x * y ∈ I → x ∈ I ∨ y ∈ I`
@@ -88,7 +109,16 @@ Hence the following `lemma`, whose
 
 lemma preimage_prime (f : A →+* B) (J : ideal B) (hJ: J.is_prime) : (preimage f J).is_prime :=
 begin
-  sorry,
+  rw is_prime_iff,
+  split,
+  { rw ne_top_iff_one,
+    intro h,
+    have H : f 1 ∈ J,
+    { exact h},
+    rw f.map_one at H,
+    rw ← eq_top_iff_one at H,
+    exact hJ.1 H  },
+  {sorry},
 end
 
 /- In the theorem below, we speak about units. There are two ways to treat them:
