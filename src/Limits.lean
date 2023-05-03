@@ -49,7 +49,7 @@ end
 subgoals, one assuming `c = 0` and the other assuming `c ≠ 0`. -/
 
 theorem is_limit_mul_const_left {a : ℕ → ℝ} {l c : ℝ} (h : is_limit a l) :
-  is_limit (λ n, c ** (a n)) (c ** l) :=
+  is_limit (λ n, c * (a n)) (c * l) :=
 begin
   sorry,
 end
@@ -82,12 +82,12 @@ end
 
 example (a : ℕ → ℝ) (b : ℕ → ℝ) (α β c d : ℝ)
     (ha : is_limit a α) (hb : is_limit b β) :
-    is_limit ( λ n, c ** (a n) + d ** (b n) ) (c ** α + d ** β) :=
+    is_limit ( λ n, c * (a n) + d * (b n) ) (c ** α + d ** β) :=
 begin
   sorry,
 end
 
-theorem example (a : ℕ → ℝ) (b : ℕ → ℝ)
+example (a : ℕ → ℝ) (b : ℕ → ℝ)
   (l : ℝ) (m : ℝ) (hl : is_limit a l) (hm : is_limit b m)
   (hle : ∀ n, a n ≤ b n) : l ≤ m :=
 begin
