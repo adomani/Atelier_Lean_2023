@@ -123,21 +123,21 @@ end
 
 /- In the theorem below, we speak about units. There are two ways to treat them:
 1. As elements of the _structure_ `Aˣ`, whose terms have four fields:
-*def Aˣ*:
-`u.val : α`
-`u.inv : α`
+**def Aˣ**:
+`u.val : A`
+`u.inv : A`
 `u.val_inv : u.val * u.inv = 1`
 `u.inv_val : u.inv * u.val = 1`
 The advantage is that we can write `u⁻¹` for elements in `Aˣ` and work as in a group; the problem
 is that `u : Aˣ` is _not_ a term of type `A`, only `u.1=u.val` is.
-2. As elements (=_terms_) `a : A` that satisfies an invertibility property, namely
-* **is_unit a** `∃ (u : Mˣ), ↑u = a`
+2. As elements (=_terms_) `a : A` that satisfy an invertibility property, namely
+* **is_unit a** `∃ (u : Aˣ), ↑u = a`
 where the small arrow `↑` means "I know that I cannot say `u=a` since they belong to different 
-types, but be nice...". Formally, the arrow represents a _coercion_, a map that has been chosen
-_once and for all_ from `Aˣ` to `A`: it is
+types, but _please_ be nice...". Formally, the arrow represents a _coercion_, a map that has been
+chosen _once and for all_ from `Aˣ` to `A`: it is
 `↑ _ : Aˣ → A, u ↦ u.val` (the first field), yielding the
 * **units.val_eq_coe (u)** : `u.val = ↑u` and the
-* **units.inv_eq_coe_inv (u)** : `u.inv = ↑(u⁻¹)`: here, `u⁻¹` makes sense since `Aˣ` is a group,
+* **units.inv_eq_coe_inv (u)** : `u.inv = ↑(u⁻¹)=(u⁻¹).val``: here, `u⁻¹` makes sense since `Aˣ` is a group,
 and  then we send it to `A`; the statement is then that the image coincides with `u.inv`, the
 second field. A statement like `u.inv = (u.val)⁻¹` makes Lean complain! -/
 

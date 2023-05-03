@@ -19,7 +19,7 @@ Something about the factorial function now:
 * **factorial_pos** ` ∀ (n : ℕ), 0 < n!`
 * **dvd_factorial** `∀ d n : ℕ, 0 ≠ d → d ≤ n → d ∣ n!` 
 * Finally, a basic result concerning divisibility in the natural:
-* **dvd_add_iff_right** `∀ d m n : ℕ, d ∣ n → (d ∣ m + n ↔ d ∣ n)`
+* **dvd_add_iff_right** `∀ d m n : ℕ, d ∣ n → (d ∣ m + n ↔ d ∣ m)`
   Note that the above result is an `iff`: we have seen how to _prove_ such statements, by using
   `split` But how to _use_ them? The point is that, by defition, `P ↔ Q` is the same thing as
   `P → Q ∧ Q → P`, so it is made of _two_ things and we can access the first with `(_).1` (or, for
@@ -29,7 +29,28 @@ Something about the factorial function now:
 
 theorem euclid (n : ℕ) : ∃ p : ℕ, n ≤ p ∧ p.prime :=
 begin
-  sorry,
+  let p:= nat.min_fac (n!+1),
+  use p,
+  have h1 : n!+1 ≠ 1,
+  { apply ne_of_gt,
+    apply succ_lt_succ,
+    exact factorial_pos n  },
+  have h_le : n ≤ p,
+  { apply le_of_not_ge,
+    intro h_ge,
+    have h_dvd : p ∣ n!,
+    { apply dvd_factorial,
+      apply min_fac_pos,
+      exact h_ge },
+    have h_one : p ∣ 1,
+    { apply (nat.dvd_add_iff_right h_dvd).2,
+      exact min_fac_dvd (n! +1)},
+    apply nat.prime.not_dvd_one,
+    apply min_fac_prime h1,
+    exact h_one,  },
+  split,
+  exact h_le,
+  exact min_fac_prime h1,
 end
 
 /-
@@ -68,41 +89,41 @@ theorem sum_of_squares_if_split (p : ℕ) (hp : p.prime) (h_p_irred : ¬irreduci
   ∃ a b, a^2 + b^2 = p :=
 begin
   have h_p_notunit : ¬ is_unit (p : ℤ[i]),
-  { sorry,
---     have := norm_eq_one_iff.mpr,
---     replace this := this.mt,
---     apply this,
---     rw norm_nat_cast,
---     rw int.nat_abs_mul,
---     rw mul_eq_one,
---     rw and_self,
---     exact ne_of_gt (prime.one_lt hp)
+  { --sorry,
+    have := norm_eq_one_iff.mpr,
+    replace this := this.mt,
+    apply this,
+    rw norm_nat_cast,
+    rw int.nat_abs_mul,
+    rw mul_eq_one,
+    rw and_self,
+    exact ne_of_gt (prime.one_lt hp),
   },
    have h_factorization : ∃ x y, (p : ℤ[i]) = x * y ∧ ¬ is_unit x ∧ ¬ is_unit y,
-  { sorry,
---     rw [irreducible_iff, not_and, not_forall] at h_p_irred,
---     obtain ⟨x, hx⟩ := h_p_irred h_p_notunit,
---     obtain ⟨y, hy⟩ := not_forall.mp hx,
---     use [x, y],
--- -- Easy logical gymnastics!
---     rwa [not_forall, exists_prop, not_or_distrib] at hy
+  { --sorry,
+    rw [irreducible_iff, not_and, not_forall] at h_p_irred,
+    obtain ⟨x, hx⟩ := h_p_irred h_p_notunit,
+    obtain ⟨y, hy⟩ := not_forall.mp hx,
+    use [x, y],
+-- Easy logical gymnastics!
+    rwa [not_forall, exists_prop, not_or_distrib] at hy
   },
---   obtain ⟨x, y, h_p_xy, h_x_notunit, h_y_notunit⟩ := h_factorization,
+  obtain ⟨x, y, h_p_xy, h_x_notunit, h_y_notunit⟩ := h_factorization,
   have h_norm : (norm x).nat_abs = p,
-  { sorry,
-  --   have p_square : x.norm.nat_abs * y.norm.nat_abs = p ^ 2,
-  --   { rw [← int.coe_nat_inj', int.coe_nat_pow, sq, ← @norm_nat_cast (-1), h_p_xy],
-  --     rw [nat.cast_mul, gaussian_int.nat_cast_nat_abs_norm, int.cast_id, zsqrtd.norm_mul],
-  --     rw [gaussian_int.nat_cast_nat_abs_norm, int.cast_id], },
-  --   have temp1:= prime.mul_eq_prime_sq_iff,--it needs `m_1` a prime, `m_2 ≠ 1`...
-  --   have temp2 := prime.mul_eq_prime_sq_iff hp _ _,
-  --   have temp3 := (prime.mul_eq_prime_sq_iff hp _ _).mp,
-  --   apply (temp3 p_square).1,
-  -- -- apply ((hp.mul_eq_prime_sq_iff _ _).1 p_square).1,
-  -- exacts [norm_eq_one_iff.1.mt h_x_notunit, norm_eq_one_iff.1.mt h_y_notunit]
+  { --sorry,
+    have p_square : x.norm.nat_abs * y.norm.nat_abs = p ^ 2,
+    { rw [← int.coe_nat_inj', int.coe_nat_pow, sq, ← @norm_nat_cast (-1), h_p_xy],
+      rw [nat.cast_mul, gaussian_int.nat_cast_nat_abs_norm, int.cast_id, zsqrtd.norm_mul],
+      rw [gaussian_int.nat_cast_nat_abs_norm, int.cast_id], },
+    -- have temp1:= prime.mul_eq_prime_sq_iff,--it needs `m_1` a prime, `m_2 ≠ 1`...
+    -- have temp2 := prime.mul_eq_prime_sq_iff hp _ _,
+    -- have temp3 := (prime.mul_eq_prime_sq_iff hp _ _).mp,
+    -- apply (temp3 p_square).1,
+  apply ((hp.mul_eq_prime_sq_iff _ _).1 p_square).1,
+  exacts [norm_eq_one_iff.1.mt h_x_notunit, norm_eq_one_iff.1.mt h_y_notunit]
   },
-  -- use [x.re.nat_abs, x.im.nat_abs],
-  -- simpa only [gaussian_int.nat_abs_norm_eq, sq] using h_norm,
+  use [x.re.nat_abs, x.im.nat_abs],
+  simpa only [gaussian_int.nat_abs_norm_eq, sq] using h_norm,
 end
 
 
