@@ -15,6 +15,12 @@ and therefore also the
 `add_mem' : ∀ {a b : M}, a ∈ self.carrier → b ∈ self.carrier → a + b ∈ self.carrier`
 `zero_mem' : 0 ∈ self.carrier`
 `smul_mem' : ∀ (c : A) {x : M}, x ∈ self.carrier → c • x ∈ self.carrier`
+For the first time in the **definition** above, we see the symbol `∈`. This comes with the fact that,
+given a Type `α`, a set of `α` is _by definition_ a term of `α → Prop`: so, 
+`set α = α → Prop`: a set is _determined_ by the `Prop`-valued function definining membership. In
+particular, for `a : α` and a set `s : set α` (which means `s : α → Prop`), we have
+`a ∈ s := P a`.
+
 A submodule of a module is one which is closed under vector operations. Hence, finally, we also
 need the
 **def module** `[semiring A] [add_comm_monoid M] :`
@@ -35,15 +41,15 @@ module (more below).
 -/
 variable (hM : module A M) --this is the assumption that the abelian group `M` is endowed with a 
 -- `A`-module structure
+#check hM.1
 #check hM.2
 #check hM.3
 
-
-/- For the first time in the `example` below, we see the symbol `∈`. This comes with the fact that,
-given a Type `α`, a set of `α` is _by definition_ a term of `α → Prop`: so, 
-`set α = α → Prop`: a set is _determined_ by the `Prop`-valued function definining membership. In
-particular, for `a : α` and a set `s : set α` (which means `s : α → Prop`), we have
-`a ∈ s := P a`. -/
+variable (I : ideal A)
+#check I.1
+#check I.2
+#check I.3
+#check I.4
 
 example (I : ideal A) (a b : A): a ∈ I → b ∈ I → (a + b) ∈ I :=
 begin

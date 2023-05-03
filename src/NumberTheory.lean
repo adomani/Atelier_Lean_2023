@@ -1,7 +1,7 @@
 import number_theory.sum_two_squares
 import number_theory.zsqrtd.basic
 
-open zsqrtd complex nat
+open zsqrtd nat --complex
 open_locale nat
 
 /-
@@ -189,5 +189,5 @@ local notation `𝒪` := zsqrtd (-5)
 
 example (u : 𝒪) : is_unit u → u = 1 ∨ u = -1 :=
 begin
-  sorry,
+  sorry,  
 end
