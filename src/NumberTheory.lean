@@ -8,18 +8,18 @@ open_locale nat
 The first theorem we want to prove is _Euclid's proof_ of the existence of an infinitude of prime
 numbers, following the usual "factorial" proof. As it is "well-known", there exists a proof that is
  _not_ by contradiction. We will need some stuff:
-* *min_fac (n)* returns the minimal prime factor of `n`, but defined to be `2` for `n=0` and to be 
+* **min_fac (n)** returns the minimal prime factor of `n`, but defined to be `2` for `n=0` and to be 
   `1` for `n=1`.
 Almost by definition, one finds the thee following properties:
-* *min_fac_pos (n)*: `∀ n : ℕ, 0 < min_fac n`;
-* *min_fac_prime (n)*: `∀ n : ℕ, 1 < n → prime (min_fac n)`
+* **min_fac_pos (n)**: `∀ n : ℕ, 0 < min_fac n`;
+* **min_fac_prime (n)**: `∀ n : ℕ, 1 < n → prime (min_fac n)`
   and the
-* *min_fac_dvd (n)*: `∀ n : ℕ, min_fac n ∣ n`
+* **min_fac_dvd (n)**: `∀ n : ℕ, min_fac n ∣ n`
 Something about the factorial function now:
-* *factorial_pos* ` ∀ (n : ℕ), 0 < n!`
-* *dvd_factorial* `∀ d n : ℕ, 0 ≠ d → d ≤ n → d ∣ n!` 
+* **factorial_pos** ` ∀ (n : ℕ), 0 < n!`
+* **dvd_factorial** `∀ d n : ℕ, 0 ≠ d → d ≤ n → d ∣ n!` 
 * Finally, a basic result concerning divisibility in the natural:
-* *dvd_add_iff_right* `∀ d m n : ℕ, d ∣ n → (d ∣ m + n ↔ d ∣ n)`
+* **dvd_add_iff_right** `∀ d m n : ℕ, d ∣ n → (d ∣ m + n ↔ d ∣ n)`
   Note that the above result is an `iff`: we have seen how to _prove_ such statements, by using
   `split` But how to _use_ them? The point is that, by defition, `P ↔ Q` is the same thing as
   `P → Q ∧ Q → P`, so it is made of _two_ things and we can access the first with `(_).1` (or, for
